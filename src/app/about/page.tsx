@@ -1,3 +1,4 @@
+import MotionFade from "@/components/MotionFade";
 export default function About() {
   return (
     <section className="max-w-5xl mx-auto px-6 py-24">
@@ -56,31 +57,40 @@ export default function About() {
           Our Evolution
         </h2>
 
-        <div className="space-y-8 border-l border-gray-800 pl-6">
-          <TimelineItem
-            year="Phase 0"
-            title="Foundation"
-            desc="Formation of SaiyoniX as a collaborative tech initiative focused on real-world system building."
-          />
+        <div className="space-y-10 border-l border-gray-800 pl-4">
+  <MotionFade delay={0.1}>
+    <TimelineItem
+      year="Phase 0"
+      title="Foundation"
+      desc="Formation of SaiyoniX as a collaborative tech initiative focused on real-world system building."
+    />
+  </MotionFade>
 
-          <TimelineItem
-            year="Phase 1"
-            title="Core Infrastructure"
-            desc="Establishing a production-grade web presence, architecture, and development standards."
-          />
+  <MotionFade delay={0.2}>
+    <TimelineItem
+      year="Phase 1"
+      title="Core Infrastructure"
+      desc="Establishing a production-grade web presence, architecture, and development standards."
+    />
+  </MotionFade>
 
-          <TimelineItem
-            year="Phase 2"
-            title="Expansion & Projects"
-            desc="Building and showcasing impactful projects across software, security, and automation."
-          />
+  <MotionFade delay={0.3}>
+    <TimelineItem
+      year="Phase 2"
+      title="Expansion & Projects"
+      desc="Building and showcasing impactful projects across software, security, and automation."
+    />
+  </MotionFade>
 
-          <TimelineItem
-            year="Phase 3"
-            title="Scale & Recognition"
-            desc="Growing SaiyoniX into a trusted platform for innovation, collaboration, and delivery."
-          />
-        </div>
+  <MotionFade delay={0.4}>
+    <TimelineItem
+      year="Phase 3"
+      title="Scale & Recognition"
+      desc="Growing SaiyoniX into a trusted platform for innovation, collaboration, and delivery."
+    />
+  </MotionFade>
+</div>
+
       </div>
     </section>
   );
