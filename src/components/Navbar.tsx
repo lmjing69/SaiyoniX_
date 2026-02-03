@@ -23,20 +23,44 @@ export default function Navbar() {
           ☰
         </button>
 
+        {/* Desktop navigation */}
         <div className="hidden md:flex space-x-8 text-gray-400">
-          <Link href="/about" className="hover:text-cyan-400 transition">About</Link>
-          <Link href="/services" className="hover:text-cyan-400 transition">Services</Link>
-          <Link href="/team" className="hover:text-cyan-400 transition">Team</Link>
-          <Link href="/contact" className="hover:text-cyan-400 transition">Contact</Link>
+          <Link href="/about" className="hover:text-cyan-400 transition">
+            About
+          </Link>
+          <Link href="/services" className="hover:text-cyan-400 transition">
+            Services
+          </Link>
+          <Link href="/projects" className="hover:text-cyan-400 transition">
+            Projects
+          </Link>
+          <Link href="/team" className="hover:text-cyan-400 transition">
+            Team
+          </Link>
+          <Link href="/contact" className="hover:text-cyan-400 transition">
+            Contact
+          </Link>
         </div>
       </div>
 
+      {/* Mobile menu */}
       {open && (
         <div className="md:hidden px-6 pb-4 space-y-3 text-gray-400">
-          <Link href="/about" className="block">About</Link>
-          <Link href="/services" className="block">Services</Link>
-          <Link href="/team" className="block">Team</Link>
-          <Link href="/contact" className="block">Contact</Link>
+          <Link href="/about" className="block">
+            About
+          </Link>
+          <Link href="/services" className="block">
+            Services
+          </Link>
+          <Link href="/projects" className="block">
+            Projects
+          </Link>
+          <Link href="/team" className="block">
+            Team
+          </Link>
+          <Link href="/contact" className="block">
+            Contact
+          </Link>
         </div>
       )}
     </nav>
