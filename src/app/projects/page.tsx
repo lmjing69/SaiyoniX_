@@ -17,7 +17,7 @@ export default function Projects() {
       <div className="grid md:grid-cols-2 gap-8 mt-16">
         <ProjectCard
           title="Praja.AI"
-          desc="Praja.AI is an AI-powered platform designed to streamline citizen grievance reporting and resolution for the Government of Manipur."
+          desc="Praja. is an AI-powered platform designed to streamline citizen grievance reporting and resolution for the Government of Manipur."
           stack={["Next.js", "Maps", "Backend APIs"]}
           status="In Development"
           link="https://github.com/AbinashHeishnam/Nagrik.AI.git"
