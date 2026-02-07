@@ -135,7 +135,6 @@ export default function About() {
                     <TeamCard
                         name="Lmjing"
                         role="Chief Executive Officer (CEO)"
-                        image="/team/lmjing.jpg"
                         responsibilities="Leads company vision, strategic direction, and overall execution of SaiyoniX."
                         skills={[
                             "Leadership",
@@ -149,7 +148,6 @@ export default function About() {
                     <TeamCard
                         name="Bubunash"
                         role="Chief Technology Officer (CTO)"
-                        image="/team/bubunash.jpg"
                         responsibilities="Oversees all technical decisions, architecture design, and engineering standards."
                         skills={[
                             "Backend Engineering",
@@ -163,7 +161,6 @@ export default function About() {
                     <TeamCard
                         name="Bonbon"
                         role="Chief Operating Officer (COO)"
-                        image="/team/bonbon.jpg"
                         responsibilities="Manages operations, coordination, and execution across projects."
                         skills={[
                             "Operations Management",
@@ -175,7 +172,6 @@ export default function About() {
                     <TeamCard
                         name="Dachin"
                         role="Chief Marketing Officer (CMO)"
-                        image="/team/dachin.jpg"
                         responsibilities="Handles branding, outreach, and strategic communication."
                         skills={[
                             "Brand Strategy",
@@ -187,7 +183,6 @@ export default function About() {
                     <TeamCard
                         name="Donchand"
                         role="Chief Financial Officer (CFO)"
-                        image="/team/donchand.jpg"
                         responsibilities="Oversees financial planning, budgeting, and long-term sustainability."
                         skills={[
                             "Financial Planning",

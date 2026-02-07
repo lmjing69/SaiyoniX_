@@ -19,16 +19,24 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  /* UPDATED SUBMIT HANDLER */
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setLoading(true);
+    setSent(false);
 
     try {
-      await fetch("/api/whatsapp", {
+      const res = await fetch("/api/inquiry", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(form),
       });
+
+      if (!res.ok) {
+        throw new Error("Submission failed");
+      }
 
       setSent(true);
       setForm({
@@ -39,7 +47,8 @@ export default function Contact() {
         message: "",
       });
     } catch (err) {
-      alert("Something went wrong. Try again.");
+      console.error(err);
+      alert("Something went wrong. Please try again.");
     }
 
     setLoading(false);
@@ -47,7 +56,6 @@ export default function Contact() {
 
   return (
     <section className="max-w-6xl mx-auto px-6 py-24">
-
       {/* TITLE */}
       <MotionFade>
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -65,7 +73,6 @@ export default function Contact() {
         onSubmit={handleSubmit}
         className="border border-gray-800 rounded-xl p-8 max-w-4xl space-y-6"
       >
-
         {/* SERVICE */}
         <div>
           <label className="text-white block mb-2">
@@ -178,7 +185,6 @@ export default function Contact() {
           Monday – Friday | 10:00 AM – 6:00 PM (IST)
         </p>
       </div>
-
     </section>
   );
 }
