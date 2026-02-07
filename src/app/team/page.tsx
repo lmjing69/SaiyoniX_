@@ -32,7 +32,6 @@ export default function Team() {
                 <TeamCard
                     name="Bubunash"
                     role="Chief Technology Officer (CTO)"
-                    image="/team/bubunash.jpg"
                     responsibilities="Leads all technical decisions and system architecture."
                     skills={[
                         "System Design",
