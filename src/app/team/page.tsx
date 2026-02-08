@@ -1,4 +1,11 @@
 import MotionFade from "@/components/MotionFade";
+import Image from "next/image";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Our Team",
+    description: "Meet the leadership and engineering team behind SaiyoniX, driving innovation and digital transformation.",
+};
 
 export default function Team() {
     return (
@@ -17,7 +24,7 @@ export default function Team() {
 
             <div className="grid md:grid-cols-2 gap-8 mt-16">
                 <TeamCard
-                    name="Lmjing"
+                    name="Lamjingba.Kh"
                     role="Chief Executive Officer (CEO)"
                     responsibilities="Defines the vision, strategy, and direction of SaiyoniX. Oversees overall operations, product alignment, decision-making, and ensures the company moves toward long-term sustainable growth."
                     skills={[
@@ -30,7 +37,7 @@ export default function Team() {
                 />
 
                 <TeamCard
-                    name="Bubunash"
+                    name="Abinash.H"
                     role="Chief Technology Officer (CTO)"
                     responsibilities="Leads all technical decisions and system architecture."
                     skills={[
@@ -44,7 +51,7 @@ export default function Team() {
 
 
                 <TeamCard
-                    name="Bonbon"
+                    name="O.Bornison"
                     role="Chief Operating Officer (COO)"
                     responsibilities="Manages daily operations, internal processes, and workflow execution. Ensures projects are delivered efficiently while coordinating between technical, marketing, and financial teams."
                     skills={[
@@ -56,7 +63,7 @@ export default function Team() {
                 />
 
                 <TeamCard
-                    name="Dachin"
+                    name="Sachindeva.A"
                     role="Chief Marketing Officer (CMO)"
                     responsibilities="Drives branding, marketing strategy, and public presence of SaiyoniX. Responsible for outreach, content strategy, user engagement, and positioning the company in the market."
                     skills={[
@@ -68,7 +75,7 @@ export default function Team() {
                 />
 
                 <TeamCard
-                    name="Donchand"
+                    name="K.Dhanaraj"
                     role="Chief Financial Officer (CFO)"
                     responsibilities="Oversees financial planning, budgeting, and resource allocation. Manages financial risk, sustainability, and ensures responsible handling of company finances."
                     skills={[

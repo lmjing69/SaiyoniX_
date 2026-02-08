@@ -1,5 +1,15 @@
+
 import MotionFade from "@/components/MotionFade";
+import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
 import TeamCard from "@/components/TeamCard";
+import ServiceHoverCard from "@/components/ServiceHoverCard";
+
+export const metadata: Metadata = {
+    title: "About Us",
+    description: "Learn about SaiyoniX, a technology-driven collective focused on secure, intelligent, and scalable digital systems.",
+};
 
 export default function About() {
     return (
@@ -83,21 +93,20 @@ export default function About() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {[
-                        "Business Websites",
-                        "Portfolio & Personal Platforms",
-                        "Web Applications",
-                        "Admin Dashboards",
-                        "Secure Backend Systems",
-                        "API-Driven Platforms",
-                        "Scalable Frontends",
-                        "Custom Client Solutions",
+                        { title: "Business Websites", img: "/build_business_website_1770580729881.png" },
+                        { title: "Portfolio & Personal Platforms", img: "/build_portfolio_platform_1770580746502.png" },
+                        { title: "Web Applications", img: "/build_web_application_1770580763425.png" },
+                        { title: "Admin Dashboards", img: "/build_admin_dashboard_1770580824450.png" },
+                        { title: "Secure Backend Systems", img: "/build_secure_backend_1770580871896.png" },
+                        { title: "API-Driven Platforms", img: "/build_api_platform_1770580902825.png" },
+                        { title: "Scalable Frontends", img: "/build_scalable_frontend_1770580918762.png" },
+                        { title: "Custom Client Solutions", img: "/build_custom_solution_1770580947858.png" },
                     ].map((item) => (
-                        <div
-                            key={item}
-                            className="border border-gray-800 rounded-xl p-6 hover:border-cyan-400 transition"
-                        >
-                            <p className="text-white font-medium">{item}</p>
-                        </div>
+                        <ServiceHoverCard
+                            key={item.title}
+                            title={item.title}
+                            imageSrc={item.img}
+                        />
                     ))}
                 </div>
             </section>
@@ -133,7 +142,7 @@ export default function About() {
 
                 <div className="grid md:grid-cols-2 gap-8">
                     <TeamCard
-                        name="Lmjing"
+                        name="Lamjingba.Kh"
                         role="Chief Executive Officer (CEO)"
                         responsibilities="Leads company vision, strategic direction, and overall execution of SaiyoniX."
                         skills={[
@@ -146,7 +155,7 @@ export default function About() {
                     />
 
                     <TeamCard
-                        name="Bubunash"
+                        name="Abinash.H"
                         role="Chief Technology Officer (CTO)"
                         responsibilities="Oversees all technical decisions, architecture design, and engineering standards."
                         skills={[
@@ -159,7 +168,7 @@ export default function About() {
                     />
 
                     <TeamCard
-                        name="Bonbon"
+                        name="O.Bornison"
                         role="Chief Operating Officer (COO)"
                         responsibilities="Manages operations, coordination, and execution across projects."
                         skills={[
@@ -170,7 +179,7 @@ export default function About() {
                     />
 
                     <TeamCard
-                        name="Dachin"
+                        name="Sachindeva.A"
                         role="Chief Marketing Officer (CMO)"
                         responsibilities="Handles branding, outreach, and strategic communication."
                         skills={[
@@ -181,7 +190,7 @@ export default function About() {
                     />
 
                     <TeamCard
-                        name="Donchand"
+                        name="K.Dhanaraj"
                         role="Chief Financial Officer (CFO)"
                         responsibilities="Oversees financial planning, budgeting, and long-term sustainability."
                         skills={[

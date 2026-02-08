@@ -13,13 +13,15 @@ datasource db {
 }
 
 model Inquiry {
-  id        String   @id @default(uuid())
+  id        String   @id @default(cuid())
   service   String
   name      String
   email     String
   phone     String
   message   String
+  status    String   @default("New")
   createdAt DateTime @default(now())
 }
+
 
 
