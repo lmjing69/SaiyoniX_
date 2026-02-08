@@ -7,7 +7,7 @@ export default async function AdminPage() {
         orderBy: { createdAt: "desc" },
     });
 
-    const serializedInquiries = inquiries.map((inquiry) => ({
+    const serializedInquiries = inquiries.map((inquiry: any) => ({
         ...inquiry,
         createdAt: inquiry.createdAt.toISOString(),
     }));
