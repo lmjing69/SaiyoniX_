@@ -1,3 +1,4 @@
+import { Inquiry } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 // Force rebuild
 import AdminDashboard from "./AdminDashboardComponent";
@@ -7,10 +8,11 @@ export default async function AdminPage() {
         orderBy: { createdAt: "desc" },
     });
 
-    const serializedInquiries = inquiries.map((inquiry: any) => ({
+    const serializedInquiries = inquiries.map((inquiry: Inquiry) => ({
         ...inquiry,
         createdAt: inquiry.createdAt.toISOString(),
     }));
+
 
     return <AdminDashboard inquiries={serializedInquiries} />;
 }
