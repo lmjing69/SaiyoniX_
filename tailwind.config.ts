@@ -8,35 +8,61 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                // Neon accent colors for PROJECT TWELVE style
-                neon: {
-                    purple: '#A855F7',
-                    'purple-dark': '#9333EA',
-                    pink: '#EC4899',
-                    'pink-dark': '#DB2777',
-                    cyan: '#06B6D4',
-                    'cyan-dark': '#0EA5E9',
+                // Glassmorphic glass colors
+                glass: {
+                    light: 'rgba(255, 255, 255, 0.1)',
+                    medium: 'rgba(255, 255, 255, 0.15)',
+                    heavy: 'rgba(255, 255, 255, 0.2)',
+                    dark: 'rgba(255, 255, 255, 0.05)',
                 },
-                // Dark backgrounds
-                dark: {
-                    pure: '#000000',
-                    card: '#0A0A0A',
-                    elevated: '#151515',
+                // Text colors for glass
+                'text-glass': {
+                    primary: '#FFFFFF',
+                    secondary: 'rgba(255, 255, 255, 0.9)',
+                    muted: 'rgba(255, 255, 255, 0.7)',
+                    hint: 'rgba(255, 255, 255, 0.5)',
                 },
             },
             fontFamily: {
                 sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
                 display: ['Space Grotesk', 'Inter', 'sans-serif'],
             },
+            backdropBlur: {
+                'glass': '20px',
+                'glass-heavy': '40px',
+            },
             backgroundImage: {
-                'gradient-radial': 'radial-gradient(circle, var(--tw-gradient-stops))',
-                'gradient-neon': 'linear-gradient(135deg, #A855F7 0%, #EC4899 50%, #06B6D4 100%)',
+                // Vibrant iOS-style gradients
+                'gradient-purple': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                'gradient-pink': 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                'gradient-blue': 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+                'gradient-sunset': 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+                'gradient-ocean': 'linear-gradient(135deg, #2E3192 0%, #1BFFFF 100%)',
+                'gradient-fire': 'linear-gradient(135deg, #f12711 0%, #f5af19 100%)',
+            },
+            boxShadow: {
+                'glass': '0 8px 32px rgba(31, 38, 135, 0.15)',
+                'glass-hover': '0 12px 40px rgba(31, 38, 135, 0.25)',
+                'glass-sm': '0 4px 16px rgba(31, 38, 135, 0.1)',
             },
             animation: {
-                'fade-slide-up': 'fadeSlideUp 1s ease-out',
-                'gentle-float': 'gentleFloat 8s ease-in-out infinite',
-                'slow-rotate': 'slowRotate 60s linear infinite',
-                'pulse-soft': 'pulseSoft 4s ease-in-out infinite',
+                'gradient': 'gradientShift 15s ease infinite',
+                'float': 'float 6s ease-in-out infinite',
+                'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+            },
+            keyframes: {
+                gradientShift: {
+                    '0%, 100%': { backgroundPosition: '0% 50%' },
+                    '50%': { backgroundPosition: '100% 50%' },
+                },
+                float: {
+                    '0%, 100%': { transform: 'translateY(0px)' },
+                    '50%': { transform: 'translateY(-20px)' },
+                },
+                pulseSoft: {
+                    '0%, 100%': { opacity: '1' },
+                    '50%': { opacity: '0.8' },
+                },
             },
         },
     },
@@ -44,4 +70,3 @@ const config: Config = {
 };
 
 export default config;
-
