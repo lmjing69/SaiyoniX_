@@ -164,8 +164,6 @@ export default function Home() {
   );
 }
 
-import MotionFade from "@/components/MotionFade";
-import AnimatedSection from "@/components/AnimatedSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
