@@ -92,7 +92,7 @@ export default function ContactContent() {
             {/* CONTACT FORM */}
             <form
                 onSubmit={handleSubmit}
-                className="border border-gray-800 rounded-xl p-8 max-w-4xl space-y-6"
+                className="border border-gray-800 rounded-xl p-4 md:p-8 max-w-4xl space-y-6"
             >
                 {/* SERVICE */}
                 <div>
