@@ -25,7 +25,7 @@ export default function Navbar() {
         }`;
 
     return (
-        <nav className="relative pt-4 z-50 mx-4 sm:mx-6 lg:mx-8">
+        <nav className="sticky top-0 z-50 px-4 sm:px-6 lg:px-8 py-4">
             <div className="navbar-glass max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
                 {/* LOGO */}
                 <Link
