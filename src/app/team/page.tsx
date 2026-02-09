@@ -11,7 +11,7 @@ export default function Team() {
     return (
         <section className="max-w-6xl mx-auto px-6 py-24">
             <MotionFade>
-                <h1 className="text-4xl md:text-5xl font-bold text-text-primary mb-6">
+                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
                     Leadership Team
                 </h1>
 
@@ -115,7 +115,7 @@ function TeamCard({
                         />
                     </div>
                 )}
-                <h3 className="text-xl font-semibold text-text-primary">{name}</h3>
+                <h3 className="text-xl font-semibold text-white">{name}</h3>
                 <p className="text-cyan-400 text-sm mt-1">{role}</p>
 
                 <p className="text-gray-400 mt-4 leading-relaxed">

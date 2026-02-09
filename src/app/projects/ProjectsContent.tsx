@@ -38,7 +38,7 @@ export default function ProjectsContent() {
     return (
         <section className="max-w-6xl mx-auto px-6 py-24">
             <MotionFade>
-                <h1 className="text-4xl md:text-5xl font-bold text-text-primary mb-6">
+                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
                     Projects
                 </h1>
 
@@ -58,7 +58,7 @@ export default function ProjectsContent() {
                         className="cursor-pointer border border-gray-800 rounded-xl p-6 hover:border-cyan-400 hover:bg-gray-900/30 transition"
                     >
                         <div className="flex justify-between items-center mb-3">
-                            <h3 className="text-xl font-semibold text-text-primary">
+                            <h3 className="text-xl font-semibold text-white">
                                 {project.title}
                             </h3>
 
@@ -96,21 +96,21 @@ export default function ProjectsContent() {
                             <p>{activeProject.summary}</p>
 
                             <div>
-                                <p className="text-text-primary font-medium mb-1">
+                                <p className="text-white font-medium mb-1">
                                     Problem Addressed
                                 </p>
                                 <p>{activeProject.problem}</p>
                             </div>
 
                             <div>
-                                <p className="text-text-primary font-medium mb-1">
+                                <p className="text-white font-medium mb-1">
                                     Solution
                                 </p>
                                 <p>{activeProject.solution}</p>
                             </div>
 
                             <div>
-                                <p className="text-text-primary font-medium mb-1">
+                                <p className="text-white font-medium mb-1">
                                     Tech Stack
                                 </p>
                                 <div className="flex flex-wrap gap-2">
@@ -139,7 +139,7 @@ export default function ProjectsContent() {
 
                         <button
                             onClick={() => setActiveProject(null)}
-                            className="mt-6 px-6 py-2 border border-gray-700 rounded-lg text-text-primary hover:border-cyan-400 transition"
+                            className="mt-6 px-6 py-2 border border-gray-700 rounded-lg text-white hover:border-cyan-400 transition"
                         >
                             Close
                         </button>

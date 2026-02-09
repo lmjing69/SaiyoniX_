@@ -79,11 +79,11 @@ export default function ContactContent() {
         <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-24">
             {/* TITLE */}
             <MotionFade>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary mb-4 sm:mb-6">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
                     Contact SaiyoniX
                 </h1>
 
-                <p className="text-sm sm:text-base text-text-muted max-w-3xl leading-relaxed mb-8 sm:mb-12 md:mb-16">
+                <p className="text-sm sm:text-base text-white/70 max-w-3xl leading-relaxed mb-8 sm:mb-12 md:mb-16">
                     Tell us about your project or requirements. Submit the form
                     below and our team will review your request directly.
                 </p>
@@ -92,11 +92,11 @@ export default function ContactContent() {
             {/* CONTACT FORM */}
             <form
                 onSubmit={handleSubmit}
-                className="border border-light-300 rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 max-w-4xl space-y-5 sm:space-y-6"
+                className="border border-white/20 rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 max-w-4xl space-y-5 sm:space-y-6"
             >
                 {/* SERVICE */}
                 <div>
-                    <label className="text-text-primary text-sm sm:text-base font-medium block mb-2">
+                    <label className="text-white text-sm sm:text-base font-medium block mb-2">
                         Service Required
                     </label>
                     <select
@@ -104,7 +104,7 @@ export default function ContactContent() {
                         value={form.service}
                         onChange={handleChange}
                         required
-                        className="w-full bg-light-100 border border-light-300 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-text-primary focus:border-accent-600 focus:ring-1 focus:ring-accent-400 outline-none transition-colors"
+                        className="w-full bg-glass-light border border-white/20 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white focus:border-white/30 focus:ring-1 focus:ring-accent-400 outline-none transition-colors"
                         style={{ colorScheme: 'dark' }}
                     >
                         <option value="" style={{ backgroundColor: '#0a0e1a', color: '#ffffff' }}>Select Service</option>
@@ -118,7 +118,7 @@ export default function ContactContent() {
 
                 {/* NAME */}
                 <div>
-                    <label className="text-text-primary text-sm sm:text-base font-medium block mb-2">
+                    <label className="text-white text-sm sm:text-base font-medium block mb-2">
                         Full Name
                     </label>
                     <input
@@ -128,14 +128,14 @@ export default function ContactContent() {
                         onChange={handleChange}
                         required
                         placeholder="Your name"
-                        className="w-full bg-light-100 border border-light-300 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-text-secondary placeholder:text-gray-600 focus:border-accent-600 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors"
+                        className="w-full bg-glass-light border border-white/20 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white/90 placeholder:text-gray-600 focus:border-white/30 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors"
                     />
                 </div>
 
                 {/* EMAIL + PHONE */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
                     <div>
-                        <label className="text-text-primary text-sm sm:text-base font-medium block mb-2">
+                        <label className="text-white text-sm sm:text-base font-medium block mb-2">
                             Email Address
                         </label>
                         <input
@@ -145,19 +145,19 @@ export default function ContactContent() {
                             onChange={handleChange}
                             required
                             placeholder="your@email.com"
-                            className="w-full bg-light-100 border border-light-300 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-text-secondary placeholder:text-gray-600 focus:border-accent-600 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors"
+                            className="w-full bg-glass-light border border-white/20 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white/90 placeholder:text-gray-600 focus:border-white/30 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors"
                         />
                     </div>
 
                     <div>
-                        <label className="text-text-primary text-sm sm:text-base font-medium block mb-2">
+                        <label className="text-white text-sm sm:text-base font-medium block mb-2">
                             Phone Number
                         </label>
                         <div className="flex gap-2 w-full">
                             <select
                                 value={countryCode}
                                 onChange={(e) => setCountryCode(e.target.value)}
-                                className="bg-light-100 border border-light-300 rounded-lg px-2 sm:px-3 py-2.5 sm:py-3 text-xs sm:text-sm text-text-secondary focus:border-accent-600 focus:ring-1 focus:ring-cyan-400 outline-none shrink-0 transition-colors"
+                                className="bg-glass-light border border-white/20 rounded-lg px-2 sm:px-3 py-2.5 sm:py-3 text-xs sm:text-sm text-white/90 focus:border-white/30 focus:ring-1 focus:ring-cyan-400 outline-none shrink-0 transition-colors"
                             >
                                 <option value="+91">🇮🇳 +91</option>
                                 <option value="+1">🇺🇸 +1</option>
@@ -176,10 +176,10 @@ export default function ContactContent() {
                                 onChange={handlePhoneChange}
                                 required
                                 placeholder="XXXXXXXXXX"
-                                className="flex-1 min-w-0 bg-light-100 border border-light-300 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-text-secondary placeholder:text-gray-600 focus:border-accent-600 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors"
+                                className="flex-1 min-w-0 bg-glass-light border border-white/20 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white/90 placeholder:text-gray-600 focus:border-white/30 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors"
                             />
                         </div>
-                        <p className="text-text-muted text-xs mt-1.5 text-right">
+                        <p className="text-white/70 text-xs mt-1.5 text-right">
                             {form.phone.length}/10 digits
                         </p>
                     </div>
@@ -187,7 +187,7 @@ export default function ContactContent() {
 
                 {/* MESSAGE */}
                 <div>
-                    <label className="text-text-primary text-sm sm:text-base font-medium block mb-2">
+                    <label className="text-white text-sm sm:text-base font-medium block mb-2">
                         Project Details
                     </label>
                     <textarea
@@ -197,7 +197,7 @@ export default function ContactContent() {
                         onChange={handleChange}
                         required
                         placeholder="Tell us what you want to build..."
-                        className="w-full bg-light-100 border border-light-300 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-text-secondary placeholder:text-gray-600 focus:border-accent-600 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors resize-none"
+                        className="w-full bg-glass-light border border-white/20 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white/90 placeholder:text-gray-600 focus:border-white/30 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors resize-none"
                     />
                 </div>
 
@@ -217,11 +217,11 @@ export default function ContactContent() {
 
             {/* CONTACT INFO */}
             <div className="mt-8 sm:mt-12 md:mt-16 max-w-4xl space-y-2">
-                <p className="text-sm sm:text-base text-text-muted">
+                <p className="text-sm sm:text-base text-white/70">
                     📧 info@saiyonix.com
                 </p>
 
-                <p className="text-sm sm:text-base text-text-muted">
+                <p className="text-sm sm:text-base text-white/70">
                     Monday – Friday | 10:00 AM – 6:00 PM (IST)
                 </p>
             </div>

@@ -35,7 +35,7 @@ export default function AdminLogin() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-black text-text-primary">
+    <main className="min-h-screen flex items-center justify-center bg-black text-white">
 
       <form
         onSubmit={handleLogin}

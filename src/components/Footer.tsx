@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const Footer = () => {
     return (
-        <footer className="bg-white border-t border-light-300 py-12">
+        <footer className="bg-glass-light border-t border-white/20 py-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
                     {/* Brand Section */}
@@ -19,11 +19,11 @@ const Footer = () => {
                                 height={40}
                                 className="w-10 h-10 group-hover:opacity-80 transition-opacity"
                             />
-                            <span className="text-xl font-bold text-text-primary tracking-wide">
+                            <span className="text-xl font-bold text-white tracking-wide">
                                 SaiyoniX
                             </span>
                         </Link>
-                        <p className="text-text-muted text-sm leading-relaxed max-w-xs">
+                        <p className="text-white/70 text-sm leading-relaxed max-w-xs">
                             SaiyoniX is a forward-thinking technology collective.
                             We build secure, intelligent, and scalable systems.
                         </p>
@@ -31,25 +31,25 @@ const Footer = () => {
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="text-lg font-semibold text-text-primary mb-4">Quick Links</h4>
+                        <h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
                         <ul className="space-y-3">
                             <li>
-                                <Link href="/services" className="text-text-muted hover:text-accent-600 transition-colors text-sm">
+                                <Link href="/services" className="text-white/70 hover:text-white transition-colors text-sm">
                                     Services
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/projects" className="text-text-muted hover:text-accent-600 transition-colors text-sm">
+                                <Link href="/projects" className="text-white/70 hover:text-white transition-colors text-sm">
                                     Projects
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/about" className="text-text-muted hover:text-accent-600 transition-colors text-sm">
+                                <Link href="/about" className="text-white/70 hover:text-white transition-colors text-sm">
                                     About Us
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/contact" className="text-text-muted hover:text-accent-600 transition-colors text-sm">
+                                <Link href="/contact" className="text-white/70 hover:text-white transition-colors text-sm">
                                     Contact
                                 </Link>
                             </li>
@@ -58,8 +58,8 @@ const Footer = () => {
 
                     {/* Connect */}
                     <div>
-                        <h4 className="text-lg font-semibold text-text-primary mb-4">Connect</h4>
-                        <p className="text-text-muted text-sm mb-4 leading-relaxed">
+                        <h4 className="text-lg font-semibold text-white mb-4">Connect</h4>
+                        <p className="text-white/70 text-sm mb-4 leading-relaxed">
                             Let's build the future together.
                         </p>
                         <div className="flex space-x-5">
@@ -68,7 +68,7 @@ const Footer = () => {
                                 href="https://github.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-text-muted hover:text-accent-600 transition-colors p-2 -m-2"
+                                className="text-white/70 hover:text-white transition-colors p-2 -m-2"
                                 aria-label="GitHub"
                             >
                                 <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
@@ -84,7 +84,7 @@ const Footer = () => {
                                 href="https://linkedin.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-text-muted hover:text-accent-600 transition-colors p-2 -m-2"
+                                className="text-white/70 hover:text-white transition-colors p-2 -m-2"
                                 aria-label="LinkedIn"
                             >
                                 <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
@@ -96,7 +96,7 @@ const Footer = () => {
                                 href="https://instagram.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-text-muted hover:text-accent-600 transition-colors p-2 -m-2"
+                                className="text-white/70 hover:text-white transition-colors p-2 -m-2"
                                 aria-label="Instagram"
                             >
                                 <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
@@ -109,7 +109,7 @@ const Footer = () => {
                                 href="https://facebook.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-text-muted hover:text-accent-600 transition-colors p-2 -m-2"
+                                className="text-white/70 hover:text-white transition-colors p-2 -m-2"
                                 aria-label="Facebook"
                             >
                                 <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
@@ -120,15 +120,15 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="border-t border-light-300 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-                    <p className="text-text-muted text-sm text-center sm:text-left">
+                <div className="border-t border-white/20 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <p className="text-white/70 text-sm text-center sm:text-left">
                         © {new Date().getFullYear()} SaiyoniX. All rights reserved.
                     </p>
                     <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-                        <a href="/privacy-policy" className="text-text-muted hover:text-accent-600 text-sm transition-colors">
+                        <a href="/privacy-policy" className="text-white/70 hover:text-white text-sm transition-colors">
                             Privacy Policy
                         </a>
-                        <a href="/terms-of-service" className="text-text-muted hover:text-accent-600 text-sm transition-colors">
+                        <a href="/terms-of-service" className="text-white/70 hover:text-white text-sm transition-colors">
                             Terms of Service
                         </a>
                     </div>

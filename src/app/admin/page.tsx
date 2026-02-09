@@ -20,7 +20,7 @@ export default async function AdminPage() {
     } catch (error) {
         console.error("Admin page error:", error);
         return (
-            <div className="min-h-screen bg-black text-text-primary p-8">
+            <div className="min-h-screen bg-black text-white p-8">
                 <h1 className="text-2xl font-bold mb-4">Database Connection Error</h1>
                 <pre className="bg-gray-900 p-4 rounded overflow-auto">
                     {error instanceof Error ? error.message : String(error)}

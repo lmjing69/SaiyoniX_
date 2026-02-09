@@ -36,7 +36,7 @@ export default function ServiceHoverCard({
                         }`}
                 >
                     <span
-                        className={`text-center font-medium transition-colors duration-300 ${isHovered ? "text-cyan-400 opacity-0" : "text-text-primary"
+                        className={`text-center font-medium transition-colors duration-300 ${isHovered ? "text-cyan-400 opacity-0" : "text-white"
                             }`}
                     >
                         {title}

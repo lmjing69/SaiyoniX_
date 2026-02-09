@@ -35,11 +35,11 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
             <div className="max-w-4xl mx-auto">
                 <div className="flex justify-between items-center mb-8">
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-text-primary">Inquiries</h1>
+                    <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Inquiries</h1>
                     <button
                         onClick={handleLogout}
                         disabled={loading}
-                        className="px-4 py-2 bg-red-600 text-text-primary rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50 text-sm"
+                        className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50 text-sm"
                     >
                         Logout
                     </button>
@@ -51,11 +51,11 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                         placeholder="Filter by service or phone..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-text-primary placeholder-gray-500 transition-all shadow-sm"
+                        className="w-full px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent bg-glass-light dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 transition-all shadow-sm"
                     />
                 </div>
 
-                <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
+                <div className="bg-glass-light dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
                     <div className="overflow-x-auto">
                         <table className="w-full text-left">
                             <thead className="bg-gray-50 dark:bg-gray-700/50">
@@ -73,7 +73,7 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                                         onClick={() => setSelectedInquiry(inquiry)}
                                         className="hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors cursor-pointer"
                                     >
-                                        <td className="p-4 text-sm font-medium text-gray-900 dark:text-text-primary">{inquiry.service}</td>
+                                        <td className="p-4 text-sm font-medium text-gray-900 dark:text-white">{inquiry.service}</td>
                                         <td className="p-4 text-sm text-gray-600 dark:text-gray-400">{inquiry.phone}</td>
                                         <td className="p-4">
                                             <span
@@ -107,10 +107,10 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
             {/* Details Modal */}
             {selectedInquiry && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl w-full max-w-lg overflow-hidden animate-in fade-in zoom-in duration-200">
+                    <div className="bg-glass-light dark:bg-gray-800 rounded-2xl shadow-xl w-full max-w-lg overflow-hidden animate-in fade-in zoom-in duration-200">
                         <div className="p-6 border-b border-gray-100 dark:border-gray-700 flex justify-between items-start">
                             <div>
-                                <h2 className="text-xl font-bold text-gray-900 dark:text-text-primary">{selectedInquiry.service}</h2>
+                                <h2 className="text-xl font-bold text-gray-900 dark:text-white">{selectedInquiry.service}</h2>
                                 <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
                                     Received on {new Date(selectedInquiry.createdAt).toLocaleString()}
                                 </p>
@@ -129,11 +129,11 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
                                     <label className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Name</label>
-                                    <p className="mt-1 text-gray-900 dark:text-text-primary font-medium">{selectedInquiry.name}</p>
+                                    <p className="mt-1 text-gray-900 dark:text-white font-medium">{selectedInquiry.name}</p>
                                 </div>
                                 <div>
                                     <label className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Phone</label>
-                                    <p className="mt-1 text-gray-900 dark:text-text-primary font-medium">{selectedInquiry.phone}</p>
+                                    <p className="mt-1 text-gray-900 dark:text-white font-medium">{selectedInquiry.phone}</p>
                                 </div>
                             </div>
 
@@ -161,7 +161,7 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                                             // Optimistic update could go here, but for now we rely on form submission
                                             e.target.form?.requestSubmit();
                                         }}
-                                        className="w-full text-sm border-gray-300 rounded-lg shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-text-primary p-2.5"
+                                        className="w-full text-sm border-gray-300 rounded-lg shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white p-2.5"
                                     >
                                         <option value="New">New</option>
                                         <option value="Contacted">Contacted</option>
@@ -174,7 +174,7 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                         <div className="bg-gray-50 dark:bg-gray-700/30 p-4 flex justify-end">
                             <button
                                 onClick={() => setSelectedInquiry(null)}
-                                className="px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                                className="px-4 py-2 bg-glass-light dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
                             >
                                 Close
                             </button>

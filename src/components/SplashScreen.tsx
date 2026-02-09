@@ -99,7 +99,7 @@ export default function SplashScreen() {
                         </div>
 
                         {/* MAIN LOGO */}
-                        <div className="text-5xl md:text-7xl font-bold tracking-widest text-center text-text-primary mb-2 h-20 flex items-center justify-center">
+                        <div className="text-5xl md:text-7xl font-bold tracking-widest text-center text-white mb-2 h-20 flex items-center justify-center">
                             {TARGET_TEXT.slice(0, Math.ceil((progress / 100) * TARGET_TEXT.length))}
                             <motion.span
                                 animate={{ opacity: [0, 1, 0] }}

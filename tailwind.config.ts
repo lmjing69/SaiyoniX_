@@ -8,43 +8,61 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                // Light, clean backgrounds
-                light: {
-                    50: '#FFFFFF',   // Pure white
-                    100: '#F8FAFC',  // Soft gray - subtle backgrounds
-                    200: '#F1F5F9',  // Card backgrounds
-                    300: '#E2E8F0',  // Borders
-                    400: '#CBD5E1',  // Muted borders
+                // Glassmorphic glass colors
+                glass: {
+                    light: 'rgba(255, 255, 255, 0.1)',
+                    medium: 'rgba(255, 255, 255, 0.15)',
+                    heavy: 'rgba(255, 255, 255, 0.2)',
+                    dark: 'rgba(255, 255, 255, 0.05)',
                 },
-                // Engaging teal accent colors
-                accent: {
-                    700: '#0F766E',  // Darker teal
-                    600: '#0D9488',  // Primary CTAs
-                    500: '#14B8A6',  // Hover states
-                    400: '#2DD4BF',  // Light accents
-                    300: '#5EEAD4',  // Highlights
-                    200: '#99F6E4',  // Very light
-                },
-                // Professional text colors
-                text: {
-                    primary: '#0F172A',    // Headings - slate-900
-                    secondary: '#475569',  // Body text - slate-600
-                    muted: '#64748B',      // Hints - slate-500
-                    light: '#94A3B8',      // Very muted - slate-400
+                // Text colors for glass
+                'text-glass': {
+                    primary: '#FFFFFF',
+                    secondary: 'rgba(255, 255, 255, 0.9)',
+                    muted: 'rgba(255, 255, 255, 0.7)',
+                    hint: 'rgba(255, 255, 255, 0.5)',
                 },
             },
             fontFamily: {
                 sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
                 display: ['Space Grotesk', 'Inter', 'sans-serif'],
             },
+            backdropBlur: {
+                'glass': '20px',
+                'glass-heavy': '40px',
+            },
             backgroundImage: {
-                'gradient-teal': 'linear-gradient(135deg, #0D9488 0%, #14B8A6 50%, #2DD4BF 100%)',
-                'gradient-subtle': 'linear-gradient(135deg, rgba(13, 148, 136, 0.05) 0%, rgba(94, 234, 212, 0.05) 100%)',
+                // Vibrant iOS-style gradients
+                'gradient-purple': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                'gradient-pink': 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                'gradient-blue': 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+                'gradient-sunset': 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+                'gradient-ocean': 'linear-gradient(135deg, #2E3192 0%, #1BFFFF 100%)',
+                'gradient-fire': 'linear-gradient(135deg, #f12711 0%, #f5af19 100%)',
             },
             boxShadow: {
-                'soft': '0 2px 8px rgba(15, 23, 42, 0.04)',
-                'card': '0 4px 12px rgba(15, 23, 42, 0.06)',
-                'card-hover': '0 8px 24px rgba(15, 23, 42, 0.08)',
+                'glass': '0 8px 32px rgba(31, 38, 135, 0.15)',
+                'glass-hover': '0 12px 40px rgba(31, 38, 135, 0.25)',
+                'glass-sm': '0 4px 16px rgba(31, 38, 135, 0.1)',
+            },
+            animation: {
+                'gradient': 'gradientShift 15s ease infinite',
+                'float': 'float 6s ease-in-out infinite',
+                'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+            },
+            keyframes: {
+                gradientShift: {
+                    '0%, 100%': { backgroundPosition: '0% 50%' },
+                    '50%': { backgroundPosition: '100% 50%' },
+                },
+                float: {
+                    '0%, 100%': { transform: 'translateY(0px)' },
+                    '50%': { transform: 'translateY(-20px)' },
+                },
+                pulseSoft: {
+                    '0%, 100%': { opacity: '1' },
+                    '50%': { opacity: '0.8' },
+                },
             },
         },
     },

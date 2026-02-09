@@ -34,7 +34,7 @@ export default function SuccessModal({ isOpen, onClose }: SuccessModalProps) {
 
             {/* Modal Card */}
             <div
-                className={`relative bg-white dark:bg-gray-800 rounded-2xl shadow-2xl p-8 max-w-sm w-full text-center transform transition-all duration-300 ${isOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-4"
+                className={`relative bg-glass-light dark:bg-gray-800 rounded-2xl shadow-2xl p-8 max-w-sm w-full text-center transform transition-all duration-300 ${isOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-4"
                     }`}
             >
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30 mb-6">
@@ -54,7 +54,7 @@ export default function SuccessModal({ isOpen, onClose }: SuccessModalProps) {
                     </svg>
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 dark:text-text-primary mb-2">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                     Inquiry Sent Successfully!
                 </h3>
 
@@ -64,7 +64,7 @@ export default function SuccessModal({ isOpen, onClose }: SuccessModalProps) {
 
                 <button
                     type="button"
-                    className="w-full inline-flex justify-center rounded-lg bg-cyan-600 px-4 py-2.5 text-sm font-semibold text-text-primary shadow-sm hover:bg-cyan-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 transition-colors"
+                    className="w-full inline-flex justify-center rounded-lg bg-cyan-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 transition-colors"
                     onClick={onClose}
                 >
                     Got it, thanks!

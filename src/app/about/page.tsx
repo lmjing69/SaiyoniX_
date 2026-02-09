@@ -16,48 +16,48 @@ export default function About() {
         <section className="max-w-5xl mx-auto px-6 py-24">
             {/* INTRO */}
             <MotionFade>
-                <h1 className="text-4xl md:text-5xl font-bold text-text-primary mb-8">
+                <h1 className="text-4xl md:text-5xl font-bold text-white mb-8">
                     About SaiyoniX
                 </h1>
 
-                <p className="text-text-muted leading-relaxed mb-6">
+                <p className="text-white/70 leading-relaxed mb-6">
                     SaiyoniX is a technology-driven collective focused on building
                     intelligent, secure, and scalable digital systems.
                 </p>
             </MotionFade>
 
-            <p className="text-text-muted leading-relaxed mb-6">
-                The name <span className="text-text-primary font-semibold">SaiyoniX</span> is
+            <p className="text-white/70 leading-relaxed mb-6">
+                The name <span className="text-white font-semibold">SaiyoniX</span> is
                 inspired by the Manipuri word{" "}
-                <span className="text-text-primary font-semibold">Saiyon</span>, representing
+                <span className="text-white font-semibold">Saiyon</span>, representing
                 transformation, evolution, and growth. In a modern technology context,
                 this philosophy reflects our commitment to disruptive innovation and
                 continuous improvement.
             </p>
 
-            <p className="text-text-muted leading-relaxed mb-12">
+            <p className="text-white/70 leading-relaxed mb-12">
                 We believe technology should never remain static. Every system we build
                 is designed to adapt, scale, and evolve alongside real-world needs.
             </p>
 
             {/* MISSION & VISION */}
             <div className="grid md:grid-cols-2 gap-10 mb-20">
-                <div className="border border-light-300 rounded-xl p-6">
-                    <h2 className="text-2xl font-semibold text-accent-600 mb-4">
+                <div className="border border-white/20 rounded-xl p-6">
+                    <h2 className="text-2xl font-semibold text-white mb-4">
                         Our Mission
                     </h2>
-                    <p className="text-text-muted leading-relaxed">
+                    <p className="text-white/70 leading-relaxed">
                         To engineer intelligent, secure, and future-ready digital systems
                         while fostering a culture of learning, execution, and technical
                         excellence.
                     </p>
                 </div>
 
-                <div className="border border-light-300 rounded-xl p-6">
-                    <h2 className="text-2xl font-semibold text-accent-600 mb-4">
+                <div className="border border-white/20 rounded-xl p-6">
+                    <h2 className="text-2xl font-semibold text-white mb-4">
                         Our Vision
                     </h2>
-                    <p className="text-text-muted leading-relaxed">
+                    <p className="text-white/70 leading-relaxed">
                         To evolve SaiyoniX into a recognized technology collective that
                         delivers impactful solutions and shapes how modern systems are
                         built, secured, and scaled.
@@ -67,18 +67,18 @@ export default function About() {
 
             {/* WHO WE ARE */}
             <section className="mb-24">
-                <h2 className="text-3xl font-semibold text-text-primary mb-4">
+                <h2 className="text-3xl font-semibold text-white mb-4">
                     Who We Are
                 </h2>
 
-                <p className="text-text-muted leading-relaxed">
+                <p className="text-white/70 leading-relaxed">
                     SaiyoniX is a technology-driven collective focused on building
                     intelligent, secure, and scalable digital systems. We design and
                     develop websites across all categories, tailored to real-world
                     business and operational needs.
                 </p>
 
-                <p className="text-text-muted leading-relaxed mt-4">
+                <p className="text-white/70 leading-relaxed mt-4">
                     Our work is guided by a simple belief — technology should never remain
                     static. Every system we build is designed to adapt, scale, and evolve
                     alongside changing requirements.
@@ -87,7 +87,7 @@ export default function About() {
 
             {/* WHAT WE BUILD */}
             <section className="mb-24">
-                <h2 className="text-3xl font-semibold text-text-primary mb-10">
+                <h2 className="text-3xl font-semibold text-white mb-10">
                     What We Build
                 </h2>
 
@@ -113,17 +113,17 @@ export default function About() {
 
             {/* BUILT FOR SCALE */}
             <section className="mb-24">
-                <h2 className="text-3xl font-semibold text-text-primary mb-4">
+                <h2 className="text-3xl font-semibold text-white mb-4">
                     Built for Scale
                 </h2>
 
-                <p className="text-text-muted leading-relaxed">
+                <p className="text-white/70 leading-relaxed">
                     SaiyoniX systems are engineered with long-term growth in mind. From
                     the earliest design decisions to deployment architecture, we
                     prioritize adaptability, performance, and maintainability.
                 </p>
 
-                <p className="text-text-muted leading-relaxed mt-4">
+                <p className="text-white/70 leading-relaxed mt-4">
                     As client needs evolve, our systems evolve with them — reducing
                     rebuild costs, improving longevity, and supporting future expansion.
                 </p>
@@ -131,11 +131,11 @@ export default function About() {
 
             {/* TEAM SECTION */}
             <section id="team" className="max-w-6xl mx-auto px-6 py-24">
-                <h2 className="text-4xl font-semibold text-text-primary mb-6">
+                <h2 className="text-4xl font-semibold text-white mb-6">
                     Our Team
                 </h2>
 
-                <p className="text-text-muted max-w-3xl leading-relaxed mb-16">
+                <p className="text-white/70 max-w-3xl leading-relaxed mb-16">
                     SaiyoniX is driven by a focused team of individuals responsible for
                     strategy, technology, operations, and long-term sustainability.
                 </p>
