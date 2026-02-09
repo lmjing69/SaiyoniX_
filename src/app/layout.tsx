@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 
 import SplashScreen from "@/components/SplashScreen";
-import TechBackground from "@/components/TechBackground";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://saiyonix.com"),
@@ -82,9 +81,8 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className="bg-black text-gray-200 relative">
+      <body className="bg-navy-950 text-slate-200 relative">
         <SplashScreen />
-        <TechBackground />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
