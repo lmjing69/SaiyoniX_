@@ -81,7 +81,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className="bg-navy-950 text-slate-200 relative">
+      <body className="bg-white text-text-primary relative">
         <SplashScreen />
         <script
           type="application/ld+json"

@@ -14,7 +14,7 @@ export default function TeamCard({
     return (
         <div className="border border-gray-800 rounded-xl p-6 hover:border-cyan-400 transition">
             {/* Name */}
-            <h3 className="text-xl font-semibold text-white mb-1">
+            <h3 className="text-xl font-semibold text-text-primary mb-1">
                 {name}
             </h3>
 

@@ -1,12 +1,11 @@
 @import "tailwindcss";
 
-/* Professional Dark Theme - Sophisticated Navy Palette */
+/* Light Professional Theme - Fresh & Engaging */
 html,
 body {
-  background-color: #0a0e1a;
-  /* navy-950 instead of pure black */
-  color: #e2e8f0;
-  /* slate-200 for better readability */
+  background-color: #FFFFFF;
+  color: #0F172A;
+  /* text-primary */
 }
 
 a {
@@ -16,26 +15,26 @@ a {
 
 /* Subtle Professional Transitions */
 * {
-  transition-property: color, background-color, border-color;
+  transition-property: color, background-color, border-color, box-shadow;
   transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Professional Card Styling */
 .professional-card {
-  background-color: #101525;
-  /* navy-900 */
-  border: 1px solid #2a3444;
-  /* navy-700 */
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  /* light-300 */
   border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .professional-card:hover {
   transform: translateY(-4px);
-  border-color: #3b82f6;
+  border-color: #14B8A6;
   /* accent-500 */
-  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 8px 24px rgba(13, 148, 136, 0.12);
 }
 
 /* Refined Focus States */
@@ -43,30 +42,33 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-  border-color: #3b82f6 !important;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #0D9488 !important;
+  /* accent-600 */
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
 }
 
-/* Professional Button Hover */
+/* Professional Button Styling */
 .btn-primary {
-  background-color: #3b82f6;
+  background-color: #0D9488;
+  /* accent-600 */
   color: white;
   transition: all 0.2s ease;
 }
 
 .btn-primary:hover {
-  background-color: #2563eb;
+  background-color: #0F766E;
+  /* accent-700 */
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
 }
 
 .btn-primary:active {
   transform: translateY(0);
 }
 
-/* Subtle Accent Glow - Only on Important CTAs */
+/* Subtle Accent Glow */
 .accent-glow {
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 0 20px rgba(13, 148, 136, 0.15);
 }
 
 /* Professional Link Hover */
@@ -76,8 +78,8 @@ a.nav-link {
 }
 
 a.nav-link:hover {
-  color: #60a5fa;
-  /* accent-400 */
+  color: #0D9488;
+  /* accent-600 */
 }
 
 a.nav-link::after {
@@ -87,7 +89,7 @@ a.nav-link::after {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #3b82f6;
+  background-color: #0D9488;
   transition: width 0.3s ease;
 }
 
@@ -95,7 +97,7 @@ a.nav-link:hover::after {
   width: 100%;
 }
 
-/* Remove Excessive Animations - Keep Only Subtle Fade */
+/* Subtle Fade Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -112,29 +114,29 @@ a.nav-link:hover::after {
   animation: fadeIn 0.5s ease-out;
 }
 
-/* Professional scrollbar */
+/* Light Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0e1a;
-  /* navy-950 */
+  background: #F8FAFC;
+  /* light-100 */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a3444;
-  /* navy-700 */
+  background: #CBD5E1;
+  /* light-400 */
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3a4556;
-  /* navy-600 */
+  background: #94A3B8;
+  /* text-light */
 }
 
 /* Selection Color */
 ::selection {
-  background-color: rgba(59, 130, 246, 0.3);
-  color: #f1f5f9;
+  background-color: rgba(13, 148, 136, 0.2);
+  color: #0F172A;
 }

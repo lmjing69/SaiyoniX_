@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
         <section className="bg-black text-gray-300 min-h-screen py-24 px-6">
             <div className="max-w-4xl mx-auto space-y-8">
                 <MotionFade>
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                    <h1 className="text-4xl md:text-5xl font-bold text-text-primary mb-4">
                         Privacy Policy
                     </h1>
                     <p className="text-sm text-gray-500">
@@ -28,7 +28,7 @@ export default function PrivacyPolicy() {
                         or use our services.
                     </p>
 
-                    <h2 className="text-2xl font-semibold text-white mt-8">
+                    <h2 className="text-2xl font-semibold text-text-primary mt-8">
                         1. Information We Collect
                     </h2>
                     <p>
@@ -48,7 +48,7 @@ export default function PrivacyPolicy() {
                         </li>
                     </ul>
 
-                    <h2 className="text-2xl font-semibold text-white mt-8">
+                    <h2 className="text-2xl font-semibold text-text-primary mt-8">
                         2. How We Use Your Information
                     </h2>
                     <p>
@@ -61,7 +61,7 @@ export default function PrivacyPolicy() {
                         <li>To protect our Services.</li>
                     </ul>
 
-                    <h2 className="text-2xl font-semibold text-white mt-8">
+                    <h2 className="text-2xl font-semibold text-text-primary mt-8">
                         3. Sharing Your Information
                     </h2>
                     <p>
@@ -70,7 +70,7 @@ export default function PrivacyPolicy() {
                         business obligations. We do not sell your personal data to third parties.
                     </p>
 
-                    <h2 className="text-2xl font-semibold text-white mt-8">
+                    <h2 className="text-2xl font-semibold text-text-primary mt-8">
                         4. Data Security
                     </h2>
                     <p>
@@ -80,7 +80,7 @@ export default function PrivacyPolicy() {
                         itself is 100% secure.
                     </p>
 
-                    <h2 className="text-2xl font-semibold text-white mt-8">
+                    <h2 className="text-2xl font-semibold text-text-primary mt-8">
                         5. Contact Us
                     </h2>
                     <p>

@@ -8,27 +8,29 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                // Sophisticated dark palette - replacing pure black
-                navy: {
-                    950: '#0a0e1a',  // Deep background
-                    900: '#101525',  // Card/elevated surfaces
-                    800: '#1a2332',  // Hover states
-                    700: '#2a3444',  // Borders
-                    600: '#3a4556',  // Muted elements
+                // Light, clean backgrounds
+                light: {
+                    50: '#FFFFFF',   // Pure white
+                    100: '#F8FAFC',  // Soft gray - subtle backgrounds
+                    200: '#F1F5F9',  // Card backgrounds
+                    300: '#E2E8F0',  // Borders
+                    400: '#CBD5E1',  // Muted borders
                 },
-                // Refined accent colors - replacing aggressive cyan
+                // Engaging teal accent colors
                 accent: {
-                    600: '#2563eb',  // Darker blue
-                    500: '#3b82f6',  // Primary action
-                    400: '#60a5fa',  // Hover state
-                    300: '#93c5fd',  // Subtle highlights
+                    700: '#0F766E',  // Darker teal
+                    600: '#0D9488',  // Primary CTAs
+                    500: '#14B8A6',  // Hover states
+                    400: '#2DD4BF',  // Light accents
+                    300: '#5EEAD4',  // Highlights
+                    200: '#99F6E4',  // Very light
                 },
-                // Warm neutrals for better readability
-                slate: {
-                    400: '#94a3b8',
-                    300: '#cbd5e1',
-                    200: '#e2e8f0',
-                    100: '#f1f5f9',
+                // Professional text colors
+                text: {
+                    primary: '#0F172A',    // Headings - slate-900
+                    secondary: '#475569',  // Body text - slate-600
+                    muted: '#64748B',      // Hints - slate-500
+                    light: '#94A3B8',      // Very muted - slate-400
                 },
             },
             fontFamily: {
@@ -36,8 +38,13 @@ const config: Config = {
                 display: ['Space Grotesk', 'Inter', 'sans-serif'],
             },
             backgroundImage: {
-                'gradient-professional': 'linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%)',
-                'gradient-subtle': 'linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(96, 165, 250, 0.05) 100%)',
+                'gradient-teal': 'linear-gradient(135deg, #0D9488 0%, #14B8A6 50%, #2DD4BF 100%)',
+                'gradient-subtle': 'linear-gradient(135deg, rgba(13, 148, 136, 0.05) 0%, rgba(94, 234, 212, 0.05) 100%)',
+            },
+            boxShadow: {
+                'soft': '0 2px 8px rgba(15, 23, 42, 0.04)',
+                'card': '0 4px 12px rgba(15, 23, 42, 0.06)',
+                'card-hover': '0 8px 24px rgba(15, 23, 42, 0.08)',
             },
         },
     },

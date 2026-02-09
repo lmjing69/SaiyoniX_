@@ -29,7 +29,7 @@ export default function ServicesContent() {
         <section className="max-w-6xl mx-auto px-6 py-20">
             {/* INTRO */}
             <MotionFade>
-                <h1 className="text-4xl font-bold text-white mb-6">
+                <h1 className="text-4xl font-bold text-text-primary mb-6">
                     Our Services & Solutions
                 </h1>
 
@@ -82,12 +82,12 @@ export default function ServicesContent() {
 
                         <div className="space-y-4 text-gray-400">
                             <div>
-                                <p className="text-white font-medium mb-1">What it is</p>
+                                <p className="text-text-primary font-medium mb-1">What it is</p>
                                 <p>{activeService.what}</p>
                             </div>
 
                             <div>
-                                <p className="text-white font-medium mb-1">
+                                <p className="text-text-primary font-medium mb-1">
                                     Problems it addresses
                                 </p>
                                 <ul className="list-disc list-inside space-y-1">
@@ -98,7 +98,7 @@ export default function ServicesContent() {
                             </div>
 
                             <div>
-                                <p className="text-white font-medium mb-1">Who it is for</p>
+                                <p className="text-text-primary font-medium mb-1">Who it is for</p>
                                 <ul className="list-disc list-inside space-y-1">
                                     {activeService.forWhom.map((f: string) => (
                                         <li key={f}>{f}</li>
