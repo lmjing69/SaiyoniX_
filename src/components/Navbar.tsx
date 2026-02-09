@@ -28,25 +28,25 @@ export default function Navbar() {
     ];
 
     const linkStyle = (href: string) =>
-        `nav-link px-4 py-2 rounded-full transition-all duration-300 relative overflow-hidden group ${pathname === href
-            ? "text-water-deep font-bold bg-white/40 shadow-inner"
-            : "text-water-shadow/80 hover:text-water-deep hover:bg-white/30"
+        `nav-link px-4 py-2 rounded-lg transition-all duration-200 text-sm font-medium ${pathname === href
+            ? "text-water-primary bg-water-surface"
+            : "text-slate-600 hover:text-water-primary hover:bg-slate-50"
         }`;
 
     return (
         <nav
-            className={`sticky top-0 z-50 transition-all duration-500 ${scrolled
-                    ? "bg-white/10 backdrop-blur-md border-b border-white/20 shadow-lg py-3"
-                    : "bg-transparent py-5"
+            className={`sticky top-0 z-50 transition-all duration-300 border-b ${scrolled
+                    ? "bg-white/90 backdrop-blur-md border-slate-200 shadow-sm py-3"
+                    : "bg-white border-transparent py-5"
                 }`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
                 {/* LOGO */}
                 <Link
                     href="/"
-                    className="flex items-center text-2xl font-bold group"
+                    className="flex items-center text-xl font-bold group"
                 >
-                    <div className="relative w-10 h-10 mr-2 drop-shadow-md group-hover:scale-110 transition-transform duration-500">
+                    <div className="relative w-8 h-8 mr-2">
                         <Image
                             src="/icon.png"
                             alt="SaiyoniX Logo"
@@ -54,17 +54,15 @@ export default function Navbar() {
                             className="object-contain"
                         />
                     </div>
-                    <span className="text-water-deep drop-shadow-sm">Saiyo</span>
-                    <span className="text-water-blue wave-text">niX</span>
+                    <span className="text-slate-900">Saiyo</span>
+                    <span className="text-water-primary">niX</span>
                 </Link>
 
                 {/* DESKTOP NAV */}
-                <div className="hidden md:flex items-center gap-2 bg-white/10 backdrop-blur-sm p-1.5 rounded-full border border-white/20 shadow-sm">
+                <div className="hidden md:flex items-center gap-1">
                     {navLinks.map((link) => (
                         <Link key={link.href} href={link.href} className={linkStyle(link.href)}>
-                            <span className="relative z-10">{link.label}</span>
-                            {/* Hover Ripple Effect */}
-                            <span className="absolute inset-0 bg-water-light/20 scale-0 group-hover:scale-100 rounded-full transition-transform duration-500 ease-out origin-center opacity-0 group-hover:opacity-100"></span>
+                            {link.label}
                         </Link>
                     ))}
                 </div>
@@ -72,7 +70,7 @@ export default function Navbar() {
                 {/* MOBILE HAMBURGER */}
                 <button
                     onClick={() => setOpen(!open)}
-                    className="md:hidden p-2 text-water-deep hover:bg-white/20 rounded-full transition-colors"
+                    className="md:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-md transition-colors"
                 >
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         {open ? (
@@ -91,16 +89,16 @@ export default function Navbar() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-white/80 backdrop-blur-xl border-t border-white/30 overflow-hidden"
+                        className="md:hidden bg-white border-t border-slate-100 overflow-hidden"
                     >
-                        <div className="px-4 py-6 space-y-2">
+                        <div className="px-4 py-4 space-y-1">
                             {navLinks.map((link) => (
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className={`block px-4 py-3 rounded-xl transition-all ${pathname === link.href
-                                            ? "bg-water-blue/10 text-water-deep font-bold border border-water-blue/20"
-                                            : "text-water-shadow/70 hover:text-water-deep hover:bg-white/40"
+                                    className={`block px-4 py-3 rounded-md transition-all ${pathname === link.href
+                                            ? "bg-water-surface text-water-primary font-semibold"
+                                            : "text-slate-600 hover:text-water-primary hover:bg-slate-50"
                                         }`}
                                     onClick={() => setOpen(false)}
                                 >

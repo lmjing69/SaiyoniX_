@@ -29,7 +29,7 @@ export default function WaterBackground() {
 
     return (
         <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-            {/* Falling drops */}
+            {/* Falling drops - Minimal & Very Subtle */}
             {drops.map((drop) => (
                 <div
                     key={`drop-${drop.id}`}
@@ -39,29 +39,34 @@ export default function WaterBackground() {
                         top: '-100px',
                         animation: `float ${drop.duration}s ease-in-out infinite`,
                         animationDelay: `${drop.delay}s`,
-                        width: '40px',
-                        height: '60px',
+                        width: '20px',  // Smaller
+                        height: '30px', // Smaller
+                        opacity: 0.15,  // Very faint
+                        background: 'linear-gradient(135deg, rgba(224,242,254,0.5) 0%, rgba(186,230,253,0.3) 100%)', // Pale blue
+                        boxShadow: 'none', // Remove heavy shadow
+                        filter: 'blur(1px)', // Soften edges
                     }}
                 />
             ))}
 
-            {/* Rising bubbles */}
+            {/* Rising bubbles - Very Slow & Faint */}
             {bubbles.map((bubble) => (
                 <div
                     key={`bubble-${bubble.id}`}
-                    className="bubble"
+                    className="water-bubble"
                     style={{
                         left: `${bubble.left}%`,
                         width: `${bubble.size}px`,
                         height: `${bubble.size}px`,
-                        animation: `rise ${bubble.duration}s linear infinite`,
+                        animation: `rise ${bubble.duration * 2}s linear infinite`, // Slower
                         animationDelay: `${bubble.delay}s`,
+                        opacity: 0.1, // Almost invisible
                     }}
                 />
             ))}
 
-            {/* Background Gradient Mesh */}
-            <div className="absolute inset-0 bg-gradient-water opacity-30 mix-blend-overlay"></div>
+            {/* Background Gradient Mesh - Very Light Blue */}
+            <div className="absolute inset-0 bg-white bg-[radial-gradient(#E0F2FE_1px,transparent_1px)] [background-size:40px_40px] opacity-40"></div>
         </div>
     );
 }
