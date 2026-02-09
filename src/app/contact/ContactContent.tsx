@@ -83,7 +83,7 @@ export default function ContactContent() {
                     Contact SaiyoniX
                 </h1>
 
-                <p className="text-sm sm:text-base text-gray-400 max-w-3xl leading-relaxed mb-8 sm:mb-12 md:mb-16">
+                <p className="text-sm sm:text-base text-slate-400 max-w-3xl leading-relaxed mb-8 sm:mb-12 md:mb-16">
                     Tell us about your project or requirements. Submit the form
                     below and our team will review your request directly.
                 </p>
@@ -92,7 +92,7 @@ export default function ContactContent() {
             {/* CONTACT FORM */}
             <form
                 onSubmit={handleSubmit}
-                className="border border-gray-800 rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 max-w-4xl space-y-5 sm:space-y-6"
+                className="border border-navy-700 rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 max-w-4xl space-y-5 sm:space-y-6"
             >
                 {/* SERVICE */}
                 <div>
@@ -104,7 +104,7 @@ export default function ContactContent() {
                         value={form.service}
                         onChange={handleChange}
                         required
-                        className="w-full bg-black border border-gray-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-gray-300 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors"
+                        className="w-full bg-navy-900 border border-navy-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-slate-300 focus:border-accent-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors"
                     >
                         <option value="">Select Service</option>
                         <option>Website Development</option>
@@ -127,7 +127,7 @@ export default function ContactContent() {
                         onChange={handleChange}
                         required
                         placeholder="Your name"
-                        className="w-full bg-black border border-gray-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-gray-300 placeholder:text-gray-600 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors"
+                        className="w-full bg-navy-900 border border-navy-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-slate-300 placeholder:text-gray-600 focus:border-accent-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors"
                     />
                 </div>
 
@@ -144,7 +144,7 @@ export default function ContactContent() {
                             onChange={handleChange}
                             required
                             placeholder="your@email.com"
-                            className="w-full bg-black border border-gray-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-gray-300 placeholder:text-gray-600 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors"
+                            className="w-full bg-navy-900 border border-navy-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-slate-300 placeholder:text-gray-600 focus:border-accent-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors"
                         />
                     </div>
 
@@ -156,7 +156,7 @@ export default function ContactContent() {
                             <select
                                 value={countryCode}
                                 onChange={(e) => setCountryCode(e.target.value)}
-                                className="bg-black border border-gray-700 rounded-lg px-2 sm:px-3 py-2.5 sm:py-3 text-xs sm:text-sm text-gray-300 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none shrink-0 transition-colors"
+                                className="bg-navy-900 border border-navy-700 rounded-lg px-2 sm:px-3 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-300 focus:border-accent-400 focus:ring-1 focus:ring-cyan-400 outline-none shrink-0 transition-colors"
                             >
                                 <option value="+91">🇮🇳 +91</option>
                                 <option value="+1">🇺🇸 +1</option>
@@ -175,10 +175,10 @@ export default function ContactContent() {
                                 onChange={handlePhoneChange}
                                 required
                                 placeholder="XXXXXXXXXX"
-                                className="flex-1 min-w-0 bg-black border border-gray-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-gray-300 placeholder:text-gray-600 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors"
+                                className="flex-1 min-w-0 bg-navy-900 border border-navy-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-slate-300 placeholder:text-gray-600 focus:border-accent-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors"
                             />
                         </div>
-                        <p className="text-gray-500 text-xs mt-1.5 text-right">
+                        <p className="text-slate-500 text-xs mt-1.5 text-right">
                             {form.phone.length}/10 digits
                         </p>
                     </div>
@@ -196,7 +196,7 @@ export default function ContactContent() {
                         onChange={handleChange}
                         required
                         placeholder="Tell us what you want to build..."
-                        className="w-full bg-black border border-gray-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-gray-300 placeholder:text-gray-600 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors resize-none"
+                        className="w-full bg-navy-900 border border-navy-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-slate-300 placeholder:text-gray-600 focus:border-accent-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors resize-none"
                     />
                 </div>
 
@@ -216,11 +216,11 @@ export default function ContactContent() {
 
             {/* CONTACT INFO */}
             <div className="mt-8 sm:mt-12 md:mt-16 max-w-4xl space-y-2">
-                <p className="text-sm sm:text-base text-gray-400">
+                <p className="text-sm sm:text-base text-slate-400">
                     📧 info@saiyonix.com
                 </p>
 
-                <p className="text-sm sm:text-base text-gray-400">
+                <p className="text-sm sm:text-base text-slate-400">
                     Monday – Friday | 10:00 AM – 6:00 PM (IST)
                 </p>
             </div>
