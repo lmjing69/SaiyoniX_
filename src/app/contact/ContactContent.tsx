@@ -76,14 +76,14 @@ export default function ContactContent() {
     };
 
     return (
-        <section className="max-w-6xl mx-auto px-6 py-24">
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-24">
             {/* TITLE */}
             <MotionFade>
-                <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6">
                     Contact SaiyoniX
                 </h1>
 
-                <p className="text-gray-400 max-w-3xl leading-relaxed mb-16">
+                <p className="text-sm sm:text-base text-gray-400 max-w-3xl leading-relaxed mb-8 sm:mb-12 md:mb-16">
                     Tell us about your project or requirements. Submit the form
                     below and our team will review your request directly.
                 </p>
@@ -92,11 +92,11 @@ export default function ContactContent() {
             {/* CONTACT FORM */}
             <form
                 onSubmit={handleSubmit}
-                className="border border-gray-800 rounded-xl p-4 md:p-8 max-w-4xl space-y-6"
+                className="border border-gray-800 rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 max-w-4xl space-y-5 sm:space-y-6"
             >
                 {/* SERVICE */}
                 <div>
-                    <label className="text-white block mb-2">
+                    <label className="text-white text-sm sm:text-base font-medium block mb-2">
                         Service Required
                     </label>
                     <select
@@ -104,7 +104,7 @@ export default function ContactContent() {
                         value={form.service}
                         onChange={handleChange}
                         required
-                        className="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 text-gray-300 focus:border-cyan-400 outline-none"
+                        className="w-full bg-black border border-gray-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-gray-300 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors"
                     >
                         <option value="">Select Service</option>
                         <option>Website Development</option>
@@ -117,7 +117,7 @@ export default function ContactContent() {
 
                 {/* NAME */}
                 <div>
-                    <label className="text-white block mb-2">
+                    <label className="text-white text-sm sm:text-base font-medium block mb-2">
                         Full Name
                     </label>
                     <input
@@ -127,14 +127,14 @@ export default function ContactContent() {
                         onChange={handleChange}
                         required
                         placeholder="Your name"
-                        className="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 text-gray-300 focus:border-cyan-400 outline-none"
+                        className="w-full bg-black border border-gray-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-gray-300 placeholder:text-gray-600 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors"
                     />
                 </div>
 
                 {/* EMAIL + PHONE */}
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
                     <div>
-                        <label className="text-white block mb-2">
+                        <label className="text-white text-sm sm:text-base font-medium block mb-2">
                             Email Address
                         </label>
                         <input
@@ -144,19 +144,19 @@ export default function ContactContent() {
                             onChange={handleChange}
                             required
                             placeholder="your@email.com"
-                            className="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 text-gray-300 focus:border-cyan-400 outline-none"
+                            className="w-full bg-black border border-gray-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-gray-300 placeholder:text-gray-600 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors"
                         />
                     </div>
 
                     <div>
-                        <label className="text-white block mb-2">
+                        <label className="text-white text-sm sm:text-base font-medium block mb-2">
                             Phone Number
                         </label>
                         <div className="flex gap-2 w-full">
                             <select
                                 value={countryCode}
                                 onChange={(e) => setCountryCode(e.target.value)}
-                                className="bg-black border border-gray-700 rounded-lg px-2 py-3 text-gray-300 focus:border-cyan-400 outline-none text-sm shrink-0"
+                                className="bg-black border border-gray-700 rounded-lg px-2 sm:px-3 py-2.5 sm:py-3 text-xs sm:text-sm text-gray-300 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none shrink-0 transition-colors"
                             >
                                 <option value="+91">🇮🇳 +91</option>
                                 <option value="+1">🇺🇸 +1</option>
@@ -174,11 +174,11 @@ export default function ContactContent() {
                                 value={form.phone}
                                 onChange={handlePhoneChange}
                                 required
-                                placeholder="XXXXXXXXXX" // 10 X's
-                                className="flex-1 min-w-0 bg-black border border-gray-700 rounded-lg px-4 py-3 text-gray-300 focus:border-cyan-400 outline-none"
+                                placeholder="XXXXXXXXXX"
+                                className="flex-1 min-w-0 bg-black border border-gray-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-gray-300 placeholder:text-gray-600 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors"
                             />
                         </div>
-                        <p className="text-gray-500 text-xs mt-1 text-right">
+                        <p className="text-gray-500 text-xs mt-1.5 text-right">
                             {form.phone.length}/10 digits
                         </p>
                     </div>
@@ -186,7 +186,7 @@ export default function ContactContent() {
 
                 {/* MESSAGE */}
                 <div>
-                    <label className="text-white block mb-2">
+                    <label className="text-white text-sm sm:text-base font-medium block mb-2">
                         Project Details
                     </label>
                     <textarea
@@ -196,7 +196,7 @@ export default function ContactContent() {
                         onChange={handleChange}
                         required
                         placeholder="Tell us what you want to build..."
-                        className="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 text-gray-300 focus:border-cyan-400 outline-none"
+                        className="w-full bg-black border border-gray-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-gray-300 placeholder:text-gray-600 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors resize-none"
                     />
                 </div>
 
@@ -204,7 +204,7 @@ export default function ContactContent() {
                 <button
                     type="submit"
                     disabled={loading}
-                    className="bg-cyan-500 text-black px-8 py-3 rounded-lg font-semibold hover:bg-cyan-400 transition disabled:opacity-50"
+                    className="w-full sm:w-auto bg-cyan-500 text-black px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-semibold hover:bg-cyan-400 active:bg-cyan-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     {loading ? "Sending..." : "Submit Inquiry"}
                 </button>
@@ -215,12 +215,12 @@ export default function ContactContent() {
             </form>
 
             {/* CONTACT INFO */}
-            <div className="mt-16 max-w-4xl">
-                <p className="text-gray-400">
+            <div className="mt-8 sm:mt-12 md:mt-16 max-w-4xl space-y-2">
+                <p className="text-sm sm:text-base text-gray-400">
                     📧 info@saiyonix.com
                 </p>
 
-                <p className="text-gray-400 mt-2">
+                <p className="text-sm sm:text-base text-gray-400">
                     Monday – Friday | 10:00 AM – 6:00 PM (IST)
                 </p>
             </div>
