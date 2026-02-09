@@ -104,7 +104,7 @@ export default function ContactContent() {
                         value={form.service}
                         onChange={handleChange}
                         required
-                        className="w-full bg-navy-900 border border-navy-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-slate-300 focus:border-accent-400 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors"
+                        className="w-full bg-navy-900 border border-navy-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white focus:border-accent-400 focus:ring-1 focus:ring-accent-400 outline-none transition-colors [&>option]:bg-navy-900 [&>option]:text-white"
                     >
                         <option value="">Select Service</option>
                         <option>Website Development</option>
