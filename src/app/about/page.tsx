@@ -20,13 +20,13 @@ export default function About() {
                     About SaiyoniX
                 </h1>
 
-                <p className="text-white/70 leading-relaxed mb-6">
+                <p className="text-white/90 leading-relaxed mb-6">
                     SaiyoniX is a technology-driven collective focused on building
                     intelligent, secure, and scalable digital systems.
                 </p>
             </MotionFade>
 
-            <p className="text-white/70 leading-relaxed mb-6">
+            <p className="text-white/90 leading-relaxed mb-6">
                 The name <span className="text-white font-semibold">SaiyoniX</span> is
                 inspired by the Manipuri word{" "}
                 <span className="text-white font-semibold">Saiyon</span>, representing
@@ -35,7 +35,7 @@ export default function About() {
                 continuous improvement.
             </p>
 
-            <p className="text-white/70 leading-relaxed mb-12">
+            <p className="text-white/90 leading-relaxed mb-12">
                 We believe technology should never remain static. Every system we build
                 is designed to adapt, scale, and evolve alongside real-world needs.
             </p>
@@ -46,7 +46,7 @@ export default function About() {
                     <h2 className="text-2xl font-semibold text-white mb-4">
                         Our Mission
                     </h2>
-                    <p className="text-white/70 leading-relaxed">
+                    <p className="text-white/90 leading-relaxed">
                         To engineer intelligent, secure, and future-ready digital systems
                         while fostering a culture of learning, execution, and technical
                         excellence.
@@ -57,7 +57,7 @@ export default function About() {
                     <h2 className="text-2xl font-semibold text-white mb-4">
                         Our Vision
                     </h2>
-                    <p className="text-white/70 leading-relaxed">
+                    <p className="text-white/90 leading-relaxed">
                         To evolve SaiyoniX into a recognized technology collective that
                         delivers impactful solutions and shapes how modern systems are
                         built, secured, and scaled.
@@ -71,14 +71,14 @@ export default function About() {
                     Who We Are
                 </h2>
 
-                <p className="text-white/70 leading-relaxed">
+                <p className="text-white/90 leading-relaxed">
                     SaiyoniX is a technology-driven collective focused on building
                     intelligent, secure, and scalable digital systems. We design and
                     develop websites across all categories, tailored to real-world
                     business and operational needs.
                 </p>
 
-                <p className="text-white/70 leading-relaxed mt-4">
+                <p className="text-white/90 leading-relaxed mt-4">
                     Our work is guided by a simple belief — technology should never remain
                     static. Every system we build is designed to adapt, scale, and evolve
                     alongside changing requirements.
@@ -117,13 +117,13 @@ export default function About() {
                     Built for Scale
                 </h2>
 
-                <p className="text-white/70 leading-relaxed">
+                <p className="text-white/90 leading-relaxed">
                     SaiyoniX systems are engineered with long-term growth in mind. From
                     the earliest design decisions to deployment architecture, we
                     prioritize adaptability, performance, and maintainability.
                 </p>
 
-                <p className="text-white/70 leading-relaxed mt-4">
+                <p className="text-white/90 leading-relaxed mt-4">
                     As client needs evolve, our systems evolve with them — reducing
                     rebuild costs, improving longevity, and supporting future expansion.
                 </p>
@@ -135,7 +135,7 @@ export default function About() {
                     Our Team
                 </h2>
 
-                <p className="text-white/70 max-w-3xl leading-relaxed mb-16">
+                <p className="text-white/90 max-w-3xl leading-relaxed mb-16">
                     SaiyoniX is driven by a focused team of individuals responsible for
                     strategy, technology, operations, and long-term sustainability.
                 </p>

@@ -17,10 +17,10 @@ export default function Home() {
 
         <MotionFade>
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Welcome to <span className="text-transparent bg-clip-text bg-gradient-teal">SaiyoniX</span>
+            Welcome to <span className="gradient-text">SaiyoniX</span>
           </h1>
 
-          <p className="text-white/70 text-lg md:text-xl mb-10 leading-relaxed">
+          <p className="text-white/90 text-lg md:text-xl mb-10 leading-relaxed">
             Driving digital transformation through intelligent systems,
             secure infrastructure, and scalable technology solutions.
             We turn ideas into real, working platforms that evolve with
@@ -64,7 +64,7 @@ export default function Home() {
               <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
                 {item.title}
               </h3>
-              <p className="text-white/70 text-sm sm:text-base">
+              <p className="text-white/90 text-sm sm:text-base">
                 {item.desc}
               </p>
             </div>
@@ -80,7 +80,7 @@ export default function Home() {
             About SaiyoniX
           </h2>
 
-          <p className="text-white/70 text-base sm:text-lg leading-relaxed mb-8">
+          <p className="text-white/90 text-base sm:text-lg leading-relaxed mb-8">
             SaiyoniX is a technology-driven collective focused on building
             secure, intelligent, and scalable digital systems. We design
             platforms that adapt alongside evolving operational,
@@ -102,7 +102,7 @@ export default function Home() {
               Software & Platform Development
             </h2>
 
-            <p className="text-white/70 mb-6 leading-relaxed">
+            <p className="text-white/90 mb-6 leading-relaxed">
               Custom-built platforms, dashboards, automation tools,
               and digital infrastructure engineered for performance,
               security, and long-term scalability.
@@ -133,7 +133,7 @@ export default function Home() {
           Have an Idea or Project?
         </h2>
 
-        <p className="text-white/70 mb-8">
+        <p className="text-white/90 mb-8">
           Let’s explore how technology can support your goals.
         </p>
 
@@ -153,7 +153,7 @@ export default function Home() {
             Selected Projects
           </h2>
 
-          <p className="text-white/70 mb-10">
+          <p className="text-white/90 mb-10">
             Real-world platforms, experiments, and systems built
             under SaiyoniX.
           </p>
@@ -175,7 +175,7 @@ export default function Home() {
             Leadership
           </h2>
 
-          <p className="text-white/70 leading-relaxed">
+          <p className="text-white/90 leading-relaxed">
             SaiyoniX is driven by a focused leadership team responsible
             for strategy, engineering, operations, and sustainable
             technological growth.
@@ -199,7 +199,7 @@ export default function Home() {
             Let’s Build Something Meaningful
           </h2>
 
-          <p className="text-white/70 mb-10">
+          <p className="text-white/90 mb-10">
             Whether it's a business platform, automation system,
             or innovative tech concept — SaiyoniX is ready to
             collaborate.

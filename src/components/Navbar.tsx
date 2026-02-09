@@ -21,7 +21,7 @@ export default function Navbar() {
     const linkStyle = (href: string) =>
         `nav-link px-4 py-2 rounded-xl transition-all ${pathname === href
             ? "bg-white/20 text-white font-semibold"
-            : "text-white/80 hover:text-white hover:bg-white/10"
+            : "text-white/95 hover:text-white hover:bg-white/10"
         }`;
 
     return (

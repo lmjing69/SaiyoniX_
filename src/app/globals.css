@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
-/* Glassmorphic iOS-Inspired Theme */
+/* Dark Glassmorphic iOS-Inspired Theme */
 html,
 body {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* Dark gradient background - iOS style */
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f1e 100%);
   background-size: 200% 200%;
-  animation: gradientShift 15s ease infinite;
+  animation: gradientShift 20s ease infinite;
   color: #FFFFFF;
   min-height: 100vh;
 }
@@ -34,68 +35,101 @@ a {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Glassmorphic Card - iOS Style */
+/* Glassmorphic Card - Dark Mode iOS Style */
 .glass-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 24px;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card:hover {
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 12px 40px rgba(31, 38, 135, 0.25);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
   transform: translateY(-8px) scale(1.02);
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 /* Professional Card (Alternative Glass Style) */
 .professional-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .professional-card:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.12);
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(31, 38, 135, 0.25);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Glassmorphic Input Fields */
+input,
+textarea,
+select {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #FFFFFF !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
 input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-  background: rgba(255, 255, 255, 0.15) !important;
-  border-color: rgba(255, 255, 255, 0.4) !important;
-  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 0 8px 16px rgba(31, 38, 135, 0.2);
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(100, 200, 255, 0.5) !important;
+  box-shadow: 0 0 0 4px rgba(100, 200, 255, 0.1), 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Select Dropdown Styling */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+select option {
+  background: rgba(30, 30, 50, 0.95) !important;
+  color: #FFFFFF !important;
+  padding: 8px;
 }
 
 /* Glassmorphic Button */
 .btn-primary {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(100, 200, 255, 0.15);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
+  border: 1px solid rgba(100, 200, 255, 0.3);
+  color: #FFFFFF;
   font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(31, 38, 135, 0.2);
+  box-shadow: 0 4px 16px rgba(100, 200, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .btn-primary:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 8px 24px rgba(31, 38, 135, 0.3);
-  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(100, 200, 255, 0.25);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(100, 200, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border-color: rgba(100, 200, 255, 0.5);
 }
 
 .btn-primary:active {
@@ -104,7 +138,7 @@ select:focus {
 
 /* Glass Glow Effect */
 .glass-glow {
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2), 0 8px 32px rgba(31, 38, 135, 0.15);
+  box-shadow: 0 0 30px rgba(100, 200, 255, 0.3), 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 /* Glass Link Hover */
@@ -112,11 +146,12 @@ a.nav-link {
   position: relative;
   transition: all 0.3s ease;
   color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
 }
 
 a.nav-link:hover {
   color: #FFFFFF;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 10px rgba(100, 200, 255, 0.5);
 }
 
 a.nav-link::after {
@@ -126,7 +161,7 @@ a.nav-link::after {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+  background: linear-gradient(90deg, rgba(100, 200, 255, 0.8), rgba(100, 200, 255, 0.3));
   transition: width 0.3s ease;
   border-radius: 2px;
 }
@@ -194,23 +229,23 @@ a.nav-link:hover::after {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 10px;
-  border: 2px solid rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.03);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 /* Selection Color */
 ::selection {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(100, 200, 255, 0.3);
   color: #FFFFFF;
 }
 
@@ -228,8 +263,34 @@ a.nav-link:hover::after {
 .shimmer {
   background: linear-gradient(90deg,
       rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.1) 50%,
       rgba(255, 255, 255, 0) 100%);
   background-size: 1000px 100%;
   animation: shimmer 3s infinite;
+}
+
+/* Gradient Text for Brand */
+.gradient-text {
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.4));
+}
+
+/* Enhanced Text Visibility */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+}
+
+p,
+span,
+a {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }

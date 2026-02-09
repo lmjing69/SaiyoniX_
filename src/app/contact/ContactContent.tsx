@@ -83,7 +83,7 @@ export default function ContactContent() {
                     Contact SaiyoniX
                 </h1>
 
-                <p className="text-sm sm:text-base text-white/70 max-w-3xl leading-relaxed mb-8 sm:mb-12 md:mb-16">
+                <p className="text-sm sm:text-base text-white/90 max-w-3xl leading-relaxed mb-8 sm:mb-12 md:mb-16">
                     Tell us about your project or requirements. Submit the form
                     below and our team will review your request directly.
                 </p>
@@ -104,15 +104,14 @@ export default function ContactContent() {
                         value={form.service}
                         onChange={handleChange}
                         required
-                        className="w-full bg-glass-light border border-white/20 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white focus:border-white/30 focus:ring-1 focus:ring-accent-400 outline-none transition-colors"
-                        style={{ colorScheme: 'dark' }}
+                        className="w-full rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base"
                     >
-                        <option value="" style={{ backgroundColor: '#0a0e1a', color: '#ffffff' }}>Select Service</option>
-                        <option style={{ backgroundColor: '#0a0e1a', color: '#ffffff' }}>Website Development</option>
-                        <option style={{ backgroundColor: '#0a0e1a', color: '#ffffff' }}>Software Platform</option>
-                        <option style={{ backgroundColor: '#0a0e1a', color: '#ffffff' }}>Automation / AI System</option>
-                        <option style={{ backgroundColor: '#0a0e1a', color: '#ffffff' }}>Cybersecurity Service</option>
-                        <option style={{ backgroundColor: '#0a0e1a', color: '#ffffff' }}>Custom Project</option>
+                        <option value="">Select Service</option>
+                        <option>Website Development</option>
+                        <option>Software Platform</option>
+                        <option>Automation / AI System</option>
+                        <option>Cybersecurity Service</option>
+                        <option>Custom Project</option>
                     </select>
                 </div>
 
@@ -179,7 +178,7 @@ export default function ContactContent() {
                                 className="flex-1 min-w-0 bg-glass-light border border-white/20 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white/90 placeholder:text-gray-600 focus:border-white/30 focus:ring-1 focus:ring-cyan-400 outline-none transition-colors"
                             />
                         </div>
-                        <p className="text-white/70 text-xs mt-1.5 text-right">
+                        <p className="text-white/90 text-xs mt-1.5 text-right">
                             {form.phone.length}/10 digits
                         </p>
                     </div>
@@ -217,11 +216,11 @@ export default function ContactContent() {
 
             {/* CONTACT INFO */}
             <div className="mt-8 sm:mt-12 md:mt-16 max-w-4xl space-y-2">
-                <p className="text-sm sm:text-base text-white/70">
+                <p className="text-sm sm:text-base text-white/90">
                     📧 info@saiyonix.com
                 </p>
 
-                <p className="text-sm sm:text-base text-white/70">
+                <p className="text-sm sm:text-base text-white/90">
                     Monday – Friday | 10:00 AM – 6:00 PM (IST)
                 </p>
             </div>
