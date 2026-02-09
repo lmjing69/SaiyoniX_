@@ -152,11 +152,11 @@ export default function ContactContent() {
                         <label className="text-white block mb-2">
                             Phone Number
                         </label>
-                        <div className="flex gap-2">
+                        <div className="flex gap-2 w-full">
                             <select
                                 value={countryCode}
                                 onChange={(e) => setCountryCode(e.target.value)}
-                                className="bg-black border border-gray-700 rounded-lg px-3 py-3 text-gray-300 focus:border-cyan-400 outline-none w-24"
+                                className="bg-black border border-gray-700 rounded-lg px-2 py-3 text-gray-300 focus:border-cyan-400 outline-none text-sm shrink-0"
                             >
                                 <option value="+91">🇮🇳 +91</option>
                                 <option value="+1">🇺🇸 +1</option>
@@ -175,7 +175,7 @@ export default function ContactContent() {
                                 onChange={handlePhoneChange}
                                 required
                                 placeholder="XXXXXXXXXX" // 10 X's
-                                className="flex-1 bg-black border border-gray-700 rounded-lg px-4 py-3 text-gray-300 focus:border-cyan-400 outline-none"
+                                className="flex-1 min-w-0 bg-black border border-gray-700 rounded-lg px-4 py-3 text-gray-300 focus:border-cyan-400 outline-none"
                             />
                         </div>
                         <p className="text-gray-500 text-xs mt-1 text-right">
