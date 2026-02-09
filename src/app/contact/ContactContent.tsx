@@ -104,14 +104,15 @@ export default function ContactContent() {
                         value={form.service}
                         onChange={handleChange}
                         required
-                        className="w-full bg-navy-900 border border-navy-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white focus:border-accent-400 focus:ring-1 focus:ring-accent-400 outline-none transition-colors [&>option]:bg-navy-900 [&>option]:text-white"
+                        className="w-full bg-navy-900 border border-navy-700 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white focus:border-accent-400 focus:ring-1 focus:ring-accent-400 outline-none transition-colors"
+                        style={{ colorScheme: 'dark' }}
                     >
-                        <option value="">Select Service</option>
-                        <option>Website Development</option>
-                        <option>Software Platform</option>
-                        <option>Automation / AI System</option>
-                        <option>Cybersecurity Service</option>
-                        <option>Custom Project</option>
+                        <option value="" style={{ backgroundColor: '#0a0e1a', color: '#ffffff' }}>Select Service</option>
+                        <option style={{ backgroundColor: '#0a0e1a', color: '#ffffff' }}>Website Development</option>
+                        <option style={{ backgroundColor: '#0a0e1a', color: '#ffffff' }}>Software Platform</option>
+                        <option style={{ backgroundColor: '#0a0e1a', color: '#ffffff' }}>Automation / AI System</option>
+                        <option style={{ backgroundColor: '#0a0e1a', color: '#ffffff' }}>Cybersecurity Service</option>
+                        <option style={{ backgroundColor: '#0a0e1a', color: '#ffffff' }}>Custom Project</option>
                     </select>
                 </div>
 
