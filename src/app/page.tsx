@@ -1,160 +1,101 @@
 import Link from "next/link";
 import MotionFade from "@/components/MotionFade";
+import WaterBackground from "@/components/WaterBackground";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Home",
-  description: "Driving digital transformation through intelligent systems, secure infrastructure, and scalable technology solutions.",
+  description: "Flowing with innovation - digital transformation through intelligent systems.",
 };
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen relative overflow-hidden text-water-shadow">
+      <WaterBackground />
 
-      {/* HERO SECTION - PROJECT TWELVE Style */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6">
-        {/* 3D Glowing Sphere Background */}
-        <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
-          <div className="relative w-[600px] h-[600px]">
-            {/* Primary Purple Glow */}
-            <div className="absolute inset-0 bg-gradient-radial from-neon-purple/40 via-neon-purple/10 to-transparent rounded-full blur-3xl gentle-float"></div>
-            {/* Secondary Pink Glow */}
-            <div className="absolute inset-0 bg-gradient-radial from-neon-pink/30 via-neon-pink/5 to-transparent rounded-full blur-2xl slow-rotate"></div>
-            {/* Tertiary Cyan Accent */}
-            <div className="absolute inset-20 bg-gradient-radial from-neon-cyan/20 via-transparent to-transparent rounded-full blur-xl pulse-soft"></div>
-          </div>
-        </div>
-
-        {/* Content */}
+      {/* HERO SECTION */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 z-10">
         <MotionFade>
-          <div className="relative z-10 text-center fade-slide-up">
-            <h1 className="text-7xl md:text-8xl lg:text-9xl font-bold mb-8 tracking-tight">
-              <span className="text-white">SAIYO</span>
-              <span className="text-neon-purple text-glow">NIX</span>
+          <div className="text-center">
+            <h1 className="text-6xl md:text-8xl font-bold mb-6 wave-text drop-shadow-lg">
+              SAIYONIX
             </h1>
 
-            <p className="text-xl md:text-2xl text-white/60 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
-              Driving digital transformation through<br />
-              intelligent systems and scalable solutions
+            <p className="text-xl md:text-2xl text-water-deep/80 mb-12 max-w-2xl mx-auto font-medium">
+              Flowing with innovation, adapting to change.<br />
+              Building liquid digital solutions.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Link href="/projects" className="btn-neon">
-                Explore Our Work
+              <Link href="/projects" className="btn-water">
+                Dive Deeper
               </Link>
-              <Link href="/contact" className="text-white/60 hover:text-white transition-colors px-8 py-4">
-                Get In Touch →
+              <Link href="/contact" className="text-water-deep hover:text-water-blue font-semibold transition-colors px-6 py-3 bg-white/40 backdrop-blur rounded-full hover:bg-white/60">
+                Start Flowing →
               </Link>
             </div>
           </div>
         </MotionFade>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-white/30 animate-bounce">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-water-deep/50 animate-bounce">
+          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7-7-7" />
           </svg>
         </div>
       </section>
 
       {/* SERVICES SECTION */}
-      <section className="relative py-32 px-6">
+      <section className="relative py-32 px-6 z-10">
         <div className="max-w-6xl mx-auto">
           <MotionFade>
-            <h2 className="text-5xl md:text-6xl font-bold text-center mb-20">
-              <span className="gradient-text">What We Do</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-center mb-20 text-water-deep">
+              Liquid Solutions
             </h2>
           </MotionFade>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "Digital Platforms",
-                desc: "Custom web and mobile applications built with cutting-edge technology",
-                icon: "🚀"
+                title: "Fluid Platforms",
+                desc: "Adaptive web and mobile apps that reshape to user needs",
+                icon: "💧"
               },
               {
-                title: "AI & Automation",
-                desc: "Intelligent systems that streamline operations and enhance productivity",
-                icon: "🤖"
+                title: "Deep Intelligence",
+                desc: "AI systems that flow through your data to find insights",
+                icon: "🧠"
               },
               {
-                title: "Cybersecurity",
-                desc: "Enterprise-grade security solutions to protect your digital assets",
-                icon: "🔒"
+                title: "Secure Flow",
+                desc: "Enterprise security that adapts to emerging threats",
+                icon: "🛡️"
               }
             ].map((service, i) => (
               <MotionFade key={i}>
-                <div className="premium-card group text-center">
-                  <div className="text-6xl mb-6 group-hover:scale-110 transition-transform">{service.icon}</div>
-                  <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
-                  <p className="text-white/50 leading-relaxed">{service.desc}</p>
+                <div className="liquid-card group text-center p-8">
+                  <div className="text-6xl mb-6 group-hover:scale-110 transition-transform drop-shadow-md">{service.icon}</div>
+                  <h3 className="text-2xl font-bold text-water-deep mb-4">{service.title}</h3>
+                  <p className="text-water-shadow/70 leading-relaxed">{service.desc}</p>
                 </div>
               </MotionFade>
             ))}
-          </div>
-
-          <div className="text-center mt-16">
-            <Link href="/services" className="btn-neon">
-              View All Services
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* FEATURED PROJECTS */}
-      <section className="relative py-32 px-6">
-        {/* Decorative Glow */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-radial from-neon-pink/20 via-transparent to-transparent blur-3xl pointer-events-none"></div>
-
-        <div className="max-w-6xl mx-auto relative z-10">
-          <MotionFade>
-            <h2 className="text-5xl md:text-6xl font-bold text-center mb-12">
-              Featured <span className="text-neon-pink text-glow-pink">Projects</span>
-            </h2>
-            <p className="text-white/50 text-center text-xl mb-20 max-w-2xl mx-auto">
-              Real-world platforms and systems built under SaiyoniX
-            </p>
-          </MotionFade>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {[1, 2].map((project) => (
-              <MotionFade key={project}>
-                <div className="premium-card group">
-                  <div className="aspect-video bg-dark-elevated rounded-xl mb-6 flex items-center justify-center overflow-hidden">
-                    <div className="text-6xl opacity-20 group-hover:opacity-40 transition-opacity">💎</div>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-3">Project {project}</h3>
-                  <p className="text-white/50 mb-4">Innovative solution delivering exceptional results</p>
-                  <button className="text-neon-purple hover:text-neon-pink transition-colors font-semibold">
-                    View Case Study →
-                  </button>
-                </div>
-              </MotionFade>
-            ))}
-          </div>
-
-          <div className="text-center mt-16">
-            <Link href="/projects" className="text-white/60 hover:text-white transition-colors text-lg">
-              See All Projects →
-            </Link>
           </div>
         </div>
       </section>
 
       {/* CTA SECTION */}
-      <section className="relative py-32 px-6">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative py-32 px-6 z-10 text-center">
+        <div className="max-w-4xl mx-auto bg-white/30 backdrop-blur-md rounded-3xl p-12 border border-white/50 shadow-xl">
           <MotionFade>
-            <h2 className="text-5xl md:text-7xl font-bold mb-8">
-              Ready to Build<br />
-              <span className="gradient-text">Something Amazing?</span>
+            <h2 className="text-4xl md:text-6xl font-bold mb-8 text-water-deep">
+              Ready to Shape the Future?
             </h2>
-            <p className="text-xl text-white/60 mb-12 max-w-2xl mx-auto">
-              Let's transform your vision into reality with cutting-edge technology
+            <p className="text-xl text-water-shadow/80 mb-12 max-w-2xl mx-auto">
+              Like water, we adapt to any challenge. Let's create something fluid together.
             </p>
-            <Link href="/contact" className="btn-neon">
-              Start Your Project
+            <Link href="/contact" className="btn-water text-lg px-10 py-4">
+              Get In Touch
             </Link>
           </MotionFade>
         </div>
@@ -163,4 +104,3 @@ export default function Home() {
     </main>
   );
 }
-
