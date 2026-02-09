@@ -26,7 +26,7 @@ export default function Navbar() {
 
     return (
         <nav className="sticky top-4 z-50 mx-4 sm:mx-6 lg:mx-8">
-            <div className="glass-card max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <div className="navbar-glass max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
                 {/* LOGO */}
                 <Link
                     href="/"
