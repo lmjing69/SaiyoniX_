@@ -8,38 +8,35 @@ const config: Config = {
     theme: {
         extend: {
             colors: {
-                // Crystal Clear Water Palette
-                water: {
-                    bg: '#FFFFFF',          // Pure White Background
-                    surface: '#F0F9FF',     // Sky 50 - Very Pale Water
-                    border: '#BAE6FD',      // Sky 200 - Light Water Border
-                    text: '#0C4A6E',        // Sky 900 - Deep Ocean Text (High Contrast)
-                    primary: '#0EA5E9',     // Sky 500 - Primary Action
-                    hover: '#0284C7',       // Sky 600 - Hover State
+                // Neon accent colors for PROJECT TWELVE style
+                neon: {
+                    purple: '#A855F7',
+                    'purple-dark': '#9333EA',
+                    pink: '#EC4899',
+                    'pink-dark': '#DB2777',
+                    cyan: '#06B6D4',
+                    'cyan-dark': '#0EA5E9',
                 },
-                // Keep standard colors for utility
+                // Dark backgrounds
+                dark: {
+                    pure: '#000000',
+                    card: '#0A0A0A',
+                    elevated: '#151515',
+                },
             },
             fontFamily: {
                 sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                display: ['Inter', 'sans-serif'], // Revert to clean Inter for professional look
+                display: ['Space Grotesk', 'Inter', 'sans-serif'],
             },
             backgroundImage: {
-                'gradient-water': 'linear-gradient(180deg, #FFFFFF 0%, #F0F9FF 100%)',
-                'gradient-shimmer': 'linear-gradient(45deg, rgba(255,255,255,0) 40%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 60%)',
+                'gradient-radial': 'radial-gradient(circle, var(--tw-gradient-stops))',
+                'gradient-neon': 'linear-gradient(135deg, #A855F7 0%, #EC4899 50%, #06B6D4 100%)',
             },
             animation: {
-                'float': 'float 6s ease-in-out infinite',
-                'flow': 'flow 20s linear infinite',
-            },
-            keyframes: {
-                float: {
-                    '0%, 100%': { transform: 'translateY(0)' },
-                    '50%': { transform: 'translateY(-10px)' },
-                },
-                flow: {
-                    '0%': { backgroundPosition: '0% 50%' },
-                    '100%': { backgroundPosition: '100% 50%' },
-                },
+                'fade-slide-up': 'fadeSlideUp 1s ease-out',
+                'gentle-float': 'gentleFloat 8s ease-in-out infinite',
+                'slow-rotate': 'slowRotate 60s linear infinite',
+                'pulse-soft': 'pulseSoft 4s ease-in-out infinite',
             },
         },
     },
