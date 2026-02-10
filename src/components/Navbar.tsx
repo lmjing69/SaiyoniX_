@@ -33,11 +33,11 @@ export default function Navbar() {
                     className="flex items-center text-lg sm:text-xl font-bold text-white hover:text-white transition-colors group"
                 >
                     <Image
-                        src="/icon.png"
-                        alt="SaiyoniX Dragon Logo"
+                        src="/saiyonix-logo.png"
+                        alt="SaiyoniX Logo"
                         width={48}
                         height={48}
-                        className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
+                        className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 -mr-1"
                     />
                     <span>aiyoniX</span>
                 </Link>

@@ -11,16 +11,16 @@ const Footer = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
                     {/* Brand Section */}
                     <div className="space-y-4">
-                        <Link href="/" className="flex items-center gap-2 group">
+                        <Link href="/" className="flex items-center gap-0 group">
                             <Image
-                                src="/icon.png"
+                                src="/saiyonix-logo.png"
                                 alt="SaiyoniX Logo"
                                 width={40}
                                 height={40}
-                                className="w-10 h-10 group-hover:opacity-80 transition-opacity"
+                                className="w-10 h-10 group-hover:opacity-80 transition-opacity -mr-1"
                             />
                             <span className="text-xl font-bold text-white tracking-wide">
-                                SaiyoniX
+                                aiyoniX
                             </span>
                         </Link>
                         <p className="text-white/90 text-sm leading-relaxed max-w-xs">
@@ -62,7 +62,7 @@ const Footer = () => {
                         <p className="text-white/90 text-sm mb-4 leading-relaxed">
                             Let's build the future together.
                         </p>
-                        <div className="flex space-x-5">
+                        <div className="flex gap-[1cm]">
                             {/* GitHub */}
                             <a
                                 href="https://github.com"
