@@ -177,11 +177,58 @@ export default function About() {
                         </div>
                     </div>
 
-                    <p className="text-white/90 leading-relaxed">
-                        At the core, SaiyoniX is driven by a small, focused team united by a shared
-                        vision: to build intelligent, secure, and scalable technology that evolves
-                        with the future.
-                    </p>
+                    <div className="mt-8 border-t border-white/10 pt-6">
+                        <h3 className="text-xl font-semibold text-white mb-4">
+                            Meet the Founders
+                        </h3>
+                        <div className="space-y-1">
+                            {[
+                                {
+                                    name: "Lamjingba.Kh",
+                                    focus: "Vision, Strategy, System Architecture",
+                                    skills: "Leadership • Full-Stack Development • Cybersecurity"
+                                },
+                                {
+                                    name: "Abinash.H",
+                                    focus: "Technical Decisions, Engineering Excellence",
+                                    skills: "Backend Engineering • System Design • Scalability • Security"
+                                },
+                                {
+                                    name: "O.Bornison",
+                                    focus: "Operations, Execution & Coordination",
+                                    skills: "Operations Management • Process Optimization"
+                                },
+                                {
+                                    name: "Sachindeva.A",
+                                    focus: "Branding, Marketing & Outreach",
+                                    skills: "Brand Strategy • Marketing • Content Strategy"
+                                },
+                                {
+                                    name: "K.Dhanaraj",
+                                    focus: "Financial Planning & Sustainability",
+                                    skills: "Financial Planning • Budgeting • Risk Management"
+                                },
+                            ].map((founder, index) => (
+                                <div key={index} className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 group py-3 border-b border-white/5 last:border-0">
+                                    <div className="flex items-center gap-3 min-w-[180px]">
+                                        <div className="h-px w-4 bg-cyan-500/50 group-hover:w-8 transition-all duration-300" />
+                                        <span className="text-white/90 font-medium group-hover:text-cyan-400 transition-colors">
+                                            {founder.name}
+                                        </span>
+                                    </div>
+                                    <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 text-sm flex-1">
+                                        <span className="text-cyan-400/90 font-medium whitespace-nowrap">
+                                            {founder.focus}
+                                        </span>
+                                        <span className="text-white/40 hidden sm:block">•</span>
+                                        <span className="text-white/50 text-xs italic">
+                                            {founder.skills}
+                                        </span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </section>
         </section>
