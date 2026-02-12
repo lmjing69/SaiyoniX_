@@ -3,8 +3,8 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Our Team",
-    description: "Meet the leadership and engineering team behind SaiyoniX, driving innovation and digital transformation.",
+    title: "Our Founders",
+    description: "Meet the founders behind SaiyoniX, united by a shared vision to build innovative and secure technology solutions.",
 };
 
 export default function Team() {
@@ -12,21 +12,21 @@ export default function Team() {
         <section className="max-w-6xl mx-auto px-6 py-24">
             <MotionFade>
                 <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                    Leadership Team
+                    Our Founders
                 </h1>
 
                 <p className="text-gray-400 max-w-2xl">
-                    SaiyoniX is led by a focused leadership team, each member responsible
-                    for driving strategy, execution, and long-term growth across different
-                    domains of the organization.
+                    SaiyoniX was founded by five individuals united by a shared vision to build
+                    innovative, secure, and scalable technology solutions. Together, they drive
+                    strategy, execution, and long-term growth.
                 </p>
             </MotionFade>
 
             <div className="grid md:grid-cols-2 gap-8 mt-16">
                 <TeamCard
                     name="Lamjingba.Kh"
-                    role="Chief Executive Officer (CEO)"
-                    responsibilities="Defines the vision, strategy, and direction of SaiyoniX. Oversees overall operations, product alignment, decision-making, and ensures the company moves toward long-term sustainable growth."
+                    role="Founder"
+                    responsibilities="Focuses on vision, strategy, and system architecture. Drives overall operations and ensures long-term sustainable growth."
                     skills={[
                         "Leadership",
                         "Strategic Planning",
@@ -38,8 +38,8 @@ export default function Team() {
 
                 <TeamCard
                     name="Abinash.H"
-                    role="Chief Technology Officer (CTO)"
-                    responsibilities="Leads all technical decisions and system architecture."
+                    role="Founder"
+                    responsibilities="Leads all technical decisions, system architecture, and engineering standards."
                     skills={[
                         "System Design",
                         "Backend Engineering",
@@ -52,8 +52,8 @@ export default function Team() {
 
                 <TeamCard
                     name="O.Bornison"
-                    role="Chief Operating Officer (COO)"
-                    responsibilities="Manages daily operations, internal processes, and workflow execution. Ensures projects are delivered efficiently while coordinating between technical, marketing, and financial teams."
+                    role="Founder"
+                    responsibilities="Manages daily operations, internal processes, and workflow execution. Coordinates between teams to ensure efficient project delivery."
                     skills={[
                         "Operations Management",
                         "Process Optimization",
@@ -64,8 +64,8 @@ export default function Team() {
 
                 <TeamCard
                     name="Sachindeva.A"
-                    role="Chief Marketing Officer (CMO)"
-                    responsibilities="Drives branding, marketing strategy, and public presence of SaiyoniX. Responsible for outreach, content strategy, user engagement, and positioning the company in the market."
+                    role="Founder"
+                    responsibilities="Drives branding, marketing strategy, and public presence. Handles outreach, content strategy, and user engagement."
                     skills={[
                         "Brand Strategy",
                         "Digital Marketing",
@@ -76,8 +76,8 @@ export default function Team() {
 
                 <TeamCard
                     name="K.Dhanaraj"
-                    role="Chief Financial Officer (CFO)"
-                    responsibilities="Oversees financial planning, budgeting, and resource allocation. Manages financial risk, sustainability, and ensures responsible handling of company finances."
+                    role="Founder"
+                    responsibilities="Oversees financial planning, budgeting, and resource allocation. Manages financial sustainability and risk."
                     skills={[
                         "Financial Planning",
                         "Budgeting",

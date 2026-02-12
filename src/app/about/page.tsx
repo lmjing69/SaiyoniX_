@@ -3,7 +3,6 @@ import MotionFade from "@/components/MotionFade";
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
-import TeamCard from "@/components/TeamCard";
 import ServiceHoverCard from "@/components/ServiceHoverCard";
 
 export const metadata: Metadata = {
@@ -129,76 +128,60 @@ export default function About() {
                 </p>
             </section>
 
-            {/* TEAM SECTION */}
-            <section id="team" className="max-w-6xl mx-auto px-6 py-24">
+            {/* BEHIND THE SCENES */}
+            <section className="mb-24">
                 <h2 className="text-4xl font-semibold text-white mb-6">
-                    Our Team
+                    Behind the Scenes
                 </h2>
 
-                <p className="text-white/90 max-w-3xl leading-relaxed mb-16">
-                    SaiyoniX is driven by a focused team of individuals responsible for
-                    strategy, technology, operations, and long-term sustainability.
-                </p>
+                <div className="border border-white/20 rounded-2xl p-8 bg-linear-to-br from-white/5 to-transparent backdrop-blur-sm">
+                    <p className="text-white/90 leading-relaxed mb-6">
+                        SaiyoniX operates as a technology collective, built on collaboration,
+                        innovation, and a deep commitment to technical excellence. We're not just
+                        developers—we're problem solvers, architects, and engineers who believe
+                        in building systems that last.
+                    </p>
 
-                <div className="grid md:grid-cols-2 gap-8">
-                    <TeamCard
-                        name="Lamjingba.Kh"
-                        role="Chief Executive Officer (CEO)"
-                        responsibilities="Leads company vision, strategic direction, and overall execution of SaiyoniX."
-                        skills={[
-                            "Leadership",
-                            "System Architecture",
-                            "Full-Stack Development",
-                            "Cybersecurity",
-                            "Strategic Planning",
-                        ]}
-                    />
+                    <div className="grid md:grid-cols-3 gap-6 mb-6">
+                        <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+                            <h3 className="text-xl font-semibold text-cyan-400 mb-3">
+                                Our Process
+                            </h3>
+                            <p className="text-white/80 text-sm leading-relaxed">
+                                Every project begins with understanding the problem. We map requirements,
+                                design architecture, and iterate rapidly—ensuring what we build aligns
+                                with real-world needs.
+                            </p>
+                        </div>
 
-                    <TeamCard
-                        name="Abinash.H"
-                        role="Chief Technology Officer (CTO)"
-                        responsibilities="Oversees all technical decisions, architecture design, and engineering standards."
-                        skills={[
-                            "Backend Engineering",
-                            "System Design",
-                            "Scalability",
-                            "APIs",
-                            "Security",
-                        ]}
-                    />
+                        <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+                            <h3 className="text-xl font-semibold text-cyan-400 mb-3">
+                                Our Culture
+                            </h3>
+                            <p className="text-white/80 text-sm leading-relaxed">
+                                We operate lean, move fast, and prioritize learning. Continuous
+                                improvement isn't a slogan—it's how we work. We challenge assumptions
+                                and embrace better solutions.
+                            </p>
+                        </div>
 
-                    <TeamCard
-                        name="O.Bornison"
-                        role="Chief Operating Officer (COO)"
-                        responsibilities="Manages operations, coordination, and execution across projects."
-                        skills={[
-                            "Operations Management",
-                            "Process Optimization",
-                            "Project Coordination",
-                        ]}
-                    />
+                        <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+                            <h3 className="text-xl font-semibold text-cyan-400 mb-3">
+                                Our Commitment
+                            </h3>
+                            <p className="text-white/80 text-sm leading-relaxed">
+                                Security, scalability, and maintainability aren't optional. Every line
+                                of code, every system we design, and every decision we make is guided
+                                by these principles.
+                            </p>
+                        </div>
+                    </div>
 
-                    <TeamCard
-                        name="Sachindeva.A"
-                        role="Chief Marketing Officer (CMO)"
-                        responsibilities="Handles branding, outreach, and strategic communication."
-                        skills={[
-                            "Brand Strategy",
-                            "Marketing",
-                            "Content Strategy",
-                        ]}
-                    />
-
-                    <TeamCard
-                        name="K.Dhanaraj"
-                        role="Chief Financial Officer (CFO)"
-                        responsibilities="Oversees financial planning, budgeting, and long-term sustainability."
-                        skills={[
-                            "Financial Planning",
-                            "Budgeting",
-                            "Risk Management",
-                        ]}
-                    />
+                    <p className="text-white/90 leading-relaxed">
+                        At the core, SaiyoniX is driven by a small, focused team united by a shared
+                        vision: to build intelligent, secure, and scalable technology that evolves
+                        with the future.
+                    </p>
                 </div>
             </section>
         </section>
