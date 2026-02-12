@@ -30,6 +30,10 @@ export default function Navbar() {
                 {/* LOGO */}
                 <Link
                     href="/"
+                    onClick={() => {
+                        setOpen(false);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
                     className="flex items-center text-lg sm:text-xl font-bold text-white hover:text-white transition-colors group"
                 >
                     <Image
@@ -67,7 +71,16 @@ export default function Navbar() {
                 {/* DESKTOP LINKS */}
                 <div className="hidden md:flex space-x-1 lg:space-x-2">
                     {navLinks.map((link) => (
-                        <Link key={link.href} href={link.href} className={linkStyle(link.href)}>
+                        <Link
+                            key={link.href}
+                            href={link.href}
+                            className={linkStyle(link.href)}
+                            onClick={() => {
+                                if (link.href === "/") {
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                }
+                            }}
+                        >
                             {link.label}
                         </Link>
                     ))}
@@ -95,7 +108,12 @@ export default function Navbar() {
                                     <Link
                                         href={link.href}
                                         className={`block text-center ${linkStyle(link.href)}`}
-                                        onClick={() => setOpen(false)}
+                                        onClick={() => {
+                                            setOpen(false);
+                                            if (link.href === "/") {
+                                                window.scrollTo({ top: 0, behavior: "smooth" });
+                                            }
+                                        }}
                                     >
                                         {link.label}
                                     </Link>

@@ -181,32 +181,32 @@ export default function About() {
                         <h3 className="text-xl font-semibold text-white mb-4">
                             Meet the Founders
                         </h3>
-                        <div className="space-y-1">
+                        <div className="space-z-1">
                             {[
                                 {
                                     name: "Lamjingba.Kh",
-                                    focus: "Vision, Strategy, System Architecture",
-                                    skills: "Leadership • Full-Stack Development • Cybersecurity"
+                                    focus:     "Vision, Strategy, System Architecture",
+                                    
                                 },
                                 {
                                     name: "Abinash.H",
                                     focus: "Technical Decisions, Engineering Excellence",
-                                    skills: "Backend Engineering • System Design • Scalability • Security"
+                                   
                                 },
                                 {
                                     name: "O.Bornison",
                                     focus: "Operations, Execution & Coordination",
-                                    skills: "Operations Management • Process Optimization"
+                                   
                                 },
                                 {
                                     name: "Sachindeva.A",
                                     focus: "Branding, Marketing & Outreach",
-                                    skills: "Brand Strategy • Marketing • Content Strategy"
+                                   
                                 },
                                 {
                                     name: "K.Dhanaraj",
                                     focus: "Financial Planning & Sustainability",
-                                    skills: "Financial Planning • Budgeting • Risk Management"
+                                   
                                 },
                             ].map((founder, index) => (
                                 <div key={index} className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 group py-3 border-b border-white/5 last:border-0">
@@ -216,13 +216,9 @@ export default function About() {
                                             {founder.name}
                                         </span>
                                     </div>
-                                    <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 text-sm flex-1">
-                                        <span className="text-cyan-400/90 font-medium whitespace-nowrap">
-                                            {founder.focus}
-                                        </span>
-                                        <span className="text-white/40 hidden sm:block">•</span>
+                                    <div className="text-white/40 hidden sm:block">
                                         <span className="text-white/50 text-xs italic">
-                                            {founder.skills}
+                                            {founder.focus}
                                         </span>
                                     </div>
                                 </div>
