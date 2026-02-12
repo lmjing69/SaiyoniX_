@@ -177,36 +177,36 @@ export default function About() {
                         </div>
                     </div>
 
-                    <div className="mt-8 border-t border-white/10 pt-6">
+                    <div id="team" className="mt-8 border-t border-white/10 pt-6">
                         <h3 className="text-xl font-semibold text-white mb-4">
                             Meet the Founders
                         </h3>
-                        <div className="space-z-1">
+                        <div className="space-y-1">
                             {[
                                 {
                                     name: "Lamjingba.Kh",
-                                    focus:     "Vision, Strategy, System Architecture",
-                                    
+                                    focus: "Vision, Strategy, System Architecture",
+
                                 },
                                 {
                                     name: "Abinash.H",
                                     focus: "Technical Decisions, Engineering Excellence",
-                                   
+
                                 },
                                 {
                                     name: "O.Bornison",
                                     focus: "Operations, Execution & Coordination",
-                                   
+
                                 },
                                 {
                                     name: "Sachindeva.A",
                                     focus: "Branding, Marketing & Outreach",
-                                   
+
                                 },
                                 {
                                     name: "K.Dhanaraj",
                                     focus: "Financial Planning & Sustainability",
-                                   
+
                                 },
                             ].map((founder, index) => (
                                 <div key={index} className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 group py-3 border-b border-white/5 last:border-0">
