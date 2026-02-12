@@ -177,54 +177,7 @@ export default function About() {
                         </div>
                     </div>
 
-                    <div id="team" className="mt-8 border-t border-white/10 pt-6">
-                        <h3 className="text-xl font-semibold text-white mb-4">
-                            Meet the Founders
-                        </h3>
-                        <div className="space-y-1">
-                            {[
-                                {
-                                    name: "Lamjingba.Kh",
-                                    focus: "Vision, Strategy, System Architecture",
-
-                                },
-                                {
-                                    name: "Abinash.H",
-                                    focus: "Technical Decisions, Engineering Excellence",
-
-                                },
-                                {
-                                    name: "O.Bornison",
-                                    focus: "Operations, Execution & Coordination",
-
-                                },
-                                {
-                                    name: "Sachindeva.A",
-                                    focus: "Branding, Marketing & Outreach",
-
-                                },
-                                {
-                                    name: "K.Dhanaraj",
-                                    focus: "Financial Planning & Sustainability",
-
-                                },
-                            ].map((founder, index) => (
-                                <div key={index} className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 group py-3 border-b border-white/5 last:border-0">
-                                    <div className="flex items-center gap-3 min-w-[180px]">
-                                        <div className="h-px w-4 bg-cyan-500/50 group-hover:w-8 transition-all duration-300" />
-                                        <span className="text-white/90 font-medium group-hover:text-cyan-400 transition-colors">
-                                            {founder.name}
-                                        </span>
-                                    </div>
-                                    <div className="text-white/40 hidden sm:block">
-                                        <span className="text-white/50 text-xs italic">
-                                            {founder.focus}
-                                        </span>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                    
                 </div>
             </section>
         </section>
