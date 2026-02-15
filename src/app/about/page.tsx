@@ -14,8 +14,9 @@ export default function About() {
     return (
         <div className="min-h-screen">
             {/* HERO SECTION - Enhanced with stronger gradient and better spacing */}
-            <section className="relative bg-linear-to-br from-blue-100 via-white to-purple-100 py-40 px-6 overflow-hidden">
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808020_1px,transparent_1px),linear-gradient(to_bottom,#80808020_1px,transparent_1px)] bg-size-[24px_24px]"></div>
+            <section className="relative py-40 px-6 overflow-hidden">
+                <div className="absolute inset-0 bg-white/30 backdrop-blur-sm z-0"></div>
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808020_1px,transparent_1px),linear-gradient(to_bottom,#80808020_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none"></div>
                 <div className="max-w-6xl mx-auto relative z-10">
                     <MotionFade>
                         <h1 className="text-6xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tight leading-tight">
