@@ -16,11 +16,11 @@ export default function Home() {
       <section className="relative text-center pt-32 max-w-4xl mx-auto px-6">
 
         <MotionFade>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+          <h1 className="text-5xl md:text-7xl font-bold text-slate-950 mb-6 tracking-tight">
             Welcome to <span className="gradient-text">SaiyoniX</span>
           </h1>
 
-          <p className="text-white/90 text-lg md:text-xl mb-10 leading-relaxed">
+          <p className="text-slate-700 text-lg md:text-xl mb-10 leading-relaxed font-medium">
             Driving digital transformation through intelligent systems,
             secure infrastructure, and scalable technology solutions.
             We turn ideas into real, working platforms that evolve with
@@ -30,7 +30,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
             <Link
               href="/projects"
-              className="btn-primary group px-8 py-4 bg-white/20 text-white rounded-lg font-semibold hover:bg-white/30 transition-all"
+              className="btn-primary group"
             >
               <span className="flex items-center justify-center gap-2">
                 Explore Our Work
@@ -42,7 +42,7 @@ export default function Home() {
 
             <Link
               href="/about"
-              className="px-8 py-4 border-2 border-white/20 rounded-lg text-white hover:border-white/40 hover:bg-white/30/10 transition-all"
+              className="px-8 py-4 border-2 border-slate-300 rounded-lg text-slate-800 font-semibold hover:border-slate-500 hover:bg-slate-100 transition-all shadow-sm"
             >
               Who We Are
             </Link>
@@ -60,11 +60,11 @@ export default function Home() {
           { title: "Practical", desc: "Real-world usable solutions", delay: 0.3 },
         ].map((item) => (
           <AnimatedSection key={item.title} delay={item.delay}>
-            <div className="professional-card p-6 sm:p-8 rounded-xl bg-glass-light/50 backdrop-blur">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+            <div className="glass-card p-6 sm:p-8 rounded-xl backdrop-blur">
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
                 {item.title}
               </h3>
-              <p className="text-white/90 text-sm sm:text-base">
+              <p className="text-slate-700 text-sm sm:text-base font-medium">
                 {item.desc}
               </p>
             </div>
@@ -76,18 +76,18 @@ export default function Home() {
       {/* ABOUT SNAPSHOT */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
         <MotionFade>
-          <h2 className="text-3xl sm:text-4xl font-semibold text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl font-semibold text-slate-950 mb-6">
             About SaiyoniX
           </h2>
 
-          <p className="text-white/90 text-base sm:text-lg leading-relaxed mb-8">
+          <p className="text-slate-700 text-base sm:text-lg leading-relaxed mb-8">
             SaiyoniX is a technology-driven collective focused on building
             secure, intelligent, and scalable digital systems. We design
             platforms that adapt alongside evolving operational,
             institutional, and business needs.
           </p>
 
-          <Link href="/about" className="inline-block text-white hover:text-accent-500 transition-colors font-medium">
+          <Link href="/about" className="inline-block text-slate-800 hover:text-blue-700 transition-colors font-semibold border-b-2 border-slate-200 hover:border-blue-600 pb-1">
             Learn more →
           </Link>
         </MotionFade>
@@ -98,11 +98,11 @@ export default function Home() {
       <section className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <AnimatedSection>
           <div>
-            <h2 className="text-3xl font-semibold text-white mb-4">
+            <h2 className="text-3xl font-semibold text-slate-950 mb-4">
               Software & Platform Development
             </h2>
 
-            <p className="text-white/90 mb-6 leading-relaxed">
+            <p className="text-slate-700 mb-6 leading-relaxed font-medium">
               Custom-built platforms, dashboards, automation tools,
               and digital infrastructure engineered for performance,
               security, and long-term scalability.
@@ -110,7 +110,7 @@ export default function Home() {
 
             <Link
               href="/services"
-              className="btn-primary inline-block px-8 py-4 bg-white/20 text-white rounded-lg font-semibold hover:bg-white/30 transition-all"
+              className="btn-primary inline-block rounded-lg font-semibold transition-all"
             >
               Explore Services
             </Link>
@@ -128,18 +128,18 @@ export default function Home() {
 
 
       {/* MID CTA */}
-      <section className="text-center py-20">
-        <h2 className="text-3xl font-semibold text-white mb-4">
+      <section className="text-center py-20 bg-slate-100 rounded-3xl mx-6 border border-slate-200">
+        <h2 className="text-3xl font-semibold text-slate-950 mb-4">
           Have an Idea or Project?
         </h2>
 
-        <p className="text-white/90 mb-8">
+        <p className="text-slate-700 mb-8 font-medium">
           Let’s explore how technology can support your goals.
         </p>
 
         <Link
           href="/contact"
-          className="btn-primary px-8 py-4 bg-white/20 text-white rounded-lg font-semibold hover:bg-white/30 transition-all"
+          className="btn-primary px-8 py-4 rounded-lg font-semibold transition-all"
         >
           Discuss Your Project
         </Link>
@@ -149,11 +149,11 @@ export default function Home() {
       {/* PROJECTS PREVIEW */}
       <section className="max-w-6xl mx-auto px-6 text-center">
         <MotionFade>
-          <h2 className="text-3xl font-semibold text-white mb-6">
+          <h2 className="text-3xl font-semibold text-slate-950 mb-6">
             Selected Projects
           </h2>
 
-          <p className="text-white/90 mb-10">
+          <p className="text-slate-700 mb-10 font-medium">
             Real-world platforms, experiments, and systems built
             under SaiyoniX.
           </p>
@@ -161,45 +161,23 @@ export default function Home() {
 
         <Link
           href="/projects"
-          className="px-6 py-3 border border-white/20 rounded-lg text-white/90 hover:border-white/40 hover:text-white transition-all"
+          className="px-6 py-3 border-2 border-slate-300 rounded-lg text-slate-700 hover:border-slate-500 hover:text-slate-950 transition-all font-semibold"
         >
           View Projects →
         </Link>
       </section>
 
 
-      {/* TEAM SNAPSHOT */}
-      <section className="max-w-5xl mx-auto px-6 text-center">
-        <MotionFade>
-          <h2 className="text-3xl font-semibold text-white mb-6">
-            Leadership
-          </h2>
-
-          <p className="text-white/90 leading-relaxed">
-            SaiyoniX is driven by a focused leadership team responsible
-            for strategy, engineering, operations, and sustainable
-            technological growth.
-          </p>
-
-          <Link
-            href="/about#team"
-            className="text-white hover:text-accent-500 transition-colors mt-4 inline-block"
-          >
-            Meet the team →
-          </Link>
-
-        </MotionFade>
-      </section>
 
 
       {/* FINAL CTA */}
       <section className="text-center max-w-4xl mx-auto px-6">
         <MotionFade>
-          <h2 className="text-3xl font-semibold text-white mb-6">
+          <h2 className="text-3xl font-semibold text-slate-950 mb-6">
             Let’s Build Something Meaningful
           </h2>
 
-          <p className="text-white/90 mb-10">
+          <p className="text-slate-700 mb-10 font-medium">
             Whether it's a business platform, automation system,
             or innovative tech concept — SaiyoniX is ready to
             collaborate.
@@ -207,7 +185,7 @@ export default function Home() {
 
           <Link
             href="/contact"
-            className="btn-primary px-8 py-4 bg-white/20 text-white rounded-lg font-semibold hover:bg-white/30 transition-all"
+            className="btn-primary px-8 py-4 rounded-lg font-semibold transition-all"
           >
             Start a Conversation
           </Link>

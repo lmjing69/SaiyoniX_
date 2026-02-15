@@ -34,12 +34,12 @@ export default function SuccessModal({ isOpen, onClose }: SuccessModalProps) {
 
             {/* Modal Card */}
             <div
-                className={`relative bg-glass-light dark:bg-gray-800 rounded-2xl shadow-2xl p-8 max-w-sm w-full text-center transform transition-all duration-300 ${isOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-4"
+                className={`relative bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full text-center transform transition-all duration-300 ${isOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-4"
                     }`}
             >
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30 mb-6">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100 mb-6">
                     <svg
-                        className="h-8 w-8 text-green-600 dark:text-green-400"
+                        className="h-8 w-8 text-green-600"
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth="2"
@@ -54,17 +54,17 @@ export default function SuccessModal({ isOpen, onClose }: SuccessModalProps) {
                     </svg>
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">
                     Inquiry Sent Successfully!
                 </h3>
 
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-8 leading-relaxed">
+                <p className="text-sm text-slate-600 mb-8 leading-relaxed">
                     Thank you for reaching out. Our team has received your message and will get back to you shortly.
                 </p>
 
                 <button
                     type="button"
-                    className="w-full inline-flex justify-center rounded-lg bg-cyan-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 transition-colors"
+                    className="w-full inline-flex justify-center rounded-xl bg-slate-900 px-6 py-3 text-sm font-bold text-white shadow-lg hover:bg-slate-800 hover:-translate-y-0.5 transition-all"
                     onClick={onClose}
                 >
                     Got it, thanks!

@@ -12,19 +12,19 @@ export default function TeamCard({
     skills,
 }: TeamCardProps) {
     return (
-        <div className="border border-gray-800 rounded-xl p-6 hover:border-cyan-400 transition">
+        <div className="border border-slate-300 rounded-xl p-6 hover:border-blue-500 transition bg-white shadow-md hover:shadow-lg">
             {/* Name */}
-            <h3 className="text-xl font-semibold text-white mb-1">
+            <h3 className="text-xl font-bold text-slate-900 mb-1">
                 {name}
             </h3>
 
             {/* Role */}
-            <p className="text-cyan-400 text-sm font-medium mb-3">
+            <p className="text-blue-700 text-sm font-semibold mb-3">
                 {role}
             </p>
 
             {/* Responsibilities */}
-            <p className="text-gray-400 text-sm leading-relaxed mb-4">
+            <p className="text-slate-700 text-sm leading-relaxed mb-4 font-medium">
                 {responsibilities}
             </p>
 
@@ -33,7 +33,7 @@ export default function TeamCard({
                 {skills.map((skill) => (
                     <span
                         key={skill}
-                        className="px-3 py-1 text-xs bg-gray-900 text-cyan-400 rounded-full border border-gray-800"
+                        className="px-3 py-1 text-xs bg-slate-100 text-blue-800 font-semibold rounded-full border border-slate-300"
                     >
                         {skill}
                     </span>

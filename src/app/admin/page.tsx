@@ -20,14 +20,16 @@ export default async function AdminPage() {
     } catch (error) {
         console.error("Admin page error:", error);
         return (
-            <div className="min-h-screen bg-black text-white p-8">
-                <h1 className="text-2xl font-bold mb-4">Database Connection Error</h1>
-                <pre className="bg-gray-900 p-4 rounded overflow-auto">
-                    {error instanceof Error ? error.message : String(error)}
-                </pre>
-                <p className="mt-4 text-gray-400">
-                    Check that DATABASE_URL is set in Vercel environment variables.
-                </p>
+            <div className="min-h-screen bg-slate-50 text-slate-900 p-8 flex flex-col items-center justify-center">
+                <div className="max-w-md w-full bg-white p-8 rounded-2xl shadow-xl border border-slate-200">
+                    <h1 className="text-2xl font-bold mb-4 text-red-600">Database Connection Error</h1>
+                    <pre className="bg-slate-100 p-4 rounded-xl overflow-auto text-xs text-slate-700 border border-slate-200">
+                        {error instanceof Error ? error.message : String(error)}
+                    </pre>
+                    <p className="mt-4 text-slate-500 text-sm">
+                        Please check that your DATABASE_URL is correctly set.
+                    </p>
+                </div>
             </div>
         );
     }

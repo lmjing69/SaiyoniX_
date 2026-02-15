@@ -32,14 +32,14 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
-            <div className="max-w-4xl mx-auto">
+        <div className="min-h-screen bg-slate-50 p-8">
+            <div className="max-w-6xl mx-auto">
                 <div className="flex justify-between items-center mb-8">
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Inquiries</h1>
+                    <h1 className="text-3xl font-bold text-slate-900">Inquiries Dashboard</h1>
                     <button
                         onClick={handleLogout}
                         disabled={loading}
-                        className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50 text-sm"
+                        className="px-6 py-2.5 bg-red-600 text-white rounded-xl hover:bg-red-700 transition-colors disabled:opacity-50 text-sm font-semibold shadow-sm"
                     >
                         Logout
                     </button>
@@ -51,44 +51,44 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                         placeholder="Filter by service or phone..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full px-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent bg-glass-light dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 transition-all shadow-sm"
+                        className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-100 focus:border-blue-500 bg-white text-slate-900 placeholder:text-slate-400 transition-all shadow-sm outline-none"
                     />
                 </div>
 
-                <div className="bg-glass-light dark:bg-gray-800 rounded-xl shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700">
+                <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
                     <div className="overflow-x-auto">
                         <table className="w-full text-left">
-                            <thead className="bg-gray-50 dark:bg-gray-700/50">
+                            <thead className="bg-slate-50 border-b border-slate-200">
                                 <tr>
-                                    <th className="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Service</th>
-                                    <th className="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Phone</th>
-                                    <th className="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300">Status</th>
-                                    <th className="p-4 text-sm font-semibold text-gray-600 dark:text-gray-300 text-right">Date</th>
+                                    <th className="p-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Service</th>
+                                    <th className="p-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Name</th>
+                                    <th className="p-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Status</th>
+                                    <th className="p-4 text-xs font-bold text-slate-500 uppercase tracking-wider text-right">Date</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-gray-100 dark:divide-gray-700">
+                            <tbody className="divide-y divide-slate-100">
                                 {filteredInquiries.map((inquiry) => (
                                     <tr
                                         key={inquiry.id}
                                         onClick={() => setSelectedInquiry(inquiry)}
-                                        className="hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors cursor-pointer"
+                                        className="hover:bg-slate-50 transition-colors cursor-pointer group"
                                     >
-                                        <td className="p-4 text-sm font-medium text-gray-900 dark:text-white">{inquiry.service}</td>
-                                        <td className="p-4 text-sm text-gray-600 dark:text-gray-400">{inquiry.phone}</td>
+                                        <td className="p-4 text-sm font-semibold text-slate-900">{inquiry.service}</td>
+                                        <td className="p-4 text-sm text-slate-600 font-medium group-hover:text-slate-900 transition-colors">{inquiry.name}</td>
                                         <td className="p-4">
                                             <span
-                                                className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+                                                className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold
                                                 ${inquiry.status === "New"
-                                                        ? "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300"
+                                                        ? "bg-blue-100 text-blue-700"
                                                         : inquiry.status === "Contacted"
-                                                            ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300"
-                                                            : "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300"
+                                                            ? "bg-yellow-100 text-yellow-700"
+                                                            : "bg-green-100 text-green-700"
                                                     }`}
                                             >
                                                 {inquiry.status}
                                             </span>
                                         </td>
-                                        <td className="p-4 text-sm text-gray-500 dark:text-gray-400 text-right">
+                                        <td className="p-4 text-sm text-slate-500 text-right font-medium">
                                             {new Date(inquiry.createdAt).toLocaleDateString()}
                                         </td>
                                     </tr>
@@ -96,8 +96,8 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                             </tbody>
                         </table>
                         {filteredInquiries.length === 0 && (
-                            <div className="p-8 text-center text-gray-500 dark:text-gray-400">
-                                No inquiries found.
+                            <div className="p-12 text-center text-slate-500">
+                                No inquiries found matching your search.
                             </div>
                         )}
                     </div>
@@ -106,18 +106,19 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
 
             {/* Details Modal */}
             {selectedInquiry && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-                    <div className="bg-glass-light dark:bg-gray-800 rounded-2xl shadow-xl w-full max-w-lg overflow-hidden animate-in fade-in zoom-in duration-200">
-                        <div className="p-6 border-b border-gray-100 dark:border-gray-700 flex justify-between items-start">
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                    <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" onClick={() => setSelectedInquiry(null)} />
+                    <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden animate-in fade-in zoom-in duration-200">
+                        <div className="p-6 border-b border-slate-100 flex justify-between items-start bg-slate-50/50">
                             <div>
-                                <h2 className="text-xl font-bold text-gray-900 dark:text-white">{selectedInquiry.service}</h2>
-                                <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                                <h2 className="text-xl font-bold text-slate-900">{selectedInquiry.service}</h2>
+                                <p className="text-sm text-slate-500 mt-1 font-medium">
                                     Received on {new Date(selectedInquiry.createdAt).toLocaleString()}
                                 </p>
                             </div>
                             <button
                                 onClick={() => setSelectedInquiry(null)}
-                                className="text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 p-1"
+                                className="text-slate-400 hover:text-slate-600 p-1 transition-colors"
                             >
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -128,40 +129,39 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                         <div className="p-6 space-y-6">
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Name</label>
-                                    <p className="mt-1 text-gray-900 dark:text-white font-medium">{selectedInquiry.name}</p>
+                                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Name</label>
+                                    <p className="text-slate-900 font-semibold">{selectedInquiry.name}</p>
                                 </div>
                                 <div>
-                                    <label className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Phone</label>
-                                    <p className="mt-1 text-gray-900 dark:text-white font-medium">{selectedInquiry.phone}</p>
+                                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Phone</label>
+                                    <p className="text-slate-900 font-semibold">{selectedInquiry.phone}</p>
                                 </div>
                             </div>
 
                             <div>
-                                <label className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Email</label>
-                                <a href={`mailto:${selectedInquiry.email}`} className="mt-1 block text-indigo-600 dark:text-indigo-400 hover:underline">
+                                <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Email</label>
+                                <a href={`mailto:${selectedInquiry.email}`} className="text-blue-600 font-semibold hover:underline decoration-blue-200 hover:decoration-blue-600 transition-all">
                                     {selectedInquiry.email}
                                 </a>
                             </div>
 
-                            <div className="bg-gray-50 dark:bg-gray-900/50 p-4 rounded-lg">
-                                <label className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Message</label>
-                                <p className="mt-2 text-gray-700 dark:text-gray-300 text-sm whitespace-pre-wrap leading-relaxed">
+                            <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
+                                <label className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">Message</label>
+                                <p className="text-slate-700 text-sm whitespace-pre-wrap leading-relaxed">
                                     {selectedInquiry.message}
                                 </p>
                             </div>
 
                             <div>
-                                <label className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2 block">Update Status</label>
+                                <label className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 block">Update Status</label>
                                 <form action={`/api/update-status?id=${selectedInquiry.id}`} method="POST">
                                     <select
                                         name="status"
                                         defaultValue={selectedInquiry.status}
                                         onChange={(e) => {
-                                            // Optimistic update could go here, but for now we rely on form submission
                                             e.target.form?.requestSubmit();
                                         }}
-                                        className="w-full text-sm border-gray-300 rounded-lg shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white p-2.5"
+                                        className="w-full text-sm border-slate-300 rounded-xl shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white text-slate-900 p-3 outline-none cursor-pointer"
                                     >
                                         <option value="New">New</option>
                                         <option value="Contacted">Contacted</option>
@@ -171,12 +171,12 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                             </div>
                         </div>
 
-                        <div className="bg-gray-50 dark:bg-gray-700/30 p-4 flex justify-end">
+                        <div className="bg-slate-50 p-4 flex justify-end border-t border-slate-100">
                             <button
                                 onClick={() => setSelectedInquiry(null)}
-                                className="px-4 py-2 bg-glass-light dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                                className="px-5 py-2.5 bg-white border border-slate-300 rounded-xl text-sm font-bold text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition-colors shadow-sm"
                             >
-                                Close
+                                Close Details
                             </button>
                         </div>
                     </div>

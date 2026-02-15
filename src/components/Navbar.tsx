@@ -20,13 +20,13 @@ export default function Navbar() {
 
     const linkStyle = (href: string) =>
         `nav-link px-4 py-2 rounded-xl transition-all ${pathname === href
-            ? "bg-white/20 text-white font-semibold"
-            : "text-white/95 hover:text-white hover:bg-white/10"
+            ? "bg-slate-100 text-slate-950 font-bold shadow-sm border border-slate-200"
+            : "text-slate-700 hover:text-slate-950 hover:bg-slate-50 font-medium"
         }`;
 
     return (
-        <nav className="sticky top-0 z-50 px-4 sm:px-6 lg:px-8 py-4 bg-[#1a1a2e] border-b border-white/10">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+        <nav className="sticky top-0 z-50 px-4 sm:px-6 lg:px-8 py-4 navbar-glass">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex justify-between items-center">
                 {/* LOGO */}
                 <Link
                     href="/"
@@ -34,7 +34,7 @@ export default function Navbar() {
                         setOpen(false);
                         window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
-                    className="flex items-center text-lg sm:text-xl font-bold text-white hover:text-white transition-colors group"
+                    className="flex items-center text-lg sm:text-xl font-bold text-slate-900 hover:text-slate-700 transition-colors group"
                 >
                     <Image
                         src="/saiyonix-logo.png"
@@ -49,7 +49,7 @@ export default function Navbar() {
                 {/* MOBILE HAMBURGER BUTTON */}
                 <button
                     onClick={() => setOpen(!open)}
-                    className="md:hidden p-2 text-white/90 hover:text-white transition-colors"
+                    className="md:hidden p-2 text-slate-700 hover:text-slate-950 transition-colors"
                     aria-label="Toggle menu"
                 >
                     <div className="space-y-1.5 w-6">
@@ -95,9 +95,9 @@ export default function Navbar() {
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="md:hidden overflow-hidden border-t border-white/20"
+                        className="md:hidden overflow-hidden border-t border-slate-200"
                     >
-                        <div className="px-4 sm:px-6 py-4 space-y-2 bg-glass-light/50">
+                        <div className="px-4 sm:px-6 py-4 space-y-2 bg-white/95 shadow-lg">
                             {navLinks.map((link, index) => (
                                 <motion.div
                                     key={link.href}
