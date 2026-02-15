@@ -25,8 +25,8 @@ export default function Navbar() {
         }`;
 
     return (
-        <nav className="sticky top-0 z-50 px-4 sm:px-6 lg:px-8 py-4 navbar-glass">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex justify-between items-center">
+        <nav className="sticky top-4 z-50 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-6xl mx-auto bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl shadow-black/10 border border-white/20 px-4 sm:px-6 py-3 flex justify-between items-center">
                 {/* LOGO */}
                 <Link
                     href="/"
@@ -95,9 +95,9 @@ export default function Navbar() {
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="md:hidden overflow-hidden border-t border-slate-200"
+                        className="md:hidden overflow-hidden rounded-2xl mt-2"
                     >
-                        <div className="px-4 sm:px-6 py-4 space-y-2 bg-white/95 shadow-lg">
+                        <div className="px-4 sm:px-6 py-4 space-y-2 bg-white/80 backdrop-blur-xl shadow-2xl shadow-black/10 border border-white/20 rounded-2xl">
                             {navLinks.map((link, index) => (
                                 <motion.div
                                     key={link.href}

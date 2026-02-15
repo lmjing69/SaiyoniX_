@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ParticleBackground from "@/components/ParticleBackground";
 
 import type { Metadata } from "next";
 
@@ -81,6 +82,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="text-white relative">
+        <ParticleBackground />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

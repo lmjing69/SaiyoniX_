@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function About() {
     return (
-        <div className="min-h-screen bg-white">
+        <div className="min-h-screen">
             {/* HERO SECTION - Enhanced with stronger gradient and better spacing */}
             <section className="relative bg-linear-to-br from-blue-100 via-white to-purple-100 py-40 px-6 overflow-hidden">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808020_1px,transparent_1px),linear-gradient(to_bottom,#80808020_1px,transparent_1px)] bg-size-[24px_24px]"></div>
