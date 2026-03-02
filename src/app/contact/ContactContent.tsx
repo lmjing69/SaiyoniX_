@@ -27,7 +27,7 @@ export default function ContactContent() {
 
     const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
-        if (/^\d*$/.test(value) && value.length <= 15) {
+        if (/^\d*$/.test(value) && value.length <= 10) {
             setForm({ ...form, phone: value });
             if (errors.phone) {
                 setErrors({ ...errors, phone: undefined });
@@ -180,7 +180,7 @@ export default function ContactContent() {
                                             ? "border-red-500 ring-2 ring-red-100 focus:border-red-500 focus:ring-red-100"
                                             : "border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
                                             }`}
-                                        maxLength={15}
+                                        maxLength={10}
                                     />
                                 </motion.div>
                                 <AnimatePresence>
