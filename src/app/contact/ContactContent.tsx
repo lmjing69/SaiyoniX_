@@ -116,11 +116,10 @@ export default function ContactContent() {
                                 className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-slate-900 focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none transition-all appearance-none text-sm sm:text-base cursor-pointer"
                             >
                                 <option value="" className="text-slate-400">Select Service</option>
-                                <option>Website Development</option>
-                                <option>Software Platform</option>
-                                <option>Automation / AI System</option>
-                                <option>Cybersecurity Service</option>
-                                <option>Custom Project</option>
+                                <option>Modern Web Design</option>
+                                <option>Full-Stack Web Development</option>
+                                <option>AI-Engineered Websites</option>
+                                <option>Custom Web Solutions</option>
                             </select>
                             <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-slate-500">
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
