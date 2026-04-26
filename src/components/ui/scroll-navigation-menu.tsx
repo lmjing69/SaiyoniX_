@@ -130,8 +130,8 @@ export default function Navbar() {
                                 href={item.url}
                                 className={`relative px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
                                     isActive
-                                        ? "text-white bg-slate-950"
-                                        : "text-slate-700 hover:text-slate-950"
+                                        ? "text-blue-700 bg-blue-100 border border-blue-200 shadow-sm scale-105"
+                                        : "text-slate-600 hover:text-blue-700 hover:bg-blue-50"
                                 }`}
                             >
                                 {item.title}
@@ -190,12 +190,12 @@ export default function Navbar() {
                                                 <Link
                                                     href={item.url}
                                                     onClick={() => setIsMenuOpen(false)}
-                                                    className={`flex items-center px-6 py-4 text-base font-medium transition-colors ${
+                                                    className={`flex items-center px-6 py-4 text-base font-medium transition-all duration-200 ${
                                                         item.isCta
                                                             ? "text-blue-600 font-semibold border-t border-slate-100 mt-2"
                                                             : isActive
-                                                                ? "text-white bg-slate-950"
-                                                                : "text-slate-700 hover:text-slate-950 hover:bg-slate-50"
+                                                                ? "text-blue-700 bg-blue-200 border-l-4 border-blue-600"
+                                                                : "text-slate-700 hover:text-blue-700 hover:bg-blue-50"
                                                     }`}
                                                 >
                                                     {item.title}
