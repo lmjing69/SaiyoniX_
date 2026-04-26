@@ -1,24 +1,19 @@
 import { NextResponse } from "next/server";
-import jwt from "jsonwebtoken";
 import type { NextRequest } from "next/server";
+import { ADMIN_AUTH_COOKIE, isValidAdminToken } from "@/lib/admin-auth";
 
 export function proxy(req: NextRequest) {
   if (!req.nextUrl.pathname.startsWith("/admin")) {
     return NextResponse.next();
   }
 
-  const token = req.cookies.get("admin-auth")?.value;
+  const token = req.cookies.get(ADMIN_AUTH_COOKIE)?.value;
 
-  if (!token) {
+  if (!isValidAdminToken(token)) {
     return NextResponse.redirect(new URL("/admin-login", req.url));
   }
 
-  try {
-    jwt.verify(token, process.env.JWT_SECRET!);
-    return NextResponse.next();
-  } catch (error) {
-    return NextResponse.redirect(new URL("/admin-login", req.url));
-  }
+  return NextResponse.next();
 }
 
 export const config = {

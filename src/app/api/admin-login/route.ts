@@ -1,31 +1,59 @@
 import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import {
+    ADMIN_AUTH_COOKIE,
+    getAdminPassword,
+    getAdminJwtSecret,
+    getAdminPasswordHash,
+} from "@/lib/admin-auth";
+import { checkRateLimit, recordFailedAttempt, clearFailedAttempts, getClientIP } from "@/lib/rate-limit";
 
 export async function POST(req: Request) {
     try {
-        const { password } = await req.json();
+        const clientIP = getClientIP();
+        const rateLimitCheck = await checkRateLimit(`login:${clientIP}`, 5);
 
-        if (!password)
+        if (!rateLimitCheck.allowed) {
+            const mins = Math.ceil(rateLimitCheck.lockoutMs / 60000);
+            return Response.json(
+                { error: `Too many failed attempts. Try again in ${mins} minute${mins > 1 ? "s" : ""}.` },
+                { status: 429 }
+            );
+        }
+
+        const { password } = await req.json();
+        const normalizedPassword =
+            typeof password === "string" ? password.trim() : "";
+        const passwordHash = getAdminPasswordHash();
+        const plainPassword = getAdminPassword();
+        const jwtSecret = getAdminJwtSecret();
+
+        if (!normalizedPassword)
             return Response.json({ error: "Password required" }, { status: 400 });
 
-        // TEMPORARY HARDCODE - bypassing env variable parsing issue
-        const HASH = "$2b$10$MnzNbYfo.6ri6URV7ep4hO49R6DNfb/65o2Wc.JD6Xcs1AvVb9JwC";
+        if ((!passwordHash && !plainPassword) || !jwtSecret) {
+            return Response.json({ error: "Server misconfigured" }, { status: 500 });
+        }
 
-        const valid = bcrypt.compareSync(password, HASH);
+        const valid =
+            (passwordHash ? bcrypt.compareSync(normalizedPassword, passwordHash) : false) ||
+            (plainPassword ? normalizedPassword === plainPassword : false);
 
-        console.log("Password validation result:", valid);
-
-        if (!valid)
+        if (!valid) {
+            recordFailedAttempt(`login:${clientIP}`);
             return Response.json({ error: "Unauthorized" }, { status: 401 });
+        }
+
+        clearFailedAttempts(`login:${clientIP}`);
 
         const token = jwt.sign(
             { admin: true },
-            process.env.JWT_SECRET!,
+            jwtSecret,
             { expiresIn: "1d" }
         );
 
-        (await cookies()).set("admin-auth", token, {
+        (await cookies()).set(ADMIN_AUTH_COOKIE, token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === "production",
             sameSite: "strict",

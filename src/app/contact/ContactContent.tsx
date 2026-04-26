@@ -250,7 +250,11 @@ export default function ContactContent() {
             {/* CONTACT INFO */}
             <div className="mt-12 text-center space-y-3">
                 <p className="text-slate-600 font-medium">
-                    Questions? Email us directly at <a href="mailto:info@saiyonix.com" className="text-blue-600 hover:text-blue-800 font-bold underline decoration-blue-200 hover:decoration-blue-800 transition-all">info@saiyonix.com</a>
+                    Questions? Email us directly at <a href="mailto:contact@saiyonix.in" className="text-blue-600 hover:text-blue-800 font-bold underline decoration-blue-200 hover:decoration-blue-800 transition-all">contact@saiyonix.in</a>
+                </p>
+
+                <p className="text-slate-600 font-medium">
+                    Or reach us on <a href="https://wa.me/919089669444?text=Hi%2C%20I%27m%20interested%20in%20your%20services" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-bold underline decoration-blue-200 hover:decoration-blue-800 transition-all">WhatsApp</a>
                 </p>
 
                 <p className="text-sm text-slate-500">

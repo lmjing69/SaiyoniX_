@@ -1,22 +1,50 @@
 import { prisma } from "@/lib/prisma";
+import { validateInquiryInput } from "@/lib/inquiry";
+import { checkRateLimit, getClientIP } from "@/lib/rate-limit";
+import { sendNewInquiryNotification } from "@/lib/email";
 
 export async function POST(req: Request) {
   try {
-    const data = await req.json();
+    const clientIP = getClientIP();
+    const rateLimitCheck = await checkRateLimit(`inquiry:${clientIP}`, 10);
 
-    await prisma.inquiry.create({
+    if (!rateLimitCheck.allowed) {
+      return Response.json(
+        { error: "Too many requests. Try again later." },
+        { status: 429 }
+      );
+    }
+
+    const payload: unknown = await req.json();
+    const validation = validateInquiryInput(payload);
+
+    if (!validation.success) {
+      return Response.json({ error: validation.error }, { status: 400 });
+    }
+
+    const inquiry = await prisma.inquiry.create({
       data: {
-        service: data.service,
-        name: data.name,
-        email: data.email,
-        phone: data.phone,
-        message: data.message,
+        service: validation.data.service,
+        name: validation.data.name,
+        email: validation.data.email,
+        phone: validation.data.phone,
+        message: validation.data.message,
       },
     });
 
-    return Response.json({ success: true });
-  } catch (err) {
-    console.error(err);
-    return Response.json({ error: true });
+    sendNewInquiryNotification({
+      service: validation.data.service,
+      name: validation.data.name,
+      email: validation.data.email,
+      phone: validation.data.phone,
+      message: validation.data.message,
+    });
+
+    return Response.json({ success: true, id: inquiry.id }, { status: 201 });
+  } catch {
+    return Response.json(
+      { error: "Unable to submit inquiry right now" },
+      { status: 500 }
+    );
   }
 }

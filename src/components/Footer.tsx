@@ -1,10 +1,22 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const Footer = () => {
+    const [showPhoneMenu, setShowPhoneMenu] = useState(false);
+    const phoneMenuRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (phoneMenuRef.current && !phoneMenuRef.current.contains(event.target as Node)) {
+                setShowPhoneMenu(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
     return (
         <footer className="bg-slate-100 border-t border-slate-300 py-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -13,15 +25,12 @@ const Footer = () => {
                     <div className="space-y-4">
                         <Link href="/" className="flex items-center gap-0 group">
                             <Image
-                                src="/saiyonix-logo.png"
+                                src="/logo.png"
                                 alt="SaiyoniX Logo"
-                                width={40}
-                                height={40}
-                                className="w-10 h-10 group-hover:opacity-80 transition-opacity -mr-1"
+                                width={56}
+                                height={56}
+                                className="w-14 h-14 group-hover:opacity-80 transition-opacity"
                             />
-                            <span className="text-xl font-bold text-slate-900 tracking-wide">
-                                aiyoniX
-                            </span>
                         </Link>
                         <p className="text-slate-700 text-sm leading-relaxed max-w-xs font-medium">
                             SaiyoniX is a forward-thinking technology collective.
@@ -56,12 +65,53 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Connect */}
+{/* Connect */}
                     <div>
                         <h4 className="text-lg font-semibold text-slate-900 mb-4">Connect</h4>
                         <p className="text-slate-600 text-sm mb-4 leading-relaxed">
-                            Let's build the future together.
+                            Let&apos;s build the future together.
                         </p>
+                        <div className="space-y-3 mb-4">
+                            <div className="relative" ref={phoneMenuRef}>
+                                <button
+                                    onClick={() => setShowPhoneMenu(!showPhoneMenu)}
+                                    className="flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors w-full"
+                                >
+                                    <span className="text-base">📞</span>
+                                    <span>+91 90896 69444</span>
+                                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </button>
+                                {showPhoneMenu && (
+                                    <div className="absolute left-0 top-full mt-1 bg-white border border-slate-200 rounded-lg shadow-lg z-10 overflow-hidden min-w-[160px]">
+                                        <a
+                                            href="tel:+919089669444"
+                                            className="flex items-center gap-2 px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 transition-colors"
+                                        >
+                                            <span>📞</span>
+                                            <span>Call</span>
+                                        </a>
+                                        <a
+                                            href="https://wa.me/919089669444?text=Hi%2C%20I%27m%20interested%20in%20your%20services"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-2 px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 transition-colors"
+                                        >
+                                            <span>💬</span>
+                                            <span>WhatsApp</span>
+                                        </a>
+                                    </div>
+                                )}
+                            </div>
+                            <a
+                                href="mailto:contact@saiyonix.in"
+                                className="flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors"
+                            >
+                                <span className="text-base">✉️</span>
+                                <span>contact@saiyonix.in</span>
+                            </a>
+                        </div>
                         <div className="flex gap-[1cm]">
                             {/* GitHub */}
                             <a
@@ -93,7 +143,7 @@ const Footer = () => {
                             </a>
                             {/* Instagram */}
                             <a
-                                href="https://instagram.com"
+                                href="https://www.instagram.com/saiyonix_pvt.ltd?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-slate-600 hover:text-slate-900 transition-colors p-2 -m-2"

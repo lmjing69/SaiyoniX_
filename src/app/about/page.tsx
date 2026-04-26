@@ -1,7 +1,4 @@
-
 import MotionFade from "@/components/MotionFade";
-import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
 import ServiceHoverCard from "@/components/ServiceHoverCard";
 
@@ -188,8 +185,8 @@ export default function About() {
                         <div className="bg-white rounded-3xl p-12 border-2 border-slate-300 shadow-xl">
                             <p className="text-slate-700 leading-loose mb-12 text-xl">
                                 SaiyoniX operates as a technology collective, built on collaboration,
-                                innovation, and a deep commitment to technical excellence. We're not just
-                                developers—we're problem solvers, architects, and engineers who believe
+                                innovation, and a deep commitment to technical excellence. We&apos;re not just
+                                developers we&apos;re problem solvers, architects, and engineers who believe
                                 in building systems that last.
                             </p>
 
@@ -224,7 +221,7 @@ export default function About() {
                                         </h3>
                                         <p className="text-slate-700 leading-relaxed">
                                             We operate lean, move fast, and prioritize learning. Continuous
-                                            improvement isn't a slogan—it's how we work. We challenge assumptions
+                                            improvement isn&apos;t a slogan, it&apos;s how we work. We challenge assumptions
                                             and embrace better solutions.
                                         </p>
                                     </div>
@@ -241,7 +238,7 @@ export default function About() {
                                             Our Commitment
                                         </h3>
                                         <p className="text-slate-700 leading-relaxed">
-                                            Security, scalability, and maintainability aren't optional. Every line
+                                            Security, scalability, and maintainability aren&apos;t optional. Every line
                                             of code, every system we design, and every decision we make is guided
                                             by these principles.
                                         </p>

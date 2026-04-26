@@ -1,14 +1,23 @@
 "use client";
 
 import MotionFade from "@/components/MotionFade";
-import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
 
-export default function ProjectsContent() {
-    const [activeProject, setActiveProject] = useState<any>(null);
+type Project = {
+    title: string;
+    summary: string;
+    problem: string;
+    solution: string;
+    stack: string[];
+    status: string;
+    link: string;
+};
 
-    const projects = [
+export default function ProjectsContent() {
+    const [activeProject, setActiveProject] = useState<Project | null>(null);
+
+    const projects: Project[] = [
         {
             title: "Praja.AI",
             summary:
@@ -57,7 +66,7 @@ export default function ProjectsContent() {
                         onClick={() => setActiveProject(project)}
                         className="cursor-pointer bg-white border border-slate-200 rounded-2xl p-8 hover:border-blue-400 hover:shadow-xl transition-all duration-300 group"
                     >
-                        <div className="flex justify-between items-start mb-4">
+                        <div className="flex justify-between items-start mb-4 grow">
                             <h3 className="text-2xl font-bold text-slate-900 group-hover:text-blue-700 transition-colors">
                                 {project.title}
                             </h3>
@@ -71,7 +80,7 @@ export default function ProjectsContent() {
                             {project.summary}
                         </p>
 
-                        <div className="flex items-center text-blue-600 font-semibold text-sm group-hover:gap-2 transition-all">
+                        <div className="flex items-center text-blue-600 font-semibold text-sm group-hover:gap-2 transition-all grow">
                             View Details <span>→</span>
                         </div>
                     </div>

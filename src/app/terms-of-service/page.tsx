@@ -33,7 +33,7 @@ export default function TermsOfService() {
                     <p>
                         You agree to use our website and services only for lawful purposes and
                         in a way that does not infringe the rights of, restrict, or inhibit
-                        anyone else's use and enjoyment of the website. Prohibited behavior
+                        anyone else&apos;s use and enjoyment of the website. Prohibited behavior
                         includes harassing or causing distress or inconvenience to any other
                         user, transmitting obscene or offensive content, or disrupting the
                         normal flow of dialogue within our website.

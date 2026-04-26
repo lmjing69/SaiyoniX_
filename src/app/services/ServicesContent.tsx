@@ -4,10 +4,18 @@ import { useState } from "react";
 import MotionFade from "@/components/MotionFade";
 import Image from "next/image";
 
-export default function ServicesContent() {
-    const [activeService, setActiveService] = useState<any>(null);
+type Service = {
+    title: string;
+    image: string;
+    what: string;
+    problems: string[];
+    forWhom: string[];
+};
 
-    const services = [
+export default function ServicesContent() {
+    const [activeService, setActiveService] = useState<Service | null>(null);
+
+    const services: Service[] = [
         {
             title: "Modern Web Design",
             image: "/services/modern-web-design.png",

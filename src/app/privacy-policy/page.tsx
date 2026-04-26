@@ -86,10 +86,10 @@ export default function PrivacyPolicy() {
                     <p>
                         If you have questions or comments about this policy, you may email us at{" "}
                         <a
-                            href="mailto:info@saiyonix.com"
+                            href="mailto:contact@saiyonix.in"
                             className="text-cyan-400 hover:underline"
                         >
-                            info@saiyonix.com
+                            contact@saiyonix.in
                         </a>
                         .
                     </p>

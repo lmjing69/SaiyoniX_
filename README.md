@@ -24,3 +24,11 @@ representing transformation, evolution, and disruptive growth.
 ```bash
 npm install
 npm run dev
+```
+
+Required environment variables:
+```bash
+DATABASE_URL=...
+JWT_SECRET=...
+ADMIN_PASSWORD_HASH=...
+```

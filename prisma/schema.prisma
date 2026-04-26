@@ -16,14 +16,41 @@ datasource db {
 
 
 model Inquiry {
-  id        String   @id @default(cuid())
+  id        String    @id @default(cuid())
   service   String
-  name      String
-  email     String
-  phone     String
-  message   String
-  status    String   @default("New")
+  name     String
+  email    String
+  phone    String
+  message  String
+  status   String   @default("New")
   createdAt DateTime @default(now())
+  deletedAt DateTime?
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([deletedAt])
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  action   String
+  inquiryId String?
+  adminId  String?
+  details  String?
+  createdAt DateTime @default(now())
+
+  @@index([inquiryId])
+  @@index([createdAt])
+}
+
+model RateLimitLog {
+  id        String   @id @default(cuid())
+  key       String  @unique
+  strike    Int      @default(0)
+  lockedUntil DateTime?
+  updatedAt DateTime @default(now())
+
+  @@index([key])
 }
 
 

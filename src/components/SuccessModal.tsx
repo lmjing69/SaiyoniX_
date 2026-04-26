@@ -1,30 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 interface SuccessModalProps {
     isOpen: boolean;
     onClose: () => void;
 }
 
 export default function SuccessModal({ isOpen, onClose }: SuccessModalProps) {
-    const [show, setShow] = useState(false);
-
-    useEffect(() => {
-        if (isOpen) {
-            setShow(true);
-        } else {
-            const timer = setTimeout(() => setShow(false), 200);
-            return () => clearTimeout(timer);
-        }
-    }, [isOpen]);
-
-    if (!show && !isOpen) return null;
+    if (!isOpen) return null;
 
     return (
         <div
-            className={`fixed inset-0 z-50 flex items-center justify-center p-4 transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0"
-                }`}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 transition-opacity duration-300 opacity-100"
         >
             {/* Backdrop */}
             <div
@@ -34,8 +20,7 @@ export default function SuccessModal({ isOpen, onClose }: SuccessModalProps) {
 
             {/* Modal Card */}
             <div
-                className={`relative bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full text-center transform transition-all duration-300 ${isOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-4"
-                    }`}
+                className="relative bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full text-center transform transition-all duration-300 scale-100 translate-y-0"
             >
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100 mb-6">
                     <svg
