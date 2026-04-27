@@ -117,9 +117,9 @@ export default function HeroCinematic() {
               style={{ opacity: text1Opacity, y: text1Y }}
               className="absolute inset-0 flex flex-col justify-center pointer-events-none"
             >
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight">
+              <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight text-white">
                 Building secure.<br />
-                <span className="text-blue-500">Scalable.</span><br />
+                <span className="text-blue-400">Scalable.</span><br />
                 Intelligent systems.
               </h1>
             </motion.div>
@@ -129,9 +129,9 @@ export default function HeroCinematic() {
               style={{ opacity: text2Opacity, y: text2Y }}
               className="absolute inset-0 flex flex-col justify-center pointer-events-none"
             >
-              <h2 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight">
+              <h2 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight text-white">
                 We build software that<br />
-                <span className="text-emerald-500">powers progress.</span>
+                <span className="text-emerald-400">powers progress.</span>
               </h2>
             </motion.div>
 
@@ -140,11 +140,11 @@ export default function HeroCinematic() {
               style={{ opacity: text3Opacity, y: text3Y }}
               className="absolute inset-0 flex flex-col justify-center"
             >
-              <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
+              <h2 className="text-3xl md:text-5xl font-bold leading-tight mb-6 text-white">
                 From backend systems to<br />
                 seamless experiences,<br />
                 we craft digital products<br />
-                <span className="text-purple-500">that matter.</span>
+                <span className="text-purple-400">that matter.</span>
               </h2>
               <motion.button
                 whileHover={{ scale: 1.05 }}
