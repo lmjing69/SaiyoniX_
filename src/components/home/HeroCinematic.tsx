@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Lenis from "@studio-freight/lenis";
+import Link from "next/link";
 import { useImagePreloader } from "./useImagePreloader";
 import SceneSequence from "./SceneSequence";
 
@@ -146,14 +147,13 @@ export default function HeroCinematic() {
                 we craft digital products<br />
                 <span className="text-purple-400">that matter.</span>
               </h2>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group w-fit flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-semibold transition-colors hover:bg-neutral-200"
+              <Link
+                href="/services"
+                className="group w-fit flex items-center gap-2 bg-white text-black px-8 py-4 rounded-full font-semibold transition-all duration-300 hover:bg-neutral-100 hover:scale-105 hover:shadow-lg hover:shadow-white/10"
               >
                 Explore Our Work
-                <span className="group-hover:translate-x-1 transition-transform">→</span>
-              </motion.button>
+                <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+              </Link>
             </motion.div>
           </div>
         </div>
