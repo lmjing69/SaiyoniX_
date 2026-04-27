@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ParticleBackground from "@/components/ParticleBackground";
+import ScrollToTop from "@/components/ScrollToTop";
 
 import type { Metadata } from "next";
 
@@ -83,6 +84,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="text-white relative">
         <ParticleBackground />
+        <ScrollToTop />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
