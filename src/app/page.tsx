@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import HeroCinematic from "@/components/home/HeroCinematic";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -8,7 +9,8 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="min-h-screen w-full">
-      {/* Homepage content coming soon */}
+      <HeroCinematic />
+      {/* existing sections below */}
     </main>
   );
 }

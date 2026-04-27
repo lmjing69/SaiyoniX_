@@ -17,6 +17,7 @@ const Footer = () => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
+
     return (
         <footer className="bg-slate-100 border-t border-slate-300 py-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -65,7 +66,7 @@ const Footer = () => {
                         </ul>
                     </div>
 
-{/* Connect */}
+                    {/* Connect */}
                     <div>
                         <h4 className="text-lg font-semibold text-slate-900 mb-4">Connect</h4>
                         <p className="text-slate-600 text-sm mb-4 leading-relaxed">
