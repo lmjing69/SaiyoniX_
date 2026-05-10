@@ -43,7 +43,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${spaceGrotesk.variable} ${dmSans.variable} ${jetbrainsMono.variable} relative`}>
+      <body className={`${spaceGrotesk.variable} ${dmSans.variable} ${jetbrainsMono.variable} relative overflow-x-hidden`}>
         <GrainOverlay />
         <CustomCursor />
         <SmoothScroll>

@@ -19,6 +19,7 @@ import {
   X
 } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
+import Logo from "@/components/ui/Logo";
 
 type Inquiry = {
     id: string;
@@ -117,10 +118,8 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                 {/* Header Section */}
                 <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
                     <div>
-                        <div className="flex items-center gap-3 mb-2">
-                            <div className="w-8 h-8 border border-accent/30 rounded-lg flex items-center justify-center font-extrabold text-[13px] text-accent">
-                                S
-                            </div>
+                        <div className="flex items-center gap-4 mb-4">
+                            <Logo size={42} />
                             <h1 className="font-display text-2xl font-bold tracking-tight">Intelligence Dashboard</h1>
                         </div>
                         <p className="text-text-3 text-sm font-mono tracking-widest uppercase opacity-60">System Inquiries Hub // Operational Control</p>

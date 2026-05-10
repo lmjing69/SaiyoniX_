@@ -8,12 +8,19 @@ export default function CustomCursor() {
   const ringRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    if (isTouchDevice) {
+    // Only hide system cursor if we are on a device likely using a mouse
+    const isTouchOnly = 'ontouchstart' in window && navigator.maxTouchPoints > 0 && window.matchMedia("(pointer: coarse)").matches;
+    
+    if (isTouchOnly) {
       if (dotRef.current) dotRef.current.style.display = 'none';
       if (ringRef.current) ringRef.current.style.display = 'none';
       return;
     }
+
+    // Hide system cursor globally when custom cursor is active
+    document.body.style.cursor = 'none';
+    const buttons = document.querySelectorAll('a, button');
+    buttons.forEach(b => (b as HTMLElement).style.cursor = 'none');
 
     const onMouseMove = (e: MouseEvent) => {
       if (dotRef.current && ringRef.current) {

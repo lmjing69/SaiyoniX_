@@ -74,11 +74,10 @@
   body {
     @apply bg-bg text-text-0 font-sans antialiased overflow-x-hidden;
     background-color: var(--c-bg);
-    cursor: none;
   }
 
   a, button {
-    cursor: none;
+    /* cursor: none; - moved to dynamic control */
   }
 
   img {

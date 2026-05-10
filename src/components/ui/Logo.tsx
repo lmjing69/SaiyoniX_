@@ -9,22 +9,30 @@ interface LogoProps {
   size?: number;
 }
 
-export default function Logo({ className = "", size = 48 }: LogoProps) {
+/**
+ * Official Brand Logo: PNG Restoration
+ * 
+ * This component uses the original 'finallogo.png' file from the assets folder.
+ * It applies a specialized blend mode to ensure it integrates with the dark theme
+ * while maintaining the premium interactive effects.
+ */
+export default function Logo({ className = "", size = 56 }: LogoProps) {
   return (
     <div className={`flex items-center gap-4 group cursor-pointer ${className}`}>
-      <div className="relative" style={{ width: size, height: size }}>
-        {/* Your "Living" Logo Image */}
+      <div className="relative hover:scale-110 transition-transform duration-500" style={{ width: size, height: size }}>
+        {/* Your Original Image Asset from Assets Folder */}
         <div className="relative w-full h-full z-10 flex items-center justify-center p-1 overflow-visible">
           <Image 
-            src="/finallogo.png" 
+            src="/assets/finallogo.png" 
             alt="SAIYONIX Logo" 
             fill
-            className="object-contain mix-blend-screen invert hue-rotate-180 drop-shadow-[0_0_12px_rgba(240,168,48,0.5)] transition-transform duration-500 group-hover:scale-110"
+            sizes="56px"
+            className="object-contain mix-blend-screen brightness-110 contrast-125"
             priority
           />
         </div>
 
-        {/* Technical Core Effects (Surrounding your logo) */}
+        {/* Keeping the premium atmosphere around YOUR logo */}
         {/* 1. Orbiting Sync Ring */}
         <motion.div 
           animate={{ rotate: 360 }}
@@ -32,20 +40,8 @@ export default function Logo({ className = "", size = 48 }: LogoProps) {
           className="absolute inset-[-10px] border border-accent/20 rounded-full border-dashed z-0 opacity-40 group-hover:opacity-100 transition-opacity"
         />
 
-        {/* 2. Background Processing Glow */}
-        <div className="absolute inset-[-12px] bg-accent/5 blur-[20px] rounded-full z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-        
-        {/* 3. Outer Data Nodes (Minimalist points) */}
-        <motion.div 
-          animate={{ opacity: [0.4, 0.8, 0.4] }}
-          transition={{ duration: 3, repeat: Infinity }}
-          className="absolute -top-1 -left-1 w-1.5 h-1.5 bg-accent rounded-full z-20"
-        />
-        <motion.div 
-          animate={{ opacity: [0.8, 0.4, 0.8] }}
-          transition={{ duration: 3, repeat: Infinity }}
-          className="absolute -bottom-1 -right-1 w-1.5 h-1.5 bg-accent rounded-full z-20"
-        />
+        {/* 2. Interaction Flare */}
+        <div className="absolute inset-[-15px] bg-accent/5 blur-[25px] rounded-full z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
       </div>
       
       <div className="flex flex-col">
