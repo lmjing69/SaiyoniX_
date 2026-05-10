@@ -7,81 +7,117 @@ const config: Config = {
     ],
     theme: {
         extend: {
+            // Color System: Restrained premium palette
             colors: {
-                background: "var(--background)",
-                foreground: "var(--foreground)",
-                card: "var(--card)",
-                "card-foreground": "var(--card-foreground)",
-                popover: "var(--popover)",
-                "popover-foreground": "var(--popover-foreground)",
-                primary: "var(--primary)",
-                "primary-foreground": "var(--primary-foreground)",
-                secondary: "var(--secondary)",
-                "secondary-foreground": "var(--secondary-foreground)",
-                muted: "var(--muted)",
-                "muted-foreground": "var(--muted-foreground)",
-                accent: "var(--accent)",
-                "accent-foreground": "var(--accent-foreground)",
-                destructive: "var(--destructive)",
-                "destructive-foreground": "var(--destructive-foreground)",
-                border: "var(--border)",
-                input: "var(--input)",
-                ring: "var(--ring)",
-                // Glassmorphic glass colors - Updated for Light Theme
-                glass: {
-                    light: 'rgba(255, 255, 255, 0.7)',
-                    medium: 'rgba(255, 255, 255, 0.5)',
-                    heavy: 'rgba(255, 255, 255, 0.9)',
-                    dark: 'rgba(0, 0, 0, 0.05)', // Subtle dark tint for contrast
-                },
-                // Text colors for glass - Darker for readability on light
-                'text-glass': {
-                    primary: '#1e293b', // Slate 800
-                    secondary: '#475569', // Slate 600
-                    muted: '#94a3b8', // Slate 400
-                    hint: '#cbd5e1', // Slate 300
-                },
+                // Backgrounds
+                background: "hsl(var(--background))",
+                "background-surface": "hsl(var(--background-surface))", // Subtle elevated surfaces
+                "background-card": "hsl(var(--background-card))",
+
+                // Typography
+                foreground: "hsl(var(--foreground))", // Soft white typography
+                "foreground-secondary": "hsl(var(--foreground-secondary))", // Muted secondary text
+                "foreground-muted": "hsl(var(--foreground-muted))", // Even more muted text
+
+                // Accent color
+                accent: "hsl(var(--accent))",
+                "accent-foreground": "hsl(var(--accent-foreground))",
+
+                // Amber accent system
+                amber: "hsl(var(--amber))",
+                "amber-light": "hsl(var(--amber-light))",
+                "amber-dark": "hsl(var(--amber-dark))",
+
+                // Borders
+                border: "hsl(var(--border))",
+                input: "hsl(var(--input))",
+                ring: "hsl(var(--ring))",
             },
+            // Typography System: Inter Tight
             fontFamily: {
-                sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                display: ['Space Grotesk', 'Inter', 'sans-serif'],
+                sans: ["var(--font-inter-tight)", "sans-serif"],
             },
-            backdropBlur: {
-                'glass': '20px',
-                'glass-heavy': '40px',
+            fontSize: {
+                xs: ["0.75rem", { lineHeight: "1.25rem", letterSpacing: "-0.01em" }], // Adjusted line-height
+                sm: ["0.875rem", { lineHeight: "1.4rem", letterSpacing: "-0.01em" }], // Adjusted line-height
+                base: ["1rem", { lineHeight: "1.625rem", letterSpacing: "-0.01em" }], // Adjusted line-height
+                lg: ["1.125rem", { lineHeight: "1.875rem", letterSpacing: "-0.015em" }],
+                xl: ["1.25rem", { lineHeight: "2rem", letterSpacing: "-0.02em" }],
+                "2xl": ["1.5rem", { lineHeight: "2.25rem", letterSpacing: "-0.02em" }],
+                "3xl": ["1.875rem", { lineHeight: "2.375rem", letterSpacing: "-0.025em" }],
+                "4xl": ["2.25rem", { lineHeight: "2.625rem", letterSpacing: "-0.025em" }],
+                "5xl": ["3rem", { lineHeight: "1", letterSpacing: "-0.03em" }],
+                "6xl": ["3.75rem", { lineHeight: "1", letterSpacing: "-0.03em" }],
+                "7xl": ["4.5rem", { lineHeight: "1", letterSpacing: "-0.035em" }],
+                "8xl": ["6rem", { lineHeight: "1", letterSpacing: "-0.04em" }],
+                "9xl": ["8rem", { lineHeight: "1", letterSpacing: "-0.04em" }],
             },
-            backgroundImage: {
-                // Vibrant iOS-style gradients
-                'gradient-purple': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                'gradient-pink': 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-                'gradient-blue': 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-                'gradient-sunset': 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
-                'gradient-ocean': 'linear-gradient(135deg, #2E3192 0%, #1BFFFF 100%)',
-                'gradient-fire': 'linear-gradient(135deg, #f12711 0%, #f5af19 100%)',
+            fontWeight: { // Added for more precise control
+                light: '300',
+                normal: '400',
+                medium: '500',
+                semibold: '600',
+                bold: '700',
             },
-            boxShadow: {
-                'glass': '0 8px 32px rgba(31, 38, 135, 0.15)',
-                'glass-hover': '0 12px 40px rgba(31, 38, 135, 0.25)',
-                'glass-sm': '0 4px 16px rgba(31, 38, 135, 0.1)',
+            // Spacing System: 8px grid
+            spacing: {
+                "0": "0px",
+                "1": "4px",   // 0.25rem
+                "2": "8px",   // 0.5rem
+                "3": "12px",  // 0.75rem
+                "4": "16px",  // 1rem
+                "5": "20px",  // 1.25rem
+                "6": "24px",  // 1.5rem
+                "7": "28px",  // 1.75rem
+                "8": "32px",  // 2rem
+                "9": "36px",  // 2.25rem
+                "10": "40px", // 2.5rem
+                "11": "44px", // 2.75rem
+                "12": "48px", // 3rem
+                "14": "56px", // 3.5rem
+                "16": "64px", // 4rem
+                "20": "80px", // 5rem
+                "24": "96px", // 6rem
+                "28": "112px",// 7rem
+                "32": "128px",// 8rem
+                "36": "144px",// 9rem
+                "40": "160px",// 10rem
+                "44": "176px",// 11rem
+                "48": "192px",// 12rem
+                "52": "208px",// 13rem
+                "56": "224px",// 14rem
+                "60": "240px",// 15rem
+                "64": "256px",// 16rem
+                "72": "288px",// 18rem
+                "80": "320px",// 20rem
+                "96": "384px",// 24rem
+                // Custom larger spacing for intentional breathing room
+                "100": "400px", // 25rem
+                "120": "480px", // 30rem
+                "160": "640px", // 40rem
             },
-            animation: {
-                'gradient': 'gradientShift 15s ease infinite',
-                'float': 'float 6s ease-in-out infinite',
-                'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+            // Border System: Subtle and refined
+            borderRadius: {
+                lg: "var(--radius)",
+                md: "calc(var(--radius) - 2px)",
+                sm: "calc(var(--radius) - 4px)",
             },
-            keyframes: {
-                gradientShift: {
-                    '0%, 100%': { backgroundPosition: '0% 50%' },
-                    '50%': { backgroundPosition: '100% 50%' },
-                },
-                float: {
-                    '0%, 100%': { transform: 'translateY(0px)' },
-                    '50%': { transform: 'translateY(-20px)' },
-                },
-                pulseSoft: {
-                    '0%, 100%': { opacity: '1' },
-                    '50%': { opacity: '0.8' },
-                },
+            // Motion Principles: Smooth and restrained
+            transitionTimingFunction: {
+                "in-expo": "cubic-bezier(0.95, 0.05, 0.795, 0.035)", // Custom subtle easing
+                "out-expo": "cubic-bezier(0.19, 1, 0.22, 1)",
+                "in-out-expo": "cubic-bezier(0.85, 0, 0.15, 1)",
+                "linear-ease": "cubic-bezier(0.25, 0.25, 0.75, 0.75)", // Linear-inspired easing
+            },
+            transitionDuration: {
+                "DEFAULT": "300ms", // Default transition duration
+                "100": "100ms",
+                "200": "200ms",
+                "300": "300ms",
+                "400": "400ms",
+                "500": "500ms",
+                "700": "700ms",
+                "1000": "1000ms",
             },
         },
     },

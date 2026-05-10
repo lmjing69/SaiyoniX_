@@ -5,7 +5,7 @@ import { sendNewInquiryNotification } from "@/lib/email";
 
 export async function POST(req: Request) {
   try {
-    const clientIP = getClientIP();
+    const clientIP = getClientIP(req);
     const rateLimitCheck = await checkRateLimit(`inquiry:${clientIP}`, 10);
 
     if (!rateLimitCheck.allowed) {
@@ -32,12 +32,15 @@ export async function POST(req: Request) {
       },
     });
 
+    // Fire and forget email notification to improve response speed
     sendNewInquiryNotification({
       service: validation.data.service,
       name: validation.data.name,
       email: validation.data.email,
       phone: validation.data.phone,
       message: validation.data.message,
+    }).catch((emailError) => {
+      console.error("Background email notification failed:", emailError);
     });
 
     return Response.json({ success: true, id: inquiry.id }, { status: 201 });

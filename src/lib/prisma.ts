@@ -6,12 +6,20 @@ const globalForPrisma = globalThis as unknown as {
     prisma?: PrismaClient;
 };
 
+const databaseUrl = process.env.DATABASE_URL;
+
+if (!databaseUrl) {
+  console.warn("DATABASE_URL is not defined. Prisma might fail to connect.");
+}
+
+// Check for Supavisor specific error pattern in logs later if needed
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
+    connectionString: databaseUrl,
     ssl: {
         rejectUnauthorized: false,
     },
 });
+
 const adapter = new PrismaPg(pool);
 
 export const prisma =

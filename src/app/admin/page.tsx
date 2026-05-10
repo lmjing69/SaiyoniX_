@@ -6,25 +6,33 @@ import AdminDashboard from "./AdminDashboardComponent";
 export const dynamic = 'force-dynamic';
 
 export default async function AdminPage() {
+    let inquiries: Inquiry[] | null = null;
+    let error: string | null = null;
+
     try {
-        const inquiries = await prisma.inquiry.findMany({
+        const result = await prisma.inquiry.findMany({
             orderBy: { createdAt: "desc" },
         });
+        inquiries = result;
+    } catch (err) {
+        console.error("Admin page error:", err);
+        const rawError = err instanceof Error ? err.message : String(err);
+        
+        // Specific check for Supabase project lookup error
+        if (rawError.includes("ebkhyiixxbyvgcaalskn") || rawError.includes("tenant/user")) {
+            error = "Database Connection Error: The Supabase project could not be found. Please check if your project is PAUSED or if your PROJECT ID (ebkhyiixxbyvgcaalskn) is correct in DATABASE_URL.";
+        } else {
+            error = rawError;
+        }
+    }
 
-        const serializedInquiries = inquiries.map((inquiry: Inquiry) => ({
-            ...inquiry,
-            createdAt: inquiry.createdAt.toISOString(),
-        }));
-
-        return <AdminDashboard inquiries={serializedInquiries} />;
-    } catch (error) {
-        console.error("Admin page error:", error);
+    if (error) {
         return (
             <div className="min-h-screen bg-slate-50 text-slate-900 p-8 flex flex-col items-center justify-center">
                 <div className="max-w-md w-full bg-white p-8 rounded-2xl shadow-xl border border-slate-200">
                     <h1 className="text-2xl font-bold mb-4 text-red-600">Database Connection Error</h1>
                     <pre className="bg-slate-100 p-4 rounded-xl overflow-auto text-xs text-slate-700 border border-slate-200">
-                        {error instanceof Error ? error.message : String(error)}
+                        {error}
                     </pre>
                     <p className="mt-4 text-slate-500 text-sm">
                         Please check that your DATABASE_URL is correctly set.
@@ -33,4 +41,11 @@ export default async function AdminPage() {
             </div>
         );
     }
+
+    const serializedInquiries = inquiries!.map((inquiry: Inquiry) => ({
+        ...inquiry,
+        createdAt: inquiry.createdAt.toISOString(),
+    }));
+
+    return <AdminDashboard inquiries={serializedInquiries} />;
 }

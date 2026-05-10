@@ -1,15 +1,16 @@
 export const ALLOWED_INQUIRY_SERVICES = [
-  "Modern Web Design",
-  "Full-Stack Web Development",
-  "AI-Engineered Websites",
-  "Custom Web Solutions",
+  "Intelligent Infrastructure",
+  "Connected Ecosystems",
+  "AI-Assisted Workflows",
+  "Enterprise Architecture",
+  "Not sure — need guidance",
 ] as const;
 
 export type InquiryInput = {
   service: string;
   name: string;
   email: string;
-  phone: string;
+  phone: string; // Used as Organization
   message: string;
 };
 
@@ -26,7 +27,6 @@ type ValidationFailure = {
 type ValidationResult = ValidationSuccess | ValidationFailure;
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const PHONE_REGEX = /^\d{10}$/;
 
 function normalizeString(value: unknown): string {
   return typeof value === "string" ? value.trim() : "";
@@ -59,8 +59,8 @@ export function validateInquiryInput(value: unknown): ValidationResult {
     return { success: false, error: "Invalid email address" };
   }
 
-  if (!PHONE_REGEX.test(data.phone)) {
-    return { success: false, error: "Phone number must be exactly 10 digits" };
+  if (data.phone.length > 100) {
+    return { success: false, error: "Organization name must be under 100 characters" };
   }
 
   if (data.message.length < 10 || data.message.length > 2000) {

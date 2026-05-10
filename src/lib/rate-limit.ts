@@ -6,15 +6,28 @@ const LOCKOUTS = [
     15 * 60 * 1000,
 ];
 
-export function getClientIP(): string {
+export function getClientIP(request?: Request): string {
+    if (!request) return "unknown";
+    
+    const forwardedFor = request.headers.get("x-forwarded-for");
+    if (forwardedFor) {
+        return forwardedFor.split(",")[0].trim();
+    }
+    
+    const realIp = request.headers.get("x-real-ip");
+    if (realIp) {
+        return realIp;
+    }
+    
     return "unknown";
 }
 
 export async function checkRateLimit(
     key: string,
     maxAttempts: number,
-    _windowMs: number = 60 * 1000
+    windowMs: number = 60 * 1000
 ): Promise<{ allowed: boolean; remaining: number; locked: boolean; lockoutMs: number; strikeLevel: number }> {
+    void windowMs; // Reserved for future implementation
     const now = new Date();
     const record = await prisma.rateLimitLog.findUnique({ where: { key } });
 

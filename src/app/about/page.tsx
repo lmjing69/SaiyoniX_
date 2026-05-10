@@ -1,254 +1,194 @@
-import MotionFade from "@/components/MotionFade";
-import type { Metadata } from "next";
-import ServiceHoverCard from "@/components/ServiceHoverCard";
+import Link from "next/link";
+import Image from "next/image";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
-export const metadata: Metadata = {
-    title: "About Us",
-    description: "Learn about SaiyoniX, a technology-driven collective focused on secure, intelligent, and scalable digital systems.",
+export const metadata = {
+  title: 'About | SaiyoniX',
+  description: 'The philosophy and people behind SaiyoniX.',
 };
 
-export default function About() {
-    return (
-        <div className="min-h-screen">
-            {/* HERO SECTION - Enhanced with stronger gradient and better spacing */}
-            <section className="relative py-40 px-6 overflow-hidden">
-                <div className="absolute inset-0 bg-white/30 backdrop-blur-sm z-0"></div>
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808020_1px,transparent_1px),linear-gradient(to_bottom,#80808020_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none"></div>
-                <div className="max-w-6xl mx-auto relative z-10">
-                    <MotionFade>
-                        <h1 className="text-6xl md:text-7xl font-bold text-slate-900 mb-8 tracking-tight leading-tight">
-                            About SaiyoniX
-                        </h1>
-                        <p className="text-2xl text-blue-700 font-bold mb-8 tracking-tight">
-                            Building the Future, One System at a Time
-                        </p>
-                        <p className="text-slate-700 leading-loose text-xl max-w-3xl">
-                            SaiyoniX is a technology-driven collective focused on building
-                            intelligent, secure, and scalable digital systems.
-                        </p>
-                    </MotionFade>
-                </div>
-            </section>
-
-            {/* MAIN CONTENT */}
-            <section className="max-w-6xl mx-auto px-6">
-                {/* ORIGIN STORY - Better spacing */}
-                <div className="py-32">
-                    <MotionFade>
-                        <p className="text-slate-600 leading-loose text-lg mb-8">
-                            The name <span className="text-slate-900 font-bold">SaiyoniX</span> is
-                            inspired by the Manipuri word{" "}
-                            <span className="text-slate-900 font-bold">Saiyon</span>, representing
-                            transformation, evolution, and growth. In a modern technology context,
-                            this philosophy reflects our commitment to disruptive innovation and
-                            continuous improvement.
-                        </p>
-
-                        <p className="text-slate-600 leading-loose text-lg">
-                            We believe technology should never remain static. Every system we build
-                            is designed to adapt, scale, and evolve alongside real-world needs.
-                        </p>
-                    </MotionFade>
-                </div>
-
-                {/* MISSION & VISION - Enhanced with solid backgrounds and accent borders */}
-                <div className="grid md:grid-cols-2 gap-10 mb-32">
-                    <MotionFade delay={0.1}>
-                        <div className="relative bg-white rounded-2xl p-12 shadow-2xl border-l-8 border-blue-600 group hover:shadow-3xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col">
-                            <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                                </svg>
-                            </div>
-                            <h2 className="text-3xl font-bold text-slate-900 mb-6 tracking-tight">
-                                Our Mission
-                            </h2>
-                            <p className="text-slate-700 leading-loose text-lg">
-                                To engineer intelligent, secure, and future-ready digital systems
-                                while fostering a culture of learning, execution, and technical
-                                excellence.
-                            </p>
-                        </div>
-                    </MotionFade>
-
-                    <MotionFade delay={0.2}>
-                        <div className="relative bg-white rounded-2xl p-12 shadow-2xl border-l-8 border-purple-600 group hover:shadow-3xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col">
-                            <div className="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                </svg>
-                            </div>
-                            <h2 className="text-3xl font-bold text-slate-900 mb-6 tracking-tight">
-                                Our Vision
-                            </h2>
-                            <p className="text-slate-700 leading-loose text-lg">
-                                To evolve SaiyoniX into a recognized technology collective that
-                                delivers impactful solutions and shapes how modern systems are
-                                built, secured, and scaled.
-                            </p>
-                        </div>
-                    </MotionFade>
-                </div>
-
-                {/* WHO WE ARE - Better spacing and typography */}
-                <section className="mb-32">
-                    <MotionFade>
-                        <h2 className="text-5xl font-bold text-slate-900 mb-8 tracking-tight">
-                            Who We Are
-                        </h2>
-
-                        <p className="text-slate-600 leading-loose text-xl mb-6">
-                            SaiyoniX is a technology-driven collective focused on building
-                            intelligent, secure, and scalable digital systems. We design and
-                            develop websites across all categories, tailored to real-world
-                            business and operational needs.
-                        </p>
-
-                        <p className="text-slate-600 leading-loose text-xl">
-                            Our work is guided by a simple belief — technology should never remain
-                            static. Every system we build is designed to adapt, scale, and evolve
-                            alongside changing requirements.
-                        </p>
-                    </MotionFade>
-                </section>
-
-                {/* WHAT WE BUILD - Improved grid and spacing */}
-                <section className="mb-32">
-                    <MotionFade>
-                        <h2 className="text-5xl font-bold text-slate-900 mb-6 tracking-tight">
-                            What We Build
-                        </h2>
-                        <p className="text-slate-600 leading-loose text-xl mb-16">
-                            From concept to deployment, we craft digital experiences that drive results.
-                        </p>
-                    </MotionFade>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {[
-                            { title: "Business Websites", img: "/build_business_website_1770580729881.png" },
-                            { title: "Portfolio & Personal Platforms", img: "/build_portfolio_platform_1770580746502.png" },
-                            { title: "Web Applications", img: "/build_web_application_1770580763425.png" },
-                            { title: "Admin Dashboards", img: "/build_admin_dashboard_1770580824450.png" },
-                            { title: "Secure Backend Systems", img: "/build_secure_backend_1770580871896.png" },
-                            { title: "API-Driven Platforms", img: "/build_api_platform_1770580902825.png" },
-                            { title: "Scalable Frontends", img: "/build_scalable_frontend_1770580918762.png" },
-                            { title: "Custom Client Solutions", img: "/build_custom_solution_1770580947858.png" },
-                        ].map((item, index) => (
-                            <MotionFade key={item.title} delay={index * 0.05}>
-                                <ServiceHoverCard
-                                    title={item.title}
-                                    imageSrc={item.img}
-                                />
-                            </MotionFade>
-                        ))}
-                    </div>
-                </section>
-
-                {/* BUILT FOR SCALE - Light theme version */}
-                <section className="mb-32">
-                    <MotionFade>
-                        <div className="bg-white rounded-3xl p-16 relative overflow-hidden shadow-2xl border-l-8 border-blue-600">
-                            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-size-[24px_24px]"></div>
-                            <div className="relative z-10">
-                                <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-8">
-                                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                    </svg>
-                                </div>
-                                <h2 className="text-5xl font-bold mb-8 tracking-tight text-slate-900">
-                                    Built for Scale
-                                </h2>
-
-                                <p className="text-slate-700 leading-loose text-xl mb-6">
-                                    SaiyoniX systems are engineered with long-term growth in mind. From
-                                    the earliest design decisions to deployment architecture, we
-                                    prioritize adaptability, performance, and maintainability.
-                                </p>
-
-                                <p className="text-slate-700 leading-loose text-xl">
-                                    As client needs evolve, our systems evolve with them — reducing
-                                    rebuild costs, improving longevity, and supporting future expansion.
-                                </p>
-                            </div>
-                        </div>
-                    </MotionFade>
-                </section>
-
-                {/* BEHIND THE SCENES - Enhanced with white background and better spacing */}
-                <section className="mb-32">
-                    <MotionFade>
-                        <h2 className="text-5xl font-bold text-slate-900 mb-8 tracking-tight">
-                            Behind the Scenes
-                        </h2>
-
-                        <div className="bg-white rounded-3xl p-12 border-2 border-slate-300 shadow-xl">
-                            <p className="text-slate-700 leading-loose mb-12 text-xl">
-                                SaiyoniX operates as a technology collective, built on collaboration,
-                                innovation, and a deep commitment to technical excellence. We&apos;re not just
-                                developers we&apos;re problem solvers, architects, and engineers who believe
-                                in building systems that last.
-                            </p>
-
-                            <div className="grid md:grid-cols-3 gap-10">
-                                <MotionFade delay={0.1}>
-                                    <div className="bg-blue-50 rounded-2xl p-8 border-2 border-blue-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
-                                        <div className="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                            <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                                            </svg>
-                                        </div>
-                                        <h3 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">
-                                            Our Process
-                                        </h3>
-                                        <p className="text-slate-700 leading-relaxed">
-                                            Every project begins with understanding the problem. We map requirements,
-                                            design architecture, and iterate rapidly—ensuring what we build aligns
-                                            with real-world needs.
-                                        </p>
-                                    </div>
-                                </MotionFade>
-
-                                <MotionFade delay={0.2}>
-                                    <div className="bg-purple-50 rounded-2xl p-8 border-2 border-purple-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
-                                        <div className="w-14 h-14 bg-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                            <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                                            </svg>
-                                        </div>
-                                        <h3 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">
-                                            Our Culture
-                                        </h3>
-                                        <p className="text-slate-700 leading-relaxed">
-                                            We operate lean, move fast, and prioritize learning. Continuous
-                                            improvement isn&apos;t a slogan, it&apos;s how we work. We challenge assumptions
-                                            and embrace better solutions.
-                                        </p>
-                                    </div>
-                                </MotionFade>
-
-                                <MotionFade delay={0.3}>
-                                    <div className="bg-green-50 rounded-2xl p-8 border-2 border-green-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group">
-                                        <div className="w-14 h-14 bg-green-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                            <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                            </svg>
-                                        </div>
-                                        <h3 className="text-2xl font-bold text-slate-900 mb-4 tracking-tight">
-                                            Our Commitment
-                                        </h3>
-                                        <p className="text-slate-700 leading-relaxed">
-                                            Security, scalability, and maintainability aren&apos;t optional. Every line
-                                            of code, every system we design, and every decision we make is guided
-                                            by these principles.
-                                        </p>
-                                    </div>
-                                </MotionFade>
-                            </div>
-                        </div>
-                    </MotionFade>
-                </section>
-            </section>
+export default function AboutPage() {
+  return (
+    <>
+      <div className="pt-[160px] pb-[100px] max-w-[1360px] mx-auto px-[80px]">
+        <ScrollReveal className="inline-flex items-center gap-[10px] font-mono text-[10.5px] tracking-[.16em] uppercase text-(--amber) mb-[20px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-(--amber)">
+          About Saiyonix
+        </ScrollReveal>
+        
+        <ScrollReveal delayClass="d1" className="font-display text-[clamp(42px,5vw,72px)] font-extrabold leading-[1.04] tracking-[-.035em] mt-[8px] mb-[60px] max-w-[720px]">
+          We are not building apps.<br />We are engineering the future.
+        </ScrollReveal>
+        
+        <div className="grid grid-cols-[1fr_1fr] gap-[80px]">
+          <div>
+            <ScrollReveal className="flex flex-wrap gap-[10px] mb-[32px]">
+              <span className="bg-(--bg-2) border border-(--border) rounded-[6px] px-[12px] py-[6px] font-mono text-[10.5px] tracking-[.06em] uppercase text-(--text-3)">Intelligent Systems</span>
+              <span className="bg-(--bg-2) border border-(--border) rounded-[6px] px-[12px] py-[6px] font-mono text-[10.5px] tracking-[.06em] uppercase text-(--text-3)">Enterprise-grade</span>
+              <span className="bg-(--bg-2) border border-(--border) rounded-[6px] px-[12px] py-[6px] font-mono text-[10.5px] tracking-[.06em] uppercase text-(--text-3)">Precision Engineering</span>
+            </ScrollReveal>
+            
+            <ScrollReveal delayClass="d1" className="text-[16px] text-(--text-2) leading-[1.72] mb-[20px]">
+              Saiyonix represents a singular idea: that the world&apos;s most critical systems &mdash; <strong className="font-semibold text-(--text-1)">schools, hospitals, governments, enterprises</strong> &mdash; deserve the same level of engineering precision and intelligence that powers the most advanced technology companies on earth.
+            </ScrollReveal>
+            
+            <ScrollReveal delayClass="d2" className="text-[16px] text-(--text-2) leading-[1.72] mb-[20px]">
+              We are a systems engineering company at our core. We don&apos;t arrive with templates or pre-packaged solutions. We arrive with <strong className="font-semibold text-(--text-1)">architectural thinking, engineering precision, and an obsession</strong> with making complex systems simpler, smarter, and more connected.
+            </ScrollReveal>
+            
+            <ScrollReveal delayClass="d3" className="text-[16px] text-(--text-2) leading-[1.72] mb-[32px]">
+              Our work is defined by restraint, intentionality, and excellence. Every system we touch becomes more intelligent after we leave it.
+            </ScrollReveal>
+            
+            <ScrollReveal delayClass="d4">
+              <Link href="/contact" className="bg-(--amber) text-[#060608] rounded-[8px] py-[13px] px-[28px] font-body text-[14px] font-semibold inline-flex items-center gap-[8px] transition-[background,transform] duration-[150ms] hover:bg-(--amber-light) hover:-translate-y-[1px] mt-[8px]">
+                Work with us →
+              </Link>
+            </ScrollReveal>
+          </div>
+          
+          <ScrollReveal className="flex flex-col gap-[16px]">
+            {/* Card 1 */}
+            <div className="bg-(--bg-2) border border-(--border) rounded-[12px] p-[28px] transition-colors duration-200 hover:border-(--border-md) hover:bg-(--bg-3)">
+              <div className="w-[36px] h-[36px] bg-(--amber-bg) border border-(--amber-rim) rounded-[8px] flex items-center justify-center text-[16px] text-(--amber) mb-[16px]">⬡</div>
+              <div className="font-display text-[17px] font-bold tracking-[-.015em] mb-[8px]">Systems Thinking</div>
+              <div className="text-[13.5px] text-(--text-3) leading-[1.6]">Every solution is designed as part of a larger architecture, never in isolation.</div>
+            </div>
+            {/* Card 2 */}
+            <div className="bg-(--bg-2) border border-(--border) rounded-[12px] p-[28px] transition-colors duration-200 hover:border-(--border-md) hover:bg-(--bg-3)">
+              <div className="w-[36px] h-[36px] bg-(--amber-bg) border border-(--amber-rim) rounded-[8px] flex items-center justify-center text-[16px] text-(--amber) mb-[16px]">◈</div>
+              <div className="font-display text-[17px] font-bold tracking-[-.015em] mb-[8px]">Deep Integration</div>
+              <div className="text-[13.5px] text-(--text-3) leading-[1.6]">We connect the disconnected. APIs, pipelines, protocols — everything speaks.</div>
+            </div>
+            {/* Card 3 */}
+            <div className="bg-(--bg-2) border border-(--border) rounded-[12px] p-[28px] transition-colors duration-200 hover:border-(--border-md) hover:bg-(--bg-3)">
+              <div className="w-[36px] h-[36px] bg-(--amber-bg) border border-(--amber-rim) rounded-[8px] flex items-center justify-center text-[16px] text-(--amber) mb-[16px]">⚙</div>
+              <div className="font-display text-[17px] font-bold tracking-[-.015em] mb-[8px]">Intelligent Automation</div>
+              <div className="text-[13.5px] text-(--text-3) leading-[1.6]">We reduce operational friction through precision-engineered automation layers.</div>
+            </div>
+            {/* Card 4 */}
+            <div className="bg-(--bg-2) border border-(--border) rounded-[12px] p-[28px] transition-colors duration-200 hover:border-(--border-md) hover:bg-(--bg-3)">
+              <div className="w-[36px] h-[36px] bg-(--amber-bg) border border-(--amber-rim) rounded-[8px] flex items-center justify-center text-[16px] text-(--amber) mb-[16px]">▦</div>
+              <div className="font-display text-[17px] font-bold tracking-[-.015em] mb-[8px]">Enterprise Precision</div>
+              <div className="text-[13.5px] text-(--text-3) leading-[1.6]">Built to specification. Tested to limits. Deployed to last.</div>
+            </div>
+          </ScrollReveal>
         </div>
-    );
+      </div>
+
+      {/* PHILOSOPHY */}
+      <div className="bg-(--bg-2) border-y border-(--border) mt-[60px]">
+        <div className="max-w-[1360px] mx-auto px-8 md:px-[80px] py-[100px]">
+          <div className="grid lg:grid-cols-[1fr_450px] gap-[80px] items-center">
+            <div>
+              <ScrollReveal className="inline-flex items-center gap-[10px] font-mono text-[10.5px] tracking-[.16em] uppercase text-(--amber) mb-[32px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-(--amber)">
+                Our Mission
+              </ScrollReveal>
+              
+              <ScrollReveal delayClass="d1" className="font-display text-[42px] md:text-[52px] font-extrabold leading-[1.05] tracking-[-.02em] mb-[32px]">
+                Making complex systems<br/>
+                <span className="text-(--amber)">simpler, smarter,</span><br/>
+                and connected.
+              </ScrollReveal>
+              
+              <div className="max-w-[640px]">
+                <ScrollReveal delayClass="d2" className="text-[18px] text-(--text-2) leading-[1.72] mb-[24px]">
+                  The deeper meaning of Saiyonix is this: the world is made of systems — and <strong className="font-semibold text-(--text-1)">most of them are failing silently</strong>. Not with catastrophic collapses, but with daily friction, wasted capacity, and missed potential.
+                </ScrollReveal>
+                <ScrollReveal delayClass="d3" className="text-[18px] text-(--text-2) leading-[1.72]">
+                  We measure success not by lines of code shipped or features launched, but by the <strong className="font-semibold text-(--text-1)">reduction of operational chaos</strong> in the organizations we work with. Every engagement ends with systems that breathe easier, operate smarter, and scale further.
+                </ScrollReveal>
+              </div>
+            </div>
+
+            <ScrollReveal delayClass="d4" className="relative group hidden lg:block">
+              <div className="absolute -inset-4 bg-(--amber)/5 blur-[60px] rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden border border-white/10 shadow-2xl">
+                <Image 
+                  src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" 
+                  fill
+                  sizes="450px"
+                  priority
+                  className="w-full h-full object-cover brightness-75 saturate-[0.8] group-hover:scale-105 transition-transform duration-1000"
+                  alt="Connected digital infrastructure"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-bg via-transparent to-transparent opacity-60" />
+                <div className="absolute bottom-8 left-8 right-8 p-6 backdrop-blur-md bg-white/5 border border-white/10 rounded-[16px]">
+                  <div className="font-mono text-[9px] tracking-[.2em] uppercase text-(--amber) mb-2">Systems Architecture</div>
+                  <div className="text-[13px] text-white/90 font-medium leading-snug">Visualizing the silent efficiency of a perfectly synchronized network.</div>
+                </div>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
+      </div>
+
+      {/* SYSTEMS PORTFOLIO */}
+      <div className="max-w-[1360px] mx-auto px-8 md:px-[80px] py-[120px]">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-[80px] gap-8">
+          <div className="max-w-[600px]">
+            <ScrollReveal className="inline-flex items-center gap-[10px] font-mono text-[10.5px] tracking-[.16em] uppercase text-(--amber) mb-[20px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-(--amber)">
+              Internal Builds & Deployments
+            </ScrollReveal>
+            <ScrollReveal delayClass="d1" className="font-display text-[32px] md:text-[44px] font-extrabold leading-[1.1] tracking-tight">
+              Real systems, engineered for <span className="text-(--amber)">tangible performance.</span>
+            </ScrollReveal>
+          </div>
+          <ScrollReveal delayClass="d2" className="text-[14px] text-(--text-3) max-w-[320px] md:text-right leading-relaxed">
+            A selection of architectures we have architected and deployed into production environments.
+          </ScrollReveal>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            { t: "Secure Backend Core", p: "High-concurrency data processing engine with multi-layer encryption.", img: "https://images.unsplash.com/photo-1597733336794-12d05021d510?q=80&w=2000&auto=format&fit=crop" },
+            { t: "Enterprise API Platform", p: "Scalable middleware connecting distributed legacy systems.", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2000&auto=format&fit=crop" },
+            { t: "Operational Dashboard", p: "Real-time monitoring system for infrastructure health and sync status.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop" },
+          ].map((item, i) => (
+            <ScrollReveal 
+              key={item.t} 
+              delayClass={i === 0 ? "" : i === 1 ? "d1" : "d2"}
+              className="group"
+            >
+              <div className="relative aspect-[16/10] rounded-[20px] overflow-hidden border border-white/10 bg-(--bg-1) mb-6">
+                <Image 
+                  src={item.img} 
+                  alt={item.t} 
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="w-full h-full object-cover brightness-[0.5] contrast-[1.2] saturate-[0.4] group-hover:brightness-[0.8] group-hover:saturate-[0.8] transition-all duration-1000"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-bg via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-[20px] pointer-events-none" />
+              </div>
+              <h3 className="font-display text-[18px] font-bold text-(--text-1) mb-2">{item.t}</h3>
+              <p className="text-[13.5px] text-(--text-3) leading-relaxed max-w-[320px]">{item.p}</p>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div className="max-w-[1360px] mx-auto px-[80px] pb-[120px]">
+        <ScrollReveal className="bg-(--bg-2) border border-(--border) rounded-[24px] p-[64px] text-center relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-[2px] bg-[linear-gradient(90deg,transparent,var(--amber),transparent)] opacity-40" />
+          <div className="flex justify-center mb-[20px]">
+            <div className="inline-flex items-center justify-center gap-[10px] font-mono text-[10.5px] tracking-[.16em] uppercase text-(--amber) before:content-[''] before:w-[22px] before:h-[1px] before:bg-(--amber) after:content-[''] after:w-[22px] after:h-[1px] after:bg-(--amber)">
+              Join us
+            </div>
+          </div>
+          <h2 className="font-display text-[44px] font-bold leading-[1.05] tracking-[-.025em] mb-[20px]">
+            Ready to engineer<br/>something real?
+          </h2>
+          <p className="text-[16px] text-(--text-2) leading-[1.72] max-w-[500px] mx-auto mb-[36px]">
+            Whether you&apos;re an enterprise, an institution, or a builder with a systems-level problem — we want to hear from you.
+          </p>
+          <div className="flex justify-center">
+            <Link href="/contact" className="bg-(--amber) text-[#060608] rounded-[8px] py-[13px] px-[28px] font-body text-[14px] font-semibold inline-flex items-center gap-[8px] transition-[background,transform] duration-[150ms] hover:bg-(--amber-light) hover:-translate-y-[1px]">
+              Start the conversation →
+            </Link>
+          </div>
+        </ScrollReveal>
+      </div>
+    </>
+  );
 }

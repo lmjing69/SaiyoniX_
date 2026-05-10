@@ -1,100 +1,65 @@
-import React from "react";
-import MotionFade from "@/components/MotionFade";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Privacy Policy",
-    description: "Read our Privacy Policy to understand how SaiyoniX collects, uses, and protects your personal information.",
+  title: "Privacy Policy",
+  description: "Saiyonix privacy policy detailing how we collect, use, and protect your data.",
 };
 
-export default function PrivacyPolicy() {
-    return (
-        <section className="bg-black text-gray-300 min-h-screen py-24 px-6">
-            <div className="max-w-4xl mx-auto space-y-8">
-                <MotionFade>
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                        Privacy Policy
-                    </h1>
-                    <p className="text-sm text-gray-500">
-                        Last Updated: {new Date().toLocaleDateString()}
-                    </p>
-                </MotionFade>
+export default function PrivacyPolicyPage() {
+  const sections = [
+    {
+      title: "Information We Collect",
+      body: "We collect information you provide directly to us — such as your name, email address, organization name, and project details — when you fill out our contact form, subscribe to communications, or engage with our services. We also collect limited technical information automatically, including IP addresses, browser type, and page views, to improve our platform experience.",
+    },
+    {
+      title: "How We Use Your Information",
+      body: "We use collected information to respond to your inquiries, deliver our engineering and consulting services, improve our website and tools, and communicate relevant updates. We never sell, rent, or share your personal data with third parties for their marketing purposes.",
+    },
+    {
+      title: "Data Security",
+      body: "We implement industry-standard security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. All data transmissions are encrypted using TLS 1.3, and our internal systems follow zero-trust architecture principles.",
+    },
+    {
+      title: "Cookies & Analytics",
+      body: "We use minimal, privacy-respecting analytics to understand how visitors interact with our website. We do not use third-party advertising cookies. Any analytics cookies we deploy are first-party and can be opted out of through your browser settings.",
+    },
+    {
+      title: "Your Rights",
+      body: "You have the right to access, correct, or delete your personal data at any time. You may also request a copy of all data we hold about you. To exercise any of these rights, contact us at privacy@saiyonix.com.",
+    },
+    {
+      title: "Contact",
+      body: "For any privacy-related questions or concerns, contact our team at privacy@saiyonix.com. We aim to respond to all privacy inquiries within 48 hours.",
+    },
+  ];
 
-                <div className="prose prose-invert max-w-none space-y-6">
-                    <p className="leading-relaxed">
-                        At SaiyoniX, we prioritize your privacy and are committed to protecting
-                        the personal information you share with us. This Privacy Policy outlines
-                        how we collect, use, and safeguard your data when you visit our website
-                        or use our services.
-                    </p>
+  return (
+    <div className="bg-black min-h-screen">
+      <div className="mx-auto max-w-[760px] px-6 pt-40 md:pt-48 pb-24 md:pb-32">
+        <div className="inline-flex items-center gap-2.5 text-[10.5px] tracking-[0.16em] uppercase text-[#f0a830] font-mono mb-5">
+          <span className="w-[22px] h-[1px] bg-[#f0a830]" />
+          Legal
+        </div>
+        <h1 className="text-[clamp(34px,4.5vw,56px)] font-extrabold tracking-[-0.03em] leading-[1.06] mb-4">
+          Privacy Policy
+        </h1>
+        <p className="text-[14px] text-white/[0.26] mb-16">
+          Last updated: January 2024
+        </p>
 
-                    <h2 className="text-2xl font-semibold text-white mt-8">
-                        1. Information We Collect
-                    </h2>
-                    <p>
-                        We may collect personal information that you voluntarily provide to us
-                        when you express an interest in obtaining information about us or our
-                        products and services, when you participate in activities on the website,
-                        or otherwise when you contact us.
-                    </p>
-                    <ul className="list-disc pl-5 space-y-2">
-                        <li>
-                            <strong>Personal Data:</strong> Name, email address, phone number, and
-                            other contact details.
-                        </li>
-                        <li>
-                            <strong>Usage Data:</strong> Information automatically collected regarding
-                            your device, browser, IP address, and how you interact with our website.
-                        </li>
-                    </ul>
-
-                    <h2 className="text-2xl font-semibold text-white mt-8">
-                        2. How We Use Your Information
-                    </h2>
-                    <p>
-                        We use the information we collect or receive:
-                    </p>
-                    <ul className="list-disc pl-5 space-y-2">
-                        <li>To facilitate account creation and logon processes.</li>
-                        <li>To send you marketing and promotional communications.</li>
-                        <li>To respond to user inquiries/offer support to users.</li>
-                        <li>To protect our Services.</li>
-                    </ul>
-
-                    <h2 className="text-2xl font-semibold text-white mt-8">
-                        3. Sharing Your Information
-                    </h2>
-                    <p>
-                        We only share information with your consent, to comply with laws, to
-                        provide you with services, to protect your rights, or to fulfill
-                        business obligations. We do not sell your personal data to third parties.
-                    </p>
-
-                    <h2 className="text-2xl font-semibold text-white mt-8">
-                        4. Data Security
-                    </h2>
-                    <p>
-                        We implement appropriate technical and organizational security measures
-                        designed to protect the security of any personal information we process.
-                        However, please also remember that we cannot guarantee that the internet
-                        itself is 100% secure.
-                    </p>
-
-                    <h2 className="text-2xl font-semibold text-white mt-8">
-                        5. Contact Us
-                    </h2>
-                    <p>
-                        If you have questions or comments about this policy, you may email us at{" "}
-                        <a
-                            href="mailto:contact@saiyonix.in"
-                            className="text-cyan-400 hover:underline"
-                        >
-                            contact@saiyonix.in
-                        </a>
-                        .
-                    </p>
-                </div>
+        <div className="flex flex-col gap-12">
+          {sections.map((section) => (
+            <div key={section.title}>
+              <h2 className="text-[18px] font-bold tracking-[-0.02em] mb-3">
+                {section.title}
+              </h2>
+              <p className="text-[15px] text-white/50 leading-[1.78]">
+                {section.body}
+              </p>
             </div>
-        </section>
-    );
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }
