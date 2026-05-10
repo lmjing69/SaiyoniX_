@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { motion, AnimatePresence } from "motion/react";
 
 import Image from "next/image";
+import Logo from "@/components/ui/Logo";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -64,14 +65,8 @@ export function Navbar() {
 
       <nav className={`fixed top-0 left-0 right-0 z-500 px-6 md:px-14 py-5 md:py-6 flex items-center justify-between transition-all duration-500 ${pathname === "/" ? "bg-transparent" : "bg-bg/80 backdrop-blur-3xl border-b border-white/5"}`}>
         {/* Logo */}
-        <button
-          onClick={() => navigate("/")}
-          className="flex items-center gap-3 font-display font-bold text-[13.5px] tracking-widest text-(--text-1) hover:text-(--text-0) transition-colors"
-        >
-          <div className="w-[50px] h-[50px] md:w-[65px] md:h-[65px] relative flex items-center justify-center -ml-2">
-            <Image src="/logo.png" alt="SaiyoniX Logo" fill className="object-contain mix-blend-screen invert hue-rotate-180 opacity-90" priority />
-          </div>
-          SAIYONIX
+        <button onClick={() => navigate("/")} className="relative z-501 hover:scale-105 transition-transform">
+          <Logo size={65} />
         </button>
 
         {/* Desktop pill nav */}
