@@ -136,7 +136,7 @@ export function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 + NAV_LINKS.length * 0.1, duration: 0.5 }}
               onClick={() => navigate("/contact")}
-              className="mt-4 bg-(--amber) text-[#040407] px-10 py-4 rounded-xl font-bold text-[16px]"
+              className="mt-4 bg-(--amber) text-bg px-10 py-4 rounded-xl font-bold text-[16px]"
             >
               Contact Us →
             </motion.button>
