@@ -9,9 +9,11 @@ interface MagneticButtonProps {
   className?: string;
   onClick?: () => void;
   href?: string;
+  disabled?: boolean;
+  type?: "button" | "submit" | "reset";
 }
 
-export default function MagneticButton({ children, className, onClick, href }: MagneticButtonProps) {
+export default function MagneticButton({ children, className, onClick, href, disabled, type }: MagneticButtonProps) {
   const ref = useRef<HTMLButtonElement | HTMLAnchorElement | null>(null);
 
   const onMouseMove = (e: React.MouseEvent) => {
@@ -61,6 +63,8 @@ export default function MagneticButton({ children, className, onClick, href }: M
       onMouseMove={onMouseMove} 
       onMouseLeave={onMouseLeave}
       onClick={onClick}
+      disabled={disabled}
+      type={type}
     >
       {children}
     </button>
