@@ -48,14 +48,21 @@ export default function Home() {
     <>
       {/* ── HERO ── */}
       <section className="relative h-screen flex items-center overflow-hidden grid-overlay">
-        <Image
-          src="https://images.unsplash.com/photo-1639322537228-f710d846310a"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover brightness-[0.18] saturate-[0.5] -z-20"
-          alt="Technical infrastructure background"
-        />
+        <motion.div 
+          initial={{ scale: 1.05 }}
+          animate={{ scale: 1.15, x: ["0%", "-1.5%", "0%"], y: ["0%", "-1%", "0%"] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute inset-0 -z-20 overflow-hidden"
+        >
+          <Image
+            src="https://images.unsplash.com/photo-1639322537228-f710d846310a"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover brightness-[0.18] saturate-[0.5]"
+            alt="Technical infrastructure background"
+          />
+        </motion.div>
         <div className="absolute inset-0 bg-hero-gradient pointer-events-none -z-10" />
         <div className="absolute inset-0 bg-linear-to-t from-bg via-transparent to-transparent opacity-60 -z-10" />
         
@@ -64,7 +71,7 @@ export default function Home() {
 
         <div className="w-full h-full px-4 sm:px-8 lg:px-24 grid lg:grid-cols-[1.2fr_1fr] items-center relative z-10 gap-12 lg:gap-0">
           {/* Left Column: Content */}
-          <div className="flex flex-col items-start text-left max-w-[800px]">
+          <div className="flex flex-col items-start text-left max-w-[800px] pt-28 lg:pt-0 w-full">
             <motion.div
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
@@ -115,7 +122,7 @@ export default function Home() {
           </div>
 
           {/* Right Column: 3D Globe */}
-          <div className="relative w-full h-[60vw] lg:h-full flex items-center justify-center lg:hidden lg:!flex">
+          <div className="relative w-full h-full hidden lg:flex items-center justify-center">
             <div className="w-[100%] lg:w-[120%] aspect-square relative group">
               <EarthGlobe />
               {/* Interaction Hint */}

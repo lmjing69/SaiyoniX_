@@ -27,7 +27,7 @@ export default function Logo({ className = "", size = 56 }: LogoProps) {
             alt="SAIYONIX Logo" 
             fill
             sizes="56px"
-            className="object-contain mix-blend-screen brightness-110 contrast-125"
+            className="object-contain"
             priority
           />
         </div>
