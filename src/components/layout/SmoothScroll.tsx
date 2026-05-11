@@ -14,6 +14,8 @@ export default function SmoothScroll({
     const lenis = new Lenis({
       lerp: 0.08,
       smoothWheel: true,
+      smoothTouch: true, // Enable smooth scrolling on touch devices
+      syncTouch: true,
     });
 
     lenis.on("scroll", ScrollTrigger.update);

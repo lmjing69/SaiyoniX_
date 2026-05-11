@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { motion, useAnimationFrame } from "motion/react";
+import { useEffect, useRef } from "react";
+import { motion } from "motion/react";
 
 const CODE_LINES = [
   { text: "const", color: "#c678dd" }, { text: " infrastructure ", color: "#e5c07b" }, { text: "= ", color: "#56b6c2" }, { text: "new ", color: "#c678dd" }, { text: "SaiyonixCloud();", color: "#61afef" },
@@ -36,21 +36,16 @@ const SCROLL_DATA = [
 
 export default function BackgroundCode() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [yPos, setYPos] = useState(0);
-
-  useAnimationFrame((time) => {
-    // Scroll up by 0.5px per frame approx
-    setYPos((prev) => (prev - 0.4) % 400); 
-  });
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-[0.2] flex font-mono text-[11px] pt-20">
       <div className="flex w-full gap-24 px-12">
         {[0, 1, 2, 3].map((colIndex) => (
-          <div 
+          <motion.div 
             key={colIndex} 
             className="flex-1 flex flex-col gap-2"
-            style={{ transform: `translateY(${yPos}px)` }}
+            animate={{ y: [0, -400] }}
+            transition={{ ease: "linear", duration: 16, repeat: Infinity }}
           >
             {/* Double the array to create seamless loop */}
             {[...SCROLL_DATA, ...SCROLL_DATA, ...SCROLL_DATA].map((line, lineIdx) => (
@@ -62,7 +57,7 @@ export default function BackgroundCode() {
                 ))}
               </div>
             ))}
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
