@@ -10,7 +10,8 @@ export type InquiryInput = {
   service: string;
   name: string;
   email: string;
-  phone: string; // Used as Organization
+  phone: string;
+  organization: string;
   message: string;
 };
 
@@ -27,6 +28,7 @@ type ValidationFailure = {
 type ValidationResult = ValidationSuccess | ValidationFailure;
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PHONE_REGEX = /^\+?[\d\s-]{8,20}$/;
 
 function normalizeString(value: unknown): string {
   return typeof value === "string" ? value.trim() : "";
@@ -44,6 +46,7 @@ export function validateInquiryInput(value: unknown): ValidationResult {
     name: normalizeString(record.name),
     email: normalizeString(record.email).toLowerCase(),
     phone: normalizeString(record.phone),
+    organization: normalizeString(record.organization),
     message: normalizeString(record.message),
   };
 
@@ -59,7 +62,11 @@ export function validateInquiryInput(value: unknown): ValidationResult {
     return { success: false, error: "Invalid email address" };
   }
 
-  if (data.phone.length > 100) {
+  if (!data.phone || !PHONE_REGEX.test(data.phone)) {
+    return { success: false, error: "Invalid mobile number. Use 8-20 digits (e.g. +91 98765 43210)" };
+  }
+
+  if (data.organization && data.organization.length > 100) {
     return { success: false, error: "Organization name must be under 100 characters" };
   }
 

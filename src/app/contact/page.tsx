@@ -45,9 +45,10 @@ export default function ContactPage() {
     const formData = new FormData(e.currentTarget);
     const payload = {
       name: formData.get("name"),
-      phone: formData.get("organization"), 
+      phone: formData.get("phone"),
+      organization: formData.get("organization"),
       email: formData.get("email"),
-      service: selectedService, // Use state instead of raw formData for custom dropdown
+      service: selectedService, 
       message: formData.get("message"),
     };
 
@@ -141,13 +142,24 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <div className="flex flex-col gap-3 md:col-span-2">
+                  <div className="flex flex-col gap-3">
                     <label className="font-mono text-[10px] font-bold tracking-[0.2em] uppercase text-text-2">Communication Link</label>
                     <input 
                       name="email" 
                       required 
                       type="email" 
                       placeholder="Corporate Email Address" 
+                      className="bg-white/3 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-[14px] md:text-[15px] text-white outline-none transition-all focus:border-(--amber)/50 focus:bg-white/5 placeholder:text-text-3 font-medium" 
+                    />
+                  </div>
+
+                  <div className="flex flex-col gap-3">
+                    <label className="font-mono text-[10px] font-bold tracking-[0.2em] uppercase text-text-2">Mobile Number</label>
+                    <input 
+                      name="phone" 
+                      required 
+                      type="tel" 
+                      placeholder="+91 98765 43210" 
                       className="bg-white/3 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-[14px] md:text-[15px] text-white outline-none transition-all focus:border-(--amber)/50 focus:bg-white/5 placeholder:text-text-3 font-medium" 
                     />
                   </div>

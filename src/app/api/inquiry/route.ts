@@ -28,6 +28,7 @@ export async function POST(req: Request) {
         name: validation.data.name,
         email: validation.data.email,
         phone: validation.data.phone,
+        organization: validation.data.organization,
         message: validation.data.message,
       },
     });
@@ -38,6 +39,7 @@ export async function POST(req: Request) {
       name: validation.data.name,
       email: validation.data.email,
       phone: validation.data.phone,
+      organization: validation.data.organization,
       message: validation.data.message,
     }).catch((emailError) => {
       console.error("Background email notification failed:", emailError);

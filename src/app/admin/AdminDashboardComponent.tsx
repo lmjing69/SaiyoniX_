@@ -27,6 +27,7 @@ type Inquiry = {
     name: string;
     email: string;
     phone: string;
+    organization?: string;
     message: string;
     status: string;
     createdAt: string;
@@ -42,7 +43,8 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
     const filteredInquiries = inquiries.filter((inquiry) =>
         inquiry.service.toLowerCase().includes(searchTerm.toLowerCase()) ||
         inquiry.phone.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        inquiry.name.toLowerCase().includes(searchTerm.toLowerCase())
+        inquiry.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        inquiry.organization?.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     const handleLogout = async () => {
@@ -270,9 +272,17 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                                 <div className="space-y-8">
                                     <div className="group">
                                         <label className="text-[10px] font-bold text-accent uppercase tracking-widest block mb-2 opacity-60 font-mono">Client Identity</label>
-                                        <div className="flex items-center gap-3 text-white">
-                                            <User className="w-4 h-4 text-text-3" />
-                                            <span className="text-lg font-semibold">{selectedInquiry.name}</span>
+                                        <div className="space-y-3 text-white">
+                                            <div className="flex items-center gap-3">
+                                                <User className="w-4 h-4 text-text-3" />
+                                                <span className="text-lg font-semibold">{selectedInquiry.name}</span>
+                                            </div>
+                                            {selectedInquiry.organization && (
+                                                <div className="flex items-center gap-3 text-text-1">
+                                                    <ShieldCheck className="w-4 h-4 text-accent/50" />
+                                                    <span className="text-sm font-medium">{selectedInquiry.organization}</span>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
 

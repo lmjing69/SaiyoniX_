@@ -17,6 +17,7 @@ export interface InquiryEmailData {
     name: string;
     email: string;
     phone: string;
+    organization: string;
     message: string;
 }
 
@@ -48,6 +49,9 @@ export async function sendNewInquiryNotification(data: InquiryEmailData): Promis
                     </p>
                     <p style="margin: 8px 0; color: #475569;">
                         <strong style="color: #1e293b;">Name:</strong> ${escapeHtml(data.name)}
+                    </p>
+                    <p style="margin: 8px 0; color: #475569;">
+                        <strong style="color: #1e293b;">Organization:</strong> ${escapeHtml(data.organization)}
                     </p>
                     <p style="margin: 8px 0; color: #475569;">
                         <strong style="color: #1e293b;">Email:</strong> 

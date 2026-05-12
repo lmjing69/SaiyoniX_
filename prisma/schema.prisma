@@ -17,15 +17,16 @@ datasource db {
 
 
 model Inquiry {
-  id        String    @id @default(cuid())
-  service   String
-  name     String
-  email    String
-  phone    String
-  message  String
-  status   String   @default("New")
-  createdAt DateTime @default(now())
-  deletedAt DateTime?
+  id           String    @id @default(cuid())
+  service      String
+  name         String
+  email        String
+  phone        String
+  organization String?
+  message      String
+  status       String   @default("New")
+  createdAt    DateTime @default(now())
+  deletedAt    DateTime?
 
   @@index([status])
   @@index([createdAt])
