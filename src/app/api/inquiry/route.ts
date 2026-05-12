@@ -44,9 +44,10 @@ export async function POST(req: Request) {
     });
 
     return Response.json({ success: true, id: inquiry.id }, { status: 201 });
-  } catch {
+  } catch (error: unknown) {
+    console.error("API Inquiry Error:", error);
     return Response.json(
-      { error: "Unable to submit inquiry right now" },
+      { error: error instanceof Error ? error.message : "Unable to submit inquiry right now" },
       { status: 500 }
     );
   }
