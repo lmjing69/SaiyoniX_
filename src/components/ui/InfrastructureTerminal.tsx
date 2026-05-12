@@ -58,7 +58,7 @@ export default function InfrastructureTerminal() {
   }, [isDeploying]);
 
   return (
-    <ScrollReveal delayClass="d3" className="w-full max-w-2xl mx-auto perspective-[1200px]">
+    <ScrollReveal delayClass="d3" className="w-full max-w-2xl mx-auto perspective-distant">
       <motion.div
         ref={cardRef}
         onMouseMove={onMouseMove}

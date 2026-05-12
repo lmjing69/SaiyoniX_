@@ -13,28 +13,14 @@ import MagneticButton from "@/components/ui/MagneticButton";
 import InfrastructureTerminal from "@/components/ui/InfrastructureTerminal";
 import BackgroundCode from "@/components/ui/BackgroundCode";
 import SkillsMarquee from "@/components/ui/SkillsMarquee";
+import { usePageTransition } from "@/components/ui/PageTransition";
 
 const EarthGlobe = dynamic(() => import("@/components/3d/EarthGlobe"), { ssr: false });
 
 gsap.registerPlugin(ScrollTrigger);
 
-function usePageNavigate() {
-  const router = useRouter();
-  return useCallback((href: string) => {
-    const wipe = document.getElementById("PT-WIPE");
-    if (!wipe) { router.push(href); return; }
-    gsap.to(wipe, {
-      scaleY: 1, duration: 0.42, ease: "power3.in", transformOrigin: "bottom",
-      onComplete: () => {
-        router.push(href);
-        gsap.to(wipe, { scaleY: 0, duration: 0.52, ease: "power3.out", transformOrigin: "top", delay: 0.12 });
-      },
-    });
-  }, [router]);
-}
-
 export default function Home() {
-  const navigate = usePageNavigate();
+  const { navigate } = usePageTransition();
 
   useEffect(() => {
     const reveals = document.querySelectorAll(".rv");
@@ -80,7 +66,7 @@ export default function Home() {
               Saiyonix Systems Corp
             </motion.div>
 
-            <h1 className="font-display text-[12vw] sm:text-6xl lg:text-[5.8vw] font-extrabold leading-[1.0] tracking-tight mb-6 sm:mb-8">
+            <h1 className="font-display text-[12vw] sm:text-6xl lg:text-[5.8vw] font-extrabold leading-none tracking-tight mb-6 sm:mb-8">
               <span className="block overflow-hidden pb-1 sm:pb-2">
                 <motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ delay: 0.4, duration: 0.8 }} className="inline-block text-white">Engineering</motion.span>
               </span>
@@ -107,7 +93,7 @@ export default function Home() {
             >
               <MagneticButton
                 onClick={() => navigate("/services")}
-                className="bg-(--amber) text-[#040407] w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 rounded-xl font-bold text-sm sm:text-base transition-all hover:bg-(--amber-light) flex items-center justify-center gap-2 shadow-xl shadow-(--amber)/10"
+                className="bg-(--amber) text-bg w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 rounded-xl font-bold text-sm sm:text-base transition-all hover:bg-(--amber-light) flex items-center justify-center gap-2 shadow-xl shadow-(--amber)/10"
               >
                 Deploy Solutions <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5" />
               </MagneticButton>
@@ -123,7 +109,7 @@ export default function Home() {
 
           {/* Right Column: 3D Globe */}
           <div className="relative w-full h-full hidden lg:flex items-center justify-center">
-            <div className="w-[100%] lg:w-[120%] aspect-square relative group">
+            <div className="w-full lg:w-[120%] aspect-square relative group">
               <EarthGlobe />
               {/* Interaction Hint */}
               <motion.div 
@@ -395,25 +381,28 @@ export default function Home() {
             className="object-cover opacity-[0.12] brightness-50 mix-blend-overlay"
             alt="Advanced systems background"
           />
-          <div className="absolute inset-0 bg-linear-to-t from-bg via-transparent to-transparent opacity-60" />
+          <div className="absolute inset-0 bg-linear-to-t from-bg via-transparent to-transparent opacity-60 pointer-events-none -z-10" />
           <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[200%] max-w-[800px] aspect-square bg-(--amber)/6.5 rounded-full blur-[100px] -z-10" />
-          <div className="inline-flex items-center gap-3 font-mono text-[9px] md:text-[10.5px] tracking-[0.18em] uppercase text-(--amber) mb-6 md:mb-8">
-            <div className="w-4 md:w-6 h-px bg-(--amber)" /> Start building <div className="w-4 md:w-6 h-px bg-(--amber)" />
-          </div>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.07] mb-4 md:mb-6 text-white">
-            Engineer your<br />tomorrow — today.
-          </h2>
-          <p className="text-text-1 text-sm sm:text-base md:text-lg max-w-[520px] mx-auto mb-8 md:mb-11 leading-relaxed">
-            Let&apos;s architect something that outlasts the problem. Tell us what you&apos;re building and we&apos;ll show you how to make it intelligent, scalable, and precise.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <MagneticButton onClick={() => navigate("/contact")} className="w-full sm:w-auto bg-(--amber) text-[#040407] px-8 sm:px-10 py-4 rounded-xl font-bold transition-all hover:bg-(--amber-light)">
-              Start a Project →
-            </MagneticButton>
-            <button onClick={() => navigate("/about")} className="w-full sm:w-auto text-text-1 hover:text-text-0 px-6 py-4 transition-colors font-medium relative group">
-              Learn more
-              <span className="absolute bottom-3 left-6 right-6 h-px bg-text-1 scale-x-0 group-hover:scale-x-100 transition-transform hidden sm:block" />
-            </button>
+          
+          <div className="relative z-10">
+            <div className="inline-flex items-center gap-3 font-mono text-[9px] md:text-[10.5px] tracking-[0.18em] uppercase text-(--amber) mb-6 md:mb-8">
+              <div className="w-4 md:w-6 h-px bg-(--amber)" /> Start building <div className="w-4 md:w-6 h-px bg-(--amber)" />
+            </div>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-tight leading-[1.07] mb-4 md:mb-6 text-white">
+              Engineer your<br />tomorrow — today.
+            </h2>
+            <p className="text-text-1 text-sm sm:text-base md:text-lg max-w-[520px] mx-auto mb-8 md:mb-11 leading-relaxed">
+              Let&apos;s architect something that outlasts the problem. Tell us what you&apos;re building and we&apos;ll show you how to make it intelligent, scalable, and precise.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <MagneticButton onClick={() => navigate("/contact")} className="w-full sm:w-auto bg-(--amber) text-bg px-8 sm:px-10 py-4 rounded-xl font-bold transition-all hover:bg-(--amber-light)">
+                Start a Project →
+              </MagneticButton>
+              <button onClick={() => navigate("/about")} className="w-full sm:w-auto text-text-1 hover:text-text-0 px-6 py-4 transition-colors font-medium relative group">
+                Learn more
+                <span className="absolute bottom-3 left-6 right-6 h-px bg-text-1 scale-x-0 group-hover:scale-x-100 transition-transform hidden sm:block" />
+              </button>
+            </div>
           </div>
         </div>
       </section>

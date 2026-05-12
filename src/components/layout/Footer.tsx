@@ -1,12 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Mail, Phone, MessageSquare, X, Facebook, Instagram, Github, Linkedin } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Logo from "@/components/ui/Logo";
+import { usePageTransition } from "@/components/ui/PageTransition";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const { navigate } = usePageTransition();
   const [showPhoneOptions, setShowPhoneOptions] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -27,7 +31,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 pb-[80px] border-b border-(--border) mb-[40px]">
           {/* Branding / Description Area */}
           <div className="flex flex-col items-start text-left">
-             <Logo size={42} className="mb-6 scale-90 -ml-2 origin-left" />
+             <Logo 
+               size={42} 
+               className="mb-6 scale-90 -ml-2 origin-left" 
+               onClick={() => navigate("/")}
+             />
              <p className="text-[13px] text-text-3 leading-relaxed max-w-[280px]">
                Engineering high-performance systems for elite enterprise ecosystems. Architecture that outlasts the problem.
              </p>
@@ -37,10 +45,10 @@ export default function Footer() {
           <div className="flex flex-col">
             <div className="text-[11px] font-bold tracking-[0.2em] uppercase text-(--amber) mb-[28px]">Quick Links</div>
             <ul className="flex flex-col gap-[14px]">
-              <li><Link href="/services" className="text-[15px] text-text-2 hover:text-white transition-colors">Services</Link></li>
-              <li><Link href="/projects" className="text-[15px] text-text-2 hover:text-white transition-colors">Projects</Link></li>
-              <li><Link href="/about" className="text-[15px] text-text-2 hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="/contact" className="text-[15px] text-text-2 hover:text-white transition-colors">Contact</Link></li>
+              <li><button onClick={() => navigate("/services")} className="text-[15px] text-text-2 hover:text-white transition-colors text-left">Services</button></li>
+              <li><button onClick={() => navigate("/projects")} className="text-[15px] text-text-2 hover:text-white transition-colors text-left">Projects</button></li>
+              <li><button onClick={() => navigate("/about")} className="text-[15px] text-text-2 hover:text-white transition-colors text-left">About Us</button></li>
+              <li><button onClick={() => navigate("/contact")} className="text-[15px] text-text-2 hover:text-white transition-colors text-left">Contact</button></li>
             </ul>
           </div>
 
@@ -143,7 +151,7 @@ export default function Footer() {
                     whileHover={{ y: -4, scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     aria-label={social.label}
-                    className={`w-10 h-10 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-text-3 ${social.color} transition-colors duration-300 relative overflow-hidden group/social`}
+                    className={`w-10 h-10 rounded-xl bg-white/3 border border-white/10 flex items-center justify-center text-text-3 ${social.color} transition-colors duration-300 relative overflow-hidden group/social`}
                   >
                     {/* Interaction Glow */}
                     <div className="absolute inset-0 bg-white/5 opacity-0 group-hover/social:opacity-100 transition-opacity" />

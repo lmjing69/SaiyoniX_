@@ -4,6 +4,7 @@ import Footer from "@/components/layout/Footer";
 import GrainOverlay from "@/components/ui/GrainOverlay";
 import CustomCursor from "@/components/ui/CustomCursor";
 import SmoothScroll from "@/components/layout/SmoothScroll";
+import { PageTransitionProvider } from "@/components/ui/PageTransition";
 import { Space_Grotesk, DM_Sans, JetBrains_Mono } from 'next/font/google';
 
 import type { Metadata } from "next";
@@ -44,15 +45,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${spaceGrotesk.variable} ${dmSans.variable} ${jetbrainsMono.variable} relative overflow-x-hidden`}>
-        <GrainOverlay />
-        <CustomCursor />
-        <SmoothScroll>
-          <Navbar />
-          <main className="relative">
-            {children}
-          </main>
-          <Footer />
-        </SmoothScroll>
+        <PageTransitionProvider>
+          <GrainOverlay />
+          <CustomCursor />
+          <SmoothScroll>
+            <Navbar />
+            <main className="relative">
+              {children}
+            </main>
+            <Footer />
+          </SmoothScroll>
+        </PageTransitionProvider>
       </body>
     </html>
   );

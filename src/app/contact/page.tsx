@@ -76,7 +76,7 @@ export default function ContactPage() {
     <div className="bg-bg min-h-screen">
       <div className="pt-28 md:pt-[160px] pb-16 md:pb-[120px] max-w-[1360px] mx-auto px-6 md:px-[80px]">
         <header className="mb-12 md:mb-[80px]">
-          <ScrollReveal className="inline-flex items-center gap-[10px] font-mono text-[10px] md:text-[11px] tracking-[.25em] uppercase text-(--amber) mb-4 md:mb-[24px] before:content-[''] before:w-[16px] md:before:w-[22px] before:h-[1px] before:bg-(--amber)">
+          <ScrollReveal className="inline-flex items-center gap-[10px] font-mono text-[10px] md:text-[11px] tracking-[.25em] uppercase text-(--amber) mb-4 md:mb-[24px] before:content-[''] before:w-[16px] md:before:w-[22px] before:h-px before:bg-(--amber)">
             Technical Consultation
           </ScrollReveal>
           
@@ -91,7 +91,7 @@ export default function ContactPage() {
           {/* Form Section */}
           <ScrollReveal>
             {success ? (
-              <div className="bg-white/[0.03] border border-emerald-500/20 rounded-[24px] md:rounded-[32px] p-8 md:p-[60px] text-center backdrop-blur-xl">
+              <div className="bg-white/3 border border-emerald-500/20 rounded-[24px] md:rounded-[32px] p-8 md:p-[60px] text-center backdrop-blur-xl">
                 <div className="w-12 h-12 md:w-[64px] md:h-[64px] bg-emerald-500/10 border border-emerald-500/20 rounded-full flex items-center justify-center text-emerald-500 mx-auto mb-6 md:mb-[32px]">
                   <CheckCircle2 className="w-6 h-6 md:w-8 md:h-8" />
                 </div>
@@ -107,7 +107,7 @@ export default function ContactPage() {
                 </button>
               </div>
             ) : (
-              <div className="bg-white/[0.02] border border-white/10 rounded-[24px] md:rounded-[32px] p-6 sm:p-8 md:p-12 backdrop-blur-3xl shadow-2xl relative overflow-hidden group">
+              <div className="bg-white/2 border border-white/10 rounded-[24px] md:rounded-[32px] p-6 sm:p-8 md:p-12 backdrop-blur-3xl shadow-2xl relative overflow-hidden group">
                 {/* Decorative background glow */}
                 <div className="absolute -top-24 -right-24 w-64 h-64 bg-(--amber)/5 rounded-full blur-[100px] pointer-events-none group-focus-within:bg-(--amber)/10 transition-colors hidden md:block" />
                 
@@ -126,7 +126,7 @@ export default function ContactPage() {
                       required 
                       type="text" 
                       placeholder="Full Name" 
-                      className="bg-white/[0.03] border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-[14px] md:text-[15px] text-white outline-none transition-all focus:border-(--amber)/50 focus:bg-white/[0.05] placeholder:text-text-3 font-medium" 
+                      className="bg-white/3 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-[14px] md:text-[15px] text-white outline-none transition-all focus:border-(--amber)/50 focus:bg-white/5 placeholder:text-text-3 font-medium" 
                     />
                   </div>
                   
@@ -137,7 +137,7 @@ export default function ContactPage() {
                       required 
                       type="text" 
                       placeholder="Company Name" 
-                      className="bg-white/[0.03] border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-[14px] md:text-[15px] text-white outline-none transition-all focus:border-(--amber)/50 focus:bg-white/[0.05] placeholder:text-text-3 font-medium" 
+                      className="bg-white/3 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-[14px] md:text-[15px] text-white outline-none transition-all focus:border-(--amber)/50 focus:bg-white/5 placeholder:text-text-3 font-medium" 
                     />
                   </div>
 
@@ -148,7 +148,7 @@ export default function ContactPage() {
                       required 
                       type="email" 
                       placeholder="Corporate Email Address" 
-                      className="bg-white/[0.03] border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-[14px] md:text-[15px] text-white outline-none transition-all focus:border-(--amber)/50 focus:bg-white/[0.05] placeholder:text-text-3 font-medium" 
+                      className="bg-white/3 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-[14px] md:text-[15px] text-white outline-none transition-all focus:border-(--amber)/50 focus:bg-white/5 placeholder:text-text-3 font-medium" 
                     />
                   </div>
 
@@ -158,7 +158,7 @@ export default function ContactPage() {
                       {/* Custom Selector Trigger */}
                       <div 
                         onClick={() => setIsOpen(!isDropdownOpen)}
-                        className={`w-full bg-white/[0.03] border ${isDropdownOpen ? 'border-(--amber)/50 shadow-[0_0_20px_rgba(240,168,48,0.1)]' : 'border-white/10'} rounded-xl px-4 md:px-5 py-3 md:py-4 text-[14px] md:text-[15px] text-white cursor-pointer transition-all duration-300 flex items-center justify-between group`}
+                        className={`w-full bg-white/3 border ${isDropdownOpen ? 'border-(--amber)/50 shadow-[0_0_20px_rgba(240,168,48,0.1)]' : 'border-white/10'} rounded-xl px-4 md:px-5 py-3 md:py-4 text-[14px] md:text-[15px] text-white cursor-pointer transition-all duration-300 flex items-center justify-between group`}
                       >
                         <span className={`${!selectedService ? 'text-text-3 font-normal' : 'text-white font-medium'} line-clamp-1 mr-2`}>
                           {selectedService || "Select System Focus"}
@@ -213,7 +213,7 @@ export default function ContactPage() {
                       required 
                       minLength={10} 
                       placeholder="Describe the architectural challenge, operational chaos, or future system you wish to engineer…" 
-                      className="bg-white/[0.03] border border-white/10 rounded-xl px-4 md:px-5 py-4 md:py-5 text-[14px] md:text-[15px] text-white outline-none transition-all focus:border-(--amber)/50 focus:bg-white/[0.05] placeholder:text-text-3 min-h-[140px] md:min-h-[160px] resize-none font-medium leading-relaxed" 
+                      className="bg-white/3 border border-white/10 rounded-xl px-4 md:px-5 py-4 md:py-5 text-[14px] md:text-[15px] text-white outline-none transition-all focus:border-(--amber)/50 focus:bg-white/5 placeholder:text-text-3 min-h-[140px] md:min-h-[160px] resize-none font-medium leading-relaxed" 
                     />
                   </div>
                   
@@ -239,7 +239,7 @@ export default function ContactPage() {
 
           {/* Info Side */}
           <aside className="space-y-12 md:space-y-16">
-            <ScrollReveal delayClass="d1" className="bg-white/[0.02] border border-white/10 rounded-[24px] md:rounded-[32px] p-6 sm:p-8 md:p-10 backdrop-blur-xl">
+            <ScrollReveal delayClass="d1" className="bg-white/2 border border-white/10 rounded-[24px] md:rounded-[32px] p-6 sm:p-8 md:p-10 backdrop-blur-xl">
               <h2 className="font-display text-xl md:text-2xl font-bold tracking-tight mb-6 md:mb-8 text-white">Direct Communication</h2>
               
               <div className="space-y-8 md:space-y-10">

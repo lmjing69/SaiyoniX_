@@ -37,13 +37,13 @@ export default function PrivacyPolicyPage() {
     <div className="bg-black min-h-screen">
       <div className="mx-auto max-w-[760px] px-6 pt-40 md:pt-48 pb-24 md:pb-32">
         <div className="inline-flex items-center gap-2.5 text-[10.5px] tracking-[0.16em] uppercase text-[#f0a830] font-mono mb-5">
-          <span className="w-[22px] h-[1px] bg-[#f0a830]" />
+          <span className="w-[22px] h-px bg-[#f0a830]" />
           Legal
         </div>
         <h1 className="text-[clamp(34px,4.5vw,56px)] font-extrabold tracking-[-0.03em] leading-[1.06] mb-4">
           Privacy Policy
         </h1>
-        <p className="text-[14px] text-white/[0.26] mb-16">
+        <p className="text-[14px] text-white/26 mb-16">
           Last updated: January 2024
         </p>
 

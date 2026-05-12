@@ -7,6 +7,7 @@ import Image from 'next/image';
 interface LogoProps {
   className?: string;
   size?: number;
+  onClick?: () => void;
 }
 
 /**
@@ -16,9 +17,12 @@ interface LogoProps {
  * It applies a specialized blend mode to ensure it integrates with the dark theme
  * while maintaining the premium interactive effects.
  */
-export default function Logo({ className = "", size = 56 }: LogoProps) {
+export default function Logo({ className = "", size = 56, onClick }: LogoProps) {
   return (
-    <div className={`flex items-center gap-4 group cursor-pointer ${className}`}>
+    <div 
+      className={`flex items-center gap-4 group cursor-pointer ${className}`}
+      onClick={onClick}
+    >
       <div className="relative hover:scale-110 transition-transform duration-500" style={{ width: size, height: size }}>
         {/* Your Original Image Asset from Assets Folder */}
         <div className="relative w-full h-full z-10 flex items-center justify-center p-1 overflow-visible">

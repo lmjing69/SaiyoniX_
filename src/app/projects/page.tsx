@@ -9,7 +9,7 @@ export default function ProjectsPage() {
   return (
     <>
       <div className="pt-28 md:pt-[160px] pb-16 md:pb-[120px] max-w-[1360px] mx-auto px-6 md:px-[80px]">
-        <ScrollReveal className="inline-flex items-center gap-[10px] font-mono text-[10.5px] tracking-[.16em] uppercase text-(--amber) mb-[20px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-(--amber)">
+        <ScrollReveal className="inline-flex items-center gap-[10px] font-mono text-[10.5px] tracking-[.16em] uppercase text-(--amber) mb-[20px] before:content-[''] before:w-[22px] before:h-px before:bg-(--amber)">
           Projects
         </ScrollReveal>
         
@@ -19,7 +19,7 @@ export default function ProjectsPage() {
         
         <div className="grid md:grid-cols-[1fr_1fr] gap-[24px]">
           {/* Featured Project */}
-          <ScrollReveal className="bg-(--bg-2) border border-(--border) rounded-[12px] p-6 sm:p-8 md:p-[48px] relative overflow-hidden flex flex-col lg:flex-row items-start lg:items-center justify-between transition-colors duration-200 hover:border-(--border-md) hover:bg-(--bg-3) group col-[1/-1] gap-8 lg:gap-4">
+          <ScrollReveal className="bg-(--bg-2) border border-(--border) rounded-[12px] p-6 sm:p-8 md:p-[48px] relative overflow-hidden flex flex-col lg:flex-row items-start lg:items-center justify-between transition-colors duration-200 hover:border-(--border-md) hover:bg-(--bg-3) group col-span-full gap-8 lg:gap-4">
             <div className="w-full lg:w-auto">
               <div className="font-mono text-[11px] font-medium tracking-[.08em] uppercase text-(--text-3) mb-[12px]">
                 ● Infrastructure · 2024
@@ -34,7 +34,7 @@ export default function ProjectsPage() {
             <div className="w-full lg:w-[320px] h-[180px] bg-(--bg-1) border border-(--border) rounded-[8px] flex items-center justify-center relative shrink-0">
               <div className="flex flex-col items-center gap-[12px] text-[48px] text-(--amber) leading-none">
                 ⬡
-                <div className="font-mono text-[11px] tracking-[.1em] uppercase text-(--text-3)">NexusGrid v2.4</div>
+                <div className="font-mono text-[11px] tracking-widest uppercase text-(--text-3)">NexusGrid v2.4</div>
               </div>
             </div>
             <div className="absolute top-4 right-4 md:top-[24px] md:right-[24px] text-[18px] text-(--text-3) transition-all duration-200 group-hover:text-(--amber) group-hover:translate-x-[3px] group-hover:-translate-y-[3px]">↗</div>

@@ -11,7 +11,7 @@ export default function AboutPage() {
   return (
     <>
       <div className="pt-32 md:pt-[160px] pb-16 md:pb-[100px] max-w-[1360px] mx-auto px-6 md:px-[80px]">
-        <ScrollReveal className="inline-flex items-center gap-[10px] font-mono text-[10.5px] tracking-[.16em] uppercase text-(--amber) mb-[20px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-(--amber)">
+        <ScrollReveal className="inline-flex items-center gap-[10px] font-mono text-[10.5px] tracking-[.16em] uppercase text-(--amber) mb-[20px] before:content-[''] before:w-[22px] before:h-px before:bg-(--amber)">
           About Saiyonix
         </ScrollReveal>
         
@@ -40,7 +40,7 @@ export default function AboutPage() {
             </ScrollReveal>
             
             <ScrollReveal delayClass="d4">
-              <Link href="/contact" className="bg-(--amber) text-[#060608] rounded-[8px] py-[13px] px-[28px] font-body text-[14px] font-semibold inline-flex items-center gap-[8px] transition-[background,transform] duration-[150ms] hover:bg-(--amber-light) hover:-translate-y-[1px] mt-[8px]">
+              <Link href="/contact" className="bg-(--amber) text-[#060608] rounded-[8px] py-[13px] px-[28px] font-body text-[14px] font-semibold inline-flex items-center gap-[8px] transition-[background,transform] duration-150 hover:bg-(--amber-light) hover:-translate-y-px mt-[8px]">
                 Work with us →
               </Link>
             </ScrollReveal>
@@ -80,7 +80,7 @@ export default function AboutPage() {
         <div className="max-w-[1360px] mx-auto px-6 md:px-[80px] py-16 md:py-[100px]">
           <div className="grid lg:grid-cols-[1fr_450px] gap-12 md:gap-[80px] items-center">
             <div>
-              <ScrollReveal className="inline-flex items-center gap-[10px] font-mono text-[10.5px] tracking-[.16em] uppercase text-(--amber) mb-[24px] md:mb-[32px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-(--amber)">
+              <ScrollReveal className="inline-flex items-center gap-[10px] font-mono text-[10.5px] tracking-[.16em] uppercase text-(--amber) mb-[24px] md:mb-[32px] before:content-[''] before:w-[22px] before:h-px before:bg-(--amber)">
                 Our Mission
               </ScrollReveal>
               
@@ -102,7 +102,7 @@ export default function AboutPage() {
 
             <ScrollReveal delayClass="d4" className="relative group lg:block">
               <div className="absolute -inset-4 bg-(--amber)/5 blur-[60px] rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-700 hidden lg:block" />
-              <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden border border-white/10 shadow-2xl">
+              <div className="relative aspect-4/5 rounded-[24px] overflow-hidden border border-white/10 shadow-2xl">
                 <Image 
                   src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" 
                   fill
@@ -126,7 +126,7 @@ export default function AboutPage() {
       <div className="max-w-[1360px] mx-auto px-6 md:px-[80px] py-16 md:py-[120px]">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-[80px] gap-4 md:gap-8">
           <div className="max-w-[600px]">
-            <ScrollReveal className="inline-flex items-center gap-[10px] font-mono text-[10.5px] tracking-[.16em] uppercase text-(--amber) mb-[16px] md:mb-[20px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-(--amber)">
+            <ScrollReveal className="inline-flex items-center gap-[10px] font-mono text-[10.5px] tracking-[.16em] uppercase text-(--amber) mb-[16px] md:mb-[20px] before:content-[''] before:w-[22px] before:h-px before:bg-(--amber)">
               Internal Builds & Deployments
             </ScrollReveal>
             <ScrollReveal delayClass="d1" className="font-display text-3xl sm:text-4xl md:text-[44px] font-extrabold leading-[1.1] tracking-tight">
@@ -149,7 +149,7 @@ export default function AboutPage() {
               delayClass={i === 0 ? "" : i === 1 ? "d1" : "d2"}
               className="group"
             >
-              <div className="relative aspect-[16/10] rounded-[20px] overflow-hidden border border-white/10 bg-(--bg-1) mb-6">
+              <div className="relative aspect-16/10 rounded-[20px] overflow-hidden border border-white/10 bg-(--bg-1) mb-6">
                 <Image 
                   src={item.img} 
                   alt={item.t} 
@@ -172,7 +172,7 @@ export default function AboutPage() {
         <ScrollReveal className="bg-(--bg-2) border border-(--border) rounded-[24px] p-8 sm:p-12 md:p-[64px] text-center relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-[2px] bg-[linear-gradient(90deg,transparent,var(--amber),transparent)] opacity-40" />
           <div className="flex justify-center mb-[20px]">
-            <div className="inline-flex items-center justify-center gap-[10px] font-mono text-[10.5px] tracking-[.16em] uppercase text-(--amber) before:content-[''] before:w-[22px] before:h-[1px] before:bg-(--amber) after:content-[''] after:w-[22px] after:h-[1px] after:bg-(--amber)">
+            <div className="inline-flex items-center justify-center gap-[10px] font-mono text-[10.5px] tracking-[.16em] uppercase text-(--amber) before:content-[''] before:w-[22px] before:h-px before:bg-(--amber) after:content-[''] after:w-[22px] after:h-px after:bg-(--amber)">
               Join us
             </div>
           </div>
@@ -183,7 +183,7 @@ export default function AboutPage() {
             Whether you&apos;re an enterprise, an institution, or a builder with a systems-level problem — we want to hear from you.
           </p>
           <div className="flex justify-center">
-            <Link href="/contact" className="w-full sm:w-auto bg-(--amber) text-[#060608] rounded-[8px] py-[13px] px-[28px] font-body text-[14px] font-semibold inline-flex justify-center items-center gap-[8px] transition-[background,transform] duration-[150ms] hover:bg-(--amber-light) hover:-translate-y-[1px]">
+            <Link href="/contact" className="w-full sm:w-auto bg-(--amber) text-[#060608] rounded-[8px] py-[13px] px-[28px] font-body text-[14px] font-semibold inline-flex justify-center items-center gap-[8px] transition-[background,transform] duration-150 hover:bg-(--amber-light) hover:-translate-y-px">
               Start the conversation →
             </Link>
           </div>

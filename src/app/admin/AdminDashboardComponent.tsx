@@ -176,7 +176,7 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                     <div className="overflow-x-auto">
                         <table className="w-full text-left border-collapse">
                             <thead>
-                                <tr className="bg-white/[0.04] border-b border-white/10">
+                                <tr className="bg-white/4 border-b border-white/10">
                                     <th className="p-5 text-[10px] font-bold text-text-2 uppercase tracking-[0.2em] font-mono">Status</th>
                                     <th className="p-5 text-[10px] font-bold text-text-2 uppercase tracking-[0.2em] font-mono">Service / Architecture</th>
                                     <th className="p-5 text-[10px] font-bold text-text-2 uppercase tracking-[0.2em] font-mono">Client Name</th>
@@ -188,7 +188,7 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                                     <tr
                                         key={inquiry.id}
                                         onClick={() => setSelectedInquiry(inquiry)}
-                                        className="hover:bg-white/[0.05] transition-all cursor-pointer group/row"
+                                        className="hover:bg-white/5 transition-all cursor-pointer group/row"
                                     >
                                         <td className="p-5">
                                             <span className={`inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold border uppercase tracking-widest ${getStatusStyles(inquiry.status)}`}>
@@ -236,7 +236,7 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="absolute inset-0 bg-[#040407]/90 backdrop-blur-xl" 
+                            className="absolute inset-0 bg-bg/90 backdrop-blur-xl" 
                             onClick={() => setSelectedInquiry(null)} 
                         />
                         <motion.div 
@@ -246,7 +246,7 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                             className="relative bg-[#0d121f] border border-white/10 rounded-3xl shadow-2xl w-full max-w-2xl overflow-hidden z-60"
                         >
                             {/* Modal Header */}
-                            <div className="p-8 border-b border-white/5 flex justify-between items-start bg-white/[0.01]">
+                            <div className="p-8 border-b border-white/5 flex justify-between items-start bg-white/1">
                                 <div>
                                     <div className={`inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold border uppercase tracking-widest mb-4 ${getStatusStyles(selectedInquiry.status)}`}>
                                         <span className="w-1.5 h-1.5 rounded-full bg-current mr-2 animate-pulse" />
@@ -316,7 +316,7 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                                 {/* Right Side: Message Payload */}
                                 <div className="flex flex-col h-full">
                                     <label className="text-[10px] font-bold text-accent uppercase tracking-widest mb-3 block opacity-60 font-mono">Message Payload</label>
-                                    <div className="flex-1 bg-[#040407]/50 border border-white/5 rounded-2xl p-5 overflow-auto max-h-[280px] custom-scrollbar">
+                                    <div className="flex-1 bg-bg/50 border border-white/5 rounded-2xl p-5 overflow-auto max-h-[280px] custom-scrollbar">
                                         <p className="text-text-2 text-sm leading-relaxed font-sans whitespace-pre-wrap italic">
                                             &ldquo;{selectedInquiry.message}&rdquo;
                                         </p>
@@ -328,7 +328,7 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                             </div>
 
                             {/* Modal Footer */}
-                            <div className="bg-white/[0.02] p-6 flex justify-end border-t border-white/5">
+                            <div className="bg-white/2 p-6 flex justify-end border-t border-white/5">
                                 <button
                                     onClick={() => setSelectedInquiry(null)}
                                     className="px-8 py-3 bg-white/5 border border-white/10 rounded-xl text-sm font-bold text-white hover:bg-white/10 transition-all"

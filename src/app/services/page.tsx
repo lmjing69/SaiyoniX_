@@ -50,7 +50,7 @@ export default function ServicesPage() {
     <div className="bg-bg">
       <div className="pt-28 md:pt-[160px] pb-16 md:pb-[120px] max-w-[1360px] mx-auto px-6 md:px-[80px]">
         <header className="mb-16 md:mb-[80px]">
-          <ScrollReveal className="inline-flex items-center gap-[10px] font-mono text-[10.5px] tracking-[.25em] uppercase text-(--amber) mb-[20px] md:mb-[24px] before:content-[''] before:w-[22px] before:h-[1px] before:bg-(--amber)">
+          <ScrollReveal className="inline-flex items-center gap-[10px] font-mono text-[10.5px] tracking-[.25em] uppercase text-(--amber) mb-[20px] md:mb-[24px] before:content-[''] before:w-[22px] before:h-px before:bg-(--amber)">
             Capabilities
           </ScrollReveal>
           
@@ -96,7 +96,7 @@ export default function ServicesPage() {
               {/* Image Side */}
               <ScrollReveal delayClass="d3" className="flex-1 w-full relative group mt-8 lg:mt-0">
                 <div className="absolute -inset-4 bg-(--amber)/5 blur-[80px] rounded-full opacity-30 group-hover:opacity-60 transition-opacity duration-700 hidden lg:block" />
-                <div className="relative aspect-[16/10] lg:aspect-[1.4/1] rounded-[24px] md:rounded-[32px] overflow-hidden border border-white/10 shadow-2xl">
+                <div className="relative aspect-16/10 lg:aspect-[1.4/1] rounded-[24px] md:rounded-[32px] overflow-hidden border border-white/10 shadow-2xl">
                   <Image 
                     src={s.img} 
                     alt={s.t} 
@@ -122,7 +122,7 @@ export default function ServicesPage() {
         <ScrollReveal className="bg-surface-1 border border-white/10 rounded-[24px] md:rounded-[40px] p-8 sm:p-12 md:p-[80px] text-center relative overflow-hidden">
           <div className="absolute top-[-50px] md:top-[-100px] left-1/2 -translate-x-1/2 w-[400px] md:w-[800px] h-[400px] md:h-[800px] bg-(--amber)/5 rounded-full blur-[80px] md:blur-[120px] -z-10" />
           
-          <div className="inline-flex items-center justify-center gap-2 md:gap-[10px] font-mono text-[9px] md:text-[11px] tracking-[.2em] md:tracking-[.25em] uppercase text-(--amber) mb-6 md:mb-[32px] before:content-[''] before:w-[16px] md:before:w-[22px] before:h-[1px] before:bg-(--amber) after:content-[''] after:w-[16px] md:after:w-[22px] after:h-[1px] after:bg-(--amber)">
+          <div className="inline-flex items-center justify-center gap-2 md:gap-[10px] font-mono text-[9px] md:text-[11px] tracking-[.2em] md:tracking-[.25em] uppercase text-(--amber) mb-6 md:mb-[32px] before:content-[''] before:w-[16px] md:before:w-[22px] before:h-px before:bg-(--amber) after:content-[''] after:w-[16px] md:after:w-[22px] after:h-px after:bg-(--amber)">
             Mission Briefing
           </div>
           

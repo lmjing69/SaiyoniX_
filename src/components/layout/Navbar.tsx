@@ -1,12 +1,12 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
-import { useCallback, useState, useEffect } from "react";
-import { gsap } from "gsap";
+import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 import Image from "next/image";
 import Logo from "@/components/ui/Logo";
+import { usePageTransition } from "@/components/ui/PageTransition";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -17,7 +17,7 @@ const NAV_LINKS = [
 
 export function Navbar() {
   const pathname = usePathname();
-  const router = useRouter();
+  const { navigate } = usePageTransition();
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -28,41 +28,8 @@ export function Navbar() {
     }
   }, [menuOpen]);
 
-  const navigate = useCallback((href: string) => {
-    if (href === pathname) {
-      setMenuOpen(false);
-      return;
-    }
-    setMenuOpen(false);
-    const wipe = document.getElementById("PT-WIPE");
-    if (!wipe) { router.push(href); return; }
-    gsap.to(wipe, {
-      scaleY: 1,
-      duration: 0.42,
-      ease: "power3.in",
-      transformOrigin: "bottom",
-      onComplete: () => {
-        router.push(href);
-        gsap.to(wipe, {
-          scaleY: 0,
-          duration: 0.52,
-          ease: "power3.out",
-          transformOrigin: "top",
-          delay: 0.12,
-        });
-      },
-    });
-  }, [pathname, router]);
-
   return (
     <>
-      {/* Page wipe overlay */}
-      <div
-        id="PT-WIPE"
-        className="fixed inset-0 z-900 bg-bg scale-y-0 pointer-events-none"
-        style={{ transformOrigin: "bottom" }}
-      />
-
       <nav className={`fixed top-0 left-0 right-0 z-500 px-6 md:px-14 py-5 md:py-6 flex items-center justify-between transition-all duration-500 ${pathname === "/" ? "bg-transparent" : "bg-bg/80 backdrop-blur-3xl border-b border-white/5"}`}>
         {/* Logo */}
         <button onClick={() => navigate("/")} className="relative z-501 hover:scale-105 transition-transform">
@@ -123,7 +90,7 @@ export function Navbar() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 + i * 0.1, duration: 0.5 }}
-                onClick={() => navigate(l.href)}
+                onClick={() => { setMenuOpen(false); navigate(l.href); }}
                 className={`font-display text-[32px] font-bold tracking-tight transition-colors ${
                   pathname === l.href ? "text-(--amber)" : "text-(--text-2) hover:text-(--text-1)"
                 }`}
@@ -135,7 +102,7 @@ export function Navbar() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 + NAV_LINKS.length * 0.1, duration: 0.5 }}
-              onClick={() => navigate("/contact")}
+              onClick={() => { setMenuOpen(false); navigate("/contact"); }}
               className="mt-4 bg-(--amber) text-bg px-10 py-4 rounded-xl font-bold text-[16px]"
             >
               Contact Us →
