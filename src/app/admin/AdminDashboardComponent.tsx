@@ -27,7 +27,7 @@ type Inquiry = {
     name: string;
     email: string;
     phone: string;
-    organization?: string;
+    organization: string | null;
     message: string;
     status: string;
     createdAt: string;
