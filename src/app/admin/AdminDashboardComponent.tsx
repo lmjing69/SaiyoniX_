@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
 import Logo from "@/components/ui/Logo";
+import ConfirmationModal from "./ConfirmationModal";
 
 type Inquiry = {
     id: string;
@@ -45,6 +46,23 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
     const [searchTerm, setSearchTerm] = useState("");
     const [updatingId, setUpdatingId] = useState<string | null>(null);
     const [view, setView] = useState<"active" | "trash">("active");
+
+    // Modal State
+    const [confirmModal, setConfirmModal] = useState<{
+        isOpen: boolean;
+        title: string;
+        message: string;
+        confirmText: string;
+        onConfirm: () => void;
+        variant: "danger" | "warning";
+    }>({
+        isOpen: false,
+        title: "",
+        message: "",
+        confirmText: "",
+        onConfirm: () => {},
+        variant: "danger"
+    });
 
     const activeInquiries = inquiries.filter(i => !i.deletedAt);
     const trashInquiries = inquiries.filter(i => !!i.deletedAt);
@@ -84,53 +102,76 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
         }
     };
 
-    const handleDelete = async (id: string, e: React.MouseEvent) => {
+    const handleDelete = (id: string, e: React.MouseEvent) => {
         e.stopPropagation();
-        if (!confirm("Move this inquiry to trash?")) return;
-        
-        setUpdatingId(id);
-        try {
-            const res = await fetch("/api/delete-inquiry", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ id }),
-            });
-            if (res.ok) router.refresh();
-        } finally {
-            setUpdatingId(null);
-        }
+        setConfirmModal({
+            isOpen: true,
+            title: "Move to Trash",
+            message: "Are you sure you want to move this inquiry to the trash bin? It can be recovered within 30 days.",
+            confirmText: "Move to Trash",
+            variant: "warning",
+            onConfirm: async () => {
+                setUpdatingId(id);
+                try {
+                    const res = await fetch("/api/delete-inquiry", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ id }),
+                    });
+                    if (res.ok) router.refresh();
+                } finally {
+                    setUpdatingId(null);
+                }
+            }
+        });
     };
 
-    const handleRestore = async (id: string, e: React.MouseEvent) => {
+    const handleRestore = (id: string, e: React.MouseEvent) => {
         e.stopPropagation();
-        setUpdatingId(id);
-        try {
-            const res = await fetch("/api/restore-inquiry", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ id }),
-            });
-            if (res.ok) router.refresh();
-        } finally {
-            setUpdatingId(null);
-        }
+        setConfirmModal({
+            isOpen: true,
+            title: "Restore Record",
+            message: "This will move the inquiry back to your active inbox. System synchronization will resume.",
+            confirmText: "Restore Now",
+            variant: "warning",
+            onConfirm: async () => {
+                setUpdatingId(id);
+                try {
+                    const res = await fetch("/api/restore-inquiry", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ id }),
+                    });
+                    if (res.ok) router.refresh();
+                } finally {
+                    setUpdatingId(null);
+                }
+            }
+        });
     };
 
-    const handlePermanentDelete = async (id: string, e: React.MouseEvent) => {
+    const handlePermanentDelete = (id: string, e: React.MouseEvent) => {
         e.stopPropagation();
-        if (!confirm("PERMANENTLY delete this inquiry? This cannot be undone.")) return;
-        
-        setUpdatingId(id);
-        try {
-            const res = await fetch("/api/permanent-delete", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ id }),
-            });
-            if (res.ok) router.refresh();
-        } finally {
-            setUpdatingId(null);
-        }
+        setConfirmModal({
+            isOpen: true,
+            title: "Terminal Purge",
+            message: "This action is irreversible. The record will be permanently wiped from the secure systems core.",
+            confirmText: "Execute Purge",
+            variant: "danger",
+            onConfirm: async () => {
+                setUpdatingId(id);
+                try {
+                    const res = await fetch("/api/permanent-delete", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ id }),
+                    });
+                    if (res.ok) router.refresh();
+                } finally {
+                    setUpdatingId(null);
+                }
+            }
+        });
     };
 
     const handleExport = async () => {
@@ -481,6 +522,17 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                     </div>
                 )}
             </AnimatePresence>
+
+            {/* Confirmation Modal Overlay */}
+            <ConfirmationModal
+                isOpen={confirmModal.isOpen}
+                onClose={() => setConfirmModal({ ...confirmModal, isOpen: false })}
+                onConfirm={confirmModal.onConfirm}
+                title={confirmModal.title}
+                message={confirmModal.message}
+                confirmText={confirmModal.confirmText}
+                variant={confirmModal.variant}
+            />
         </div>
     );
 }
