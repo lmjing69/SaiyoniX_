@@ -158,7 +158,12 @@ export default function ContactPage() {
                       name="phone" 
                       required 
                       type="tel" 
-                      placeholder="+91 98765 43210" 
+                      maxLength={10}
+                      pattern="[0-9]{10}"
+                      onInput={(e) => {
+                        e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
+                      }}
+                      placeholder="Contact Number" 
                       className="bg-white/3 border border-white/10 rounded-xl px-4 md:px-5 py-3 md:py-4 text-[14px] md:text-[15px] text-white outline-none transition-all focus:border-(--amber)/50 focus:bg-white/5 placeholder:text-text-3 font-medium" 
                     />
                   </div>
