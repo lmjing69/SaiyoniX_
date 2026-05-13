@@ -45,6 +45,7 @@ export default async function AdminPage() {
     const serializedInquiries = inquiries!.map((inquiry: Inquiry) => ({
         ...inquiry,
         createdAt: inquiry.createdAt.toISOString(),
+        deletedAt: inquiry.deletedAt ? inquiry.deletedAt.toISOString() : null,
     }));
 
     return <AdminDashboard inquiries={serializedInquiries} />;

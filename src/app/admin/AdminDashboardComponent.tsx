@@ -16,7 +16,11 @@ import {
   ExternalLink,
   ChevronRight,
   ShieldCheck,
-  X
+  X,
+  Trash2,
+  RotateCcw,
+  Trash,
+  Inbox
 } from "lucide-react";
 import MagneticButton from "@/components/ui/MagneticButton";
 import Logo from "@/components/ui/Logo";
@@ -31,6 +35,7 @@ type Inquiry = {
     message: string;
     status: string;
     createdAt: string;
+    deletedAt: string | null;
 };
 
 export default function AdminDashboardComponent({ inquiries }: { inquiries: Inquiry[] }) {
@@ -39,8 +44,12 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
     const [selectedInquiry, setSelectedInquiry] = useState<Inquiry | null>(null);
     const [searchTerm, setSearchTerm] = useState("");
     const [updatingId, setUpdatingId] = useState<string | null>(null);
+    const [view, setView] = useState<"active" | "trash">("active");
 
-    const filteredInquiries = inquiries.filter((inquiry) =>
+    const activeInquiries = inquiries.filter(i => !i.deletedAt);
+    const trashInquiries = inquiries.filter(i => !!i.deletedAt);
+
+    const displayInquiries = (view === "active" ? activeInquiries : trashInquiries).filter((inquiry) =>
         inquiry.service.toLowerCase().includes(searchTerm.toLowerCase()) ||
         inquiry.phone.toLowerCase().includes(searchTerm.toLowerCase()) ||
         inquiry.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -63,7 +72,6 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
             });
             
             if (res.ok) {
-                // Optimistically update the UI before refresh if needed
                 if (selectedInquiry?.id === id) {
                     setSelectedInquiry({ ...selectedInquiry, status: newStatus });
                 }
@@ -71,6 +79,55 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
             }
         } catch (error) {
             console.error("Failed to update status:", error);
+        } finally {
+            setUpdatingId(null);
+        }
+    };
+
+    const handleDelete = async (id: string, e: React.MouseEvent) => {
+        e.stopPropagation();
+        if (!confirm("Move this inquiry to trash?")) return;
+        
+        setUpdatingId(id);
+        try {
+            const res = await fetch("/api/delete-inquiry", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ id }),
+            });
+            if (res.ok) router.refresh();
+        } finally {
+            setUpdatingId(null);
+        }
+    };
+
+    const handleRestore = async (id: string, e: React.MouseEvent) => {
+        e.stopPropagation();
+        setUpdatingId(id);
+        try {
+            const res = await fetch("/api/restore-inquiry", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ id }),
+            });
+            if (res.ok) router.refresh();
+        } finally {
+            setUpdatingId(null);
+        }
+    };
+
+    const handlePermanentDelete = async (id: string, e: React.MouseEvent) => {
+        e.stopPropagation();
+        if (!confirm("PERMANENTLY delete this inquiry? This cannot be undone.")) return;
+        
+        setUpdatingId(id);
+        try {
+            const res = await fetch("/api/permanent-delete", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ id }),
+            });
+            if (res.ok) router.refresh();
         } finally {
             setUpdatingId(null);
         }
@@ -143,22 +200,39 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                     </div>
                 </header>
 
-                {/* Stats Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
-                    {[
-                        { label: "Total Inquiries", val: inquiries.length, icon: MessageSquare, color: "text-blue-400" },
-                        { label: "New Leads", val: inquiries.filter(i => i.status === "New").length, icon: Clock, color: "text-amber-400" },
-                        { label: "Completed", val: inquiries.filter(i => i.status === "Completed").length, icon: CheckCircle2, color: "text-emerald-400" }
-                    ].map((stat, i) => (
-                        <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-xl">
-                            <div className="flex justify-between items-start mb-4">
-                                <stat.icon className={`w-5 h-5 ${stat.color}`} />
-                                <span className="font-mono text-[10px] tracking-widest text-text-3 uppercase">Active Stats</span>
+                {/* Stats & View Toggler */}
+                <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 flex-1">
+                        {[
+                            { label: "Active Inquiries", val: activeInquiries.length, icon: MessageSquare, color: "text-blue-400" },
+                            { label: "New Leads", val: activeInquiries.filter(i => i.status === "New").length, icon: Clock, color: "text-amber-400" },
+                            { label: "Trash Bin", val: trashInquiries.length, icon: Trash2, color: "text-red-400" }
+                        ].map((stat, i) => (
+                            <div key={i} className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-xl">
+                                <div className="flex justify-between items-start mb-4">
+                                    <stat.icon className={`w-5 h-5 ${stat.color}`} />
+                                    <span className="font-mono text-[10px] tracking-widest text-text-3 uppercase">Operational</span>
+                                </div>
+                                <div className="text-3xl font-display font-bold mb-1">{stat.val.toString().padStart(2, '0')}</div>
+                                <div className="text-text-3 text-xs uppercase tracking-[0.15em] font-medium">{stat.label}</div>
                             </div>
-                            <div className="text-3xl font-display font-bold mb-1">{stat.val.toString().padStart(2, '0')}</div>
-                            <div className="text-text-3 text-xs uppercase tracking-[0.15em] font-medium">{stat.label}</div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
+
+                    <div className="flex bg-white/5 p-1.5 rounded-2xl border border-white/10 backdrop-blur-md">
+                        <button
+                            onClick={() => setView("active")}
+                            className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-semibold transition-all ${view === "active" ? "bg-white/10 text-white shadow-lg" : "text-text-3 hover:text-white"}`}
+                        >
+                            <Inbox className="w-4 h-4" /> Inbox
+                        </button>
+                        <button
+                            onClick={() => setView("trash")}
+                            className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-semibold transition-all ${view === "trash" ? "bg-red-500/20 text-red-400 shadow-lg" : "text-text-3 hover:text-red-400"}`}
+                        >
+                            <Trash2 className="w-4 h-4" /> Trash
+                        </button>
+                    </div>
                 </div>
 
                 {/* Search Bar */}
@@ -166,7 +240,7 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                     <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-text-3 group-focus-within:text-accent transition-colors" />
                     <input
                         type="text"
-                        placeholder="Search by client name, service, or phone number..."
+                        placeholder={`Search within ${view === 'active' ? 'active' : 'deleted'} records...`}
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         className="w-full pl-12 pr-4 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-1 focus:ring-accent/30 focus:border-accent/40 text-white placeholder:text-text-3 transition-all outline-none backdrop-blur-md font-medium"
@@ -182,48 +256,105 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                                     <th className="p-5 text-[10px] font-bold text-text-2 uppercase tracking-[0.2em] font-mono">Status</th>
                                     <th className="p-5 text-[10px] font-bold text-text-2 uppercase tracking-[0.2em] font-mono">Service / Architecture</th>
                                     <th className="p-5 text-[10px] font-bold text-text-2 uppercase tracking-[0.2em] font-mono">Client Name</th>
-                                    <th className="p-5 text-[10px] font-bold text-text-2 uppercase tracking-[0.2em] font-mono text-right">Deployment Date</th>
+                                    <th className="p-5 text-[10px] font-bold text-text-2 uppercase tracking-[0.2em] font-mono text-right">{view === 'active' ? 'Deployment Date' : 'Deletion Status'}</th>
+                                    <th className="p-5 text-[10px] font-bold text-text-2 uppercase tracking-[0.2em] font-mono text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-white/10">
-                                {filteredInquiries.map((inquiry) => (
-                                    <tr
-                                        key={inquiry.id}
-                                        onClick={() => setSelectedInquiry(inquiry)}
-                                        className="hover:bg-white/5 transition-all cursor-pointer group/row"
-                                    >
-                                        <td className="p-5">
-                                            <span className={`inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold border uppercase tracking-widest ${getStatusStyles(inquiry.status)}`}>
-                                                <span className="w-1.5 h-1.5 rounded-full bg-current mr-2 animate-pulse" />
-                                                {inquiry.status}
-                                            </span>
-                                        </td>
-                                        <td className="p-5">
-                                            <div className="text-sm font-semibold text-white group-hover/row:text-accent transition-colors">{inquiry.service}</div>
-                                            <div className="text-[10px] text-text-2 font-mono mt-1 uppercase tracking-tighter">ID: {inquiry.id.slice(-8)}</div>
-                                        </td>
-                                        <td className="p-5">
-                                            <div className="text-sm text-text-1 font-medium">{inquiry.name}</div>
-                                        </td>
-                                        <td className="p-5 text-right">
-                                            <div className="text-xs text-text-2 font-mono">
-                                                {new Date(inquiry.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' })}
-                                            </div>
-                                            <div className="text-[10px] text-accent/60 font-mono mt-1 opacity-0 group-hover/row:opacity-100 transition-opacity flex items-center justify-end gap-1">
-                                                DETAILS <ChevronRight className="w-2.5 h-2.5" />
-                                            </div>
-                                        </td>
-                                    </tr>
-                                ))}
+                                {displayInquiries.map((inquiry) => {
+                                    const daysLeft = inquiry.deletedAt 
+                                        ? 30 - Math.floor((new Date().getTime() - new Date(inquiry.deletedAt).getTime()) / (1000 * 60 * 60 * 24))
+                                        : null;
+
+                                    return (
+                                        <tr
+                                            key={inquiry.id}
+                                            onClick={() => setSelectedInquiry(inquiry)}
+                                            className={`hover:bg-white/5 transition-all cursor-pointer group/row ${updatingId === inquiry.id ? 'opacity-50 pointer-events-none' : ''}`}
+                                        >
+                                            <td className="p-5">
+                                                <span className={`inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold border uppercase tracking-widest ${getStatusStyles(inquiry.status)}`}>
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-current mr-2 animate-pulse" />
+                                                    {inquiry.status}
+                                                </span>
+                                            </td>
+                                            <td className="p-5">
+                                                <div className="text-sm font-semibold text-white group-hover/row:text-accent transition-colors">{inquiry.service}</div>
+                                                <div className="text-[10px] text-text-2 font-mono mt-1 uppercase tracking-tighter">ID: {inquiry.id.slice(-8)}</div>
+                                            </td>
+                                            <td className="p-5">
+                                                <div className="text-sm text-text-1 font-medium">{inquiry.name}</div>
+                                            </td>
+                                            <td className="p-5 text-right">
+                                                {view === 'active' ? (
+                                                    <>
+                                                        <div className="text-xs text-text-2 font-mono">
+                                                            {new Date(inquiry.createdAt).toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' })}
+                                                        </div>
+                                                        <div className="text-[10px] text-accent/60 font-mono mt-1 opacity-0 group-hover/row:opacity-100 transition-opacity flex items-center justify-end gap-1">
+                                                            DETAILS <ChevronRight className="w-2.5 h-2.5" />
+                                                        </div>
+                                                    </>
+                                                ) : (
+                                                    <div className="flex flex-col items-end gap-1">
+                                                        <span className={`text-[10px] font-mono uppercase tracking-widest ${daysLeft! <= 5 ? 'text-red-400' : 'text-amber-400'}`}>
+                                                            {daysLeft} Days to Purge
+                                                        </span>
+                                                        <div className="w-24 h-1 bg-white/5 rounded-full overflow-hidden">
+                                                            <div 
+                                                                className={`h-full ${daysLeft! <= 5 ? 'bg-red-500' : 'bg-amber-500'}`} 
+                                                                style={{ width: `${(daysLeft! / 30) * 100}%` }}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </td>
+                                            <td className="p-5" onClick={(e) => e.stopPropagation()}>
+                                                <div className="flex items-center justify-center gap-2">
+                                                    {view === 'active' ? (
+                                                        <button
+                                                            onClick={(e) => handleDelete(inquiry.id, e)}
+                                                            className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 text-text-3 hover:bg-red-500/10 hover:text-red-400 hover:border-red-500/20 transition-all"
+                                                            title="Move to Trash"
+                                                        >
+                                                            <Trash2 className="w-4 h-4" />
+                                                        </button>
+                                                    ) : (
+                                                        <>
+                                                            <button
+                                                                onClick={(e) => handleRestore(inquiry.id, e)}
+                                                                className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 text-text-3 hover:bg-emerald-500/10 hover:text-emerald-400 hover:border-emerald-500/20 transition-all"
+                                                                title="Restore Inquiry"
+                                                            >
+                                                                <RotateCcw className="w-4 h-4" />
+                                                            </button>
+                                                            <button
+                                                                onClick={(e) => handlePermanentDelete(inquiry.id, e)}
+                                                                className="w-8 h-8 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 text-text-3 hover:bg-red-500/10 hover:text-red-400 hover:border-red-500/20 transition-all"
+                                                                title="Permanently Delete"
+                                                            >
+                                                                <Trash className="w-4 h-4" />
+                                                            </button>
+                                                        </>
+                                                    )}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
                             </tbody>
                         </table>
-                        {filteredInquiries.length === 0 && (
+                        {displayInquiries.length === 0 && (
                             <div className="p-24 text-center">
                                 <div className="inline-flex items-center justify-center w-16 h-16 bg-white/5 rounded-full mb-6 border border-white/10">
-                                    <Search className="w-6 h-6 text-text-3" />
+                                    {view === 'active' ? <Search className="w-6 h-6 text-text-3" /> : <Trash2 className="w-6 h-6 text-text-3" />}
                                 </div>
                                 <h3 className="text-lg font-bold mb-2">No Records Detected</h3>
-                                <p className="text-text-3 text-sm max-w-xs mx-auto">No inquiries match the current filter criteria within the systems core.</p>
+                                <p className="text-text-3 text-sm max-w-xs mx-auto">
+                                    {view === 'active' 
+                                        ? "No active inquiries match the current filter criteria within the systems core."
+                                        : "The trash bin is currently empty. No records scheduled for purging."}
+                                </p>
                             </div>
                         )}
                     </div>
@@ -309,11 +440,11 @@ export default function AdminDashboardComponent({ inquiries }: { inquiries: Inqu
                                                 value={selectedInquiry.status}
                                                 onChange={(e) => handleStatusUpdate(selectedInquiry.id, e.target.value)}
                                                 disabled={updatingId === selectedInquiry.id}
-                                                className="w-full text-sm bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none cursor-pointer focus:ring-1 focus:ring-accent/40 transition-all appearance-none"
+                                                className="w-full text-sm bg-[#1a1f2e] border border-white/20 rounded-xl px-4 py-3.5 text-white outline-none cursor-pointer focus:ring-2 focus:ring-accent/40 hover:border-white/40 transition-all appearance-none font-medium"
                                             >
-                                                <option value="New">Status: New Request</option>
-                                                <option value="Contacted">Status: Active Lead</option>
-                                                <option value="Completed">Status: Sync Resolved</option>
+                                                <option value="New" className="bg-[#0d121f] text-white">Status: New Request</option>
+                                                <option value="Contacted" className="bg-[#0d121f] text-white">Status: Active Lead</option>
+                                                <option value="Completed" className="bg-[#0d121f] text-white">Status: Sync Resolved</option>
                                             </select>
                                             <ChevronRight className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-text-3 rotate-90 pointer-events-none" />
                                         </div>
